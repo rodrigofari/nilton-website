@@ -1,0 +1,119 @@
+{
+  "$schema": "./schema.json",
+  "_meta": {
+    "locale": "uk",
+    "direction": "ltr",
+    "last_updated": "2026-05-09",
+    "translator": "claude"
+  },
+  "meta": {
+    "locale": "uk",
+    "lang_name": "Українська",
+    "lang_dir": "ltr",
+    "title": "Nilton Freitas — серф-гід на Madeira | Коучинг і супровідні сесії",
+    "description": "Серфи легендарні хвилі Madeira з Nilton Freitas — сертифікованим коучем, що супроводжує всі рівні в Jardim do Mar, Paul do Mar, Ponta Pequena та інших місцях.",
+    "og_title": "Nilton Freitas — серф-гід на Madeira",
+    "og_description": "Сертифікований серф-коуч на вулканічному узбережжі Madeira. Бронюй сесію через WhatsApp.",
+    "og_image_alt": "Серфер на довгому правому брейку в Jardim do Mar, Madeira.",
+    "twitter_title": "Nilton Freitas — серф-гід на Madeira",
+    "twitter_description": "Сертифікований серф-коуч на вулканічному узбережжі Madeira."
+  },
+  "nav": {
+    "about": "Про мене",
+    "services": "Послуги",
+    "spots": "Споти",
+    "gallery": "Галерея",
+    "testimonials": "Відгуки",
+    "faq": "FAQ",
+    "contact": "Контакти",
+    "book_now": "Забронювати",
+    "menu_open": "Відкрити меню",
+    "menu_close": "Закрити меню",
+    "lang_switcher": "Змінити мову",
+    "back_to_home": "← Повернутися на головну"
+  },
+  "hero": {
+    "eyebrow": "Серф-гід · острів Madeira",
+    "cta_primary": "Забронювати",
+    "cta_secondary": "Послуги",
+    "scroll_hint": "Гортай, щоб побачити більше"
+  },
+  "about": {
+    "section_label": "Про Nilton",
+    "stat_years_label": "Років як гід",
+    "stat_certs_label": "Сертифікати",
+    "stat_spots_label": "Покритих спотів",
+    "cta": "Сплануй сесію"
+  },
+  "services": {
+    "section_label": "Послуги",
+    "section_title": "Сесії під swell",
+    "eyebrow": "Послуга",
+    "card_includes_label": "Включає",
+    "card_duration_label": "Тривалість",
+    "card_level_label": "Рівень",
+    "card_cta": "Забронювати",
+    "disclaimer": "Ціни та доступність змінюються залежно від сезону й умов. Підтверджуй через WhatsApp."
+  },
+  "spots": {
+    "section_label": "Споти Madeira",
+    "section_title": "Вулканічне узбережжя, хвилі світового рівня",
+    "tag_level_label": "Рівень",
+    "tag_swell_label": "Swell",
+    "tag_wind_label": "Вітер",
+    "tag_season_label": "Найкращий сезон"
+  },
+  "gallery": {
+    "section_label": "Галерея",
+    "section_title": "На воді",
+    "open_lightbox": "Відкрити зображення",
+    "close_lightbox": "Закрити зображення",
+    "next_image": "Наступне зображення",
+    "prev_image": "Попереднє зображення"
+  },
+  "testimonials": {
+    "section_label": "Відгуки",
+    "section_title": "Що кажуть серфери",
+    "next": "Наступний відгук",
+    "prev": "Попередній відгук"
+  },
+  "faq": {
+    "section_label": "FAQ",
+    "section_title": "Часті запитання",
+    "expand": "Показати відповідь",
+    "collapse": "Сховати відповідь"
+  },
+  "contact": {
+    "section_label": "Контакти",
+    "section_title": "Виведу тебе на воду",
+    "whatsapp_cta": "Написати у WhatsApp",
+    "whatsapp_prefill": "Привіт, Nilton! Хочу забронювати серф-сесію на Madeira. Підкажи, будь ласка, доступність.",
+    "email_label": "Email",
+    "phone_label": "Телефон",
+    "response_time": "Відповіді протягом 24 годин"
+  },
+  "footer": {
+    "tagline": "Сертифікований серф-гід — острів Madeira, Portugal",
+    "follow_label": "Стежити",
+    "instagram_label": "Instagram",
+    "facebook_label": "Facebook",
+    "rights": "© {year} Nilton Freitas. Усі права захищено.",
+    "made_in": "Зроблено на Madeira"
+  },
+  "consent": {
+    "banner_text": "Ми використовуємо файли cookie, щоб анонімно оцінювати трафік сайту. Нічого не відстежується, поки ти не погодишся.",
+    "accept": "Прийняти",
+    "decline": "Відхилити",
+    "settings": "Налаштування",
+    "policy_link": "Політика конфіденційності"
+  },
+  "a11y": {
+    "skip_to_content": "Перейти до вмісту",
+    "external_link": "(відкривається в новій вкладці)",
+    "loading": "Завантаження",
+    "image_loading": "Зображення завантажується"
+  },
+  "floating_cta": {
+    "label": "Написати Nilton у WhatsApp"
+  }
+}

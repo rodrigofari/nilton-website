@@ -1,0 +1,119 @@
+{
+  "$schema": "./schema.json",
+  "_meta": {
+    "locale": "pt-PT",
+    "direction": "ltr",
+    "last_updated": "2026-05-09",
+    "translator": "claude"
+  },
+  "meta": {
+    "locale": "pt-PT",
+    "lang_name": "Português",
+    "lang_dir": "ltr",
+    "title": "Nilton Freitas — Guia de Surf na Madeira | Coaching e Sessões Guiadas",
+    "description": "Surfa as ondas emblemáticas da Madeira com Nilton Freitas — coach certificado que guia todos os níveis em Jardim do Mar, Paul do Mar, Ponta Pequena e mais além.",
+    "og_title": "Nilton Freitas — Guia de Surf na Madeira",
+    "og_description": "Coach de surf certificado a guiar a costa vulcânica da Madeira. Reserva uma sessão pelo WhatsApp.",
+    "og_image_alt": "Surfista numa longa direita no Jardim do Mar, Madeira.",
+    "twitter_title": "Nilton Freitas — Guia de Surf na Madeira",
+    "twitter_description": "Coach de surf certificado a guiar a costa vulcânica da Madeira."
+  },
+  "nav": {
+    "about": "Sobre",
+    "services": "Serviços",
+    "spots": "Spots",
+    "gallery": "Galeria",
+    "testimonials": "Testemunhos",
+    "faq": "FAQ",
+    "contact": "Contacto",
+    "book_now": "Reservar",
+    "menu_open": "Abrir menu",
+    "menu_close": "Fechar menu",
+    "lang_switcher": "Mudar idioma",
+    "back_to_home": "← Voltar à página inicial"
+  },
+  "hero": {
+    "eyebrow": "Guia de Surf · Ilha da Madeira",
+    "cta_primary": "Reservar",
+    "cta_secondary": "Ver serviços",
+    "scroll_hint": "Desliza para explorar"
+  },
+  "about": {
+    "section_label": "Sobre o Nilton",
+    "stat_years_label": "Anos a guiar",
+    "stat_certs_label": "Certificações",
+    "stat_spots_label": "Spots cobertos",
+    "cta": "Planeia a tua sessão"
+  },
+  "services": {
+    "section_label": "Serviços",
+    "section_title": "Sessões construídas à volta do swell",
+    "eyebrow": "Serviço",
+    "card_includes_label": "Inclui",
+    "card_duration_label": "Duração",
+    "card_level_label": "Nível",
+    "card_cta": "Reservar",
+    "disclaimer": "Os preços e a disponibilidade variam com a época e as condições. Confirma pelo WhatsApp."
+  },
+  "spots": {
+    "section_label": "Spots da Madeira",
+    "section_title": "Costa vulcânica, ondas de classe mundial",
+    "tag_level_label": "Nível",
+    "tag_swell_label": "Swell",
+    "tag_wind_label": "Vento",
+    "tag_season_label": "Melhor época"
+  },
+  "gallery": {
+    "section_label": "Galeria",
+    "section_title": "Na água",
+    "open_lightbox": "Abrir imagem",
+    "close_lightbox": "Fechar imagem",
+    "next_image": "Imagem seguinte",
+    "prev_image": "Imagem anterior"
+  },
+  "testimonials": {
+    "section_label": "Testemunhos",
+    "section_title": "O que dizem os surfistas",
+    "next": "Testemunho seguinte",
+    "prev": "Testemunho anterior"
+  },
+  "faq": {
+    "section_label": "FAQ",
+    "section_title": "Perguntas frequentes",
+    "expand": "Expandir resposta",
+    "collapse": "Recolher resposta"
+  },
+  "contact": {
+    "section_label": "Contacto",
+    "section_title": "Vamos pôr-te na água",
+    "whatsapp_cta": "Enviar mensagem no WhatsApp",
+    "whatsapp_prefill": "Olá Nilton! Gostava de reservar uma sessão de surf na Madeira. Podes partilhar a disponibilidade?",
+    "email_label": "Email",
+    "phone_label": "Telemóvel",
+    "response_time": "Respostas em 24 horas"
+  },
+  "footer": {
+    "tagline": "Guia de surf certificado — Ilha da Madeira, Portugal",
+    "follow_label": "Segue",
+    "instagram_label": "Instagram",
+    "facebook_label": "Facebook",
+    "rights": "© {year} Nilton Freitas. Todos os direitos reservados.",
+    "made_in": "Feito na Madeira"
+  },
+  "consent": {
+    "banner_text": "Usamos cookies para medir o tráfego do site de forma anónima. Nada é registado até aceitares.",
+    "accept": "Aceitar",
+    "decline": "Recusar",
+    "settings": "Definições",
+    "policy_link": "Política de privacidade"
+  },
+  "a11y": {
+    "skip_to_content": "Saltar para o conteúdo",
+    "external_link": "(abre em novo separador)",
+    "loading": "A carregar",
+    "image_loading": "A carregar imagem"
+  },
+  "floating_cta": {
+    "label": "Enviar mensagem ao Nilton no WhatsApp"
+  }
+}

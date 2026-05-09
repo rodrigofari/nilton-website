@@ -1,0 +1,223 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://niltonfreitas.surf/content/schema.json",
+  "title": "Nilton Freitas Site Content",
+  "description": "Short UI strings only. Long prose lives in each locale's index.html. Empty string = missing translation (flaggable). Absent key = forbidden.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "_meta",
+    "meta",
+    "nav",
+    "hero",
+    "about",
+    "services",
+    "spots",
+    "gallery",
+    "testimonials",
+    "faq",
+    "contact",
+    "footer",
+    "consent",
+    "a11y",
+    "floating_cta"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "Reference to schema.json for IDE validation."
+    },
+    "_meta": {
+      "type": "object",
+      "description": "Translation provenance — operational metadata, not user-facing content. Underscore prefix marks it as internal.",
+      "additionalProperties": false,
+      "required": ["locale", "direction", "last_updated", "translator"],
+      "properties": {
+        "locale": { "type": "string", "description": "BCP 47 locale tag, e.g. en, pt-PT, fr, de, uk." },
+        "direction": { "type": "string", "enum": ["ltr", "rtl"] },
+        "last_updated": { "type": "string", "format": "date", "description": "ISO 8601 date (YYYY-MM-DD) of last translation pass." },
+        "translator": { "type": "string", "enum": ["claude", "human", "client"], "description": "Who produced this translation pass — useful for debugging stale or inconsistent strings." }
+      }
+    },
+    "meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["locale", "lang_name", "lang_dir", "title", "description", "og_title", "og_description", "og_image_alt", "twitter_title", "twitter_description"],
+      "properties": {
+        "locale": { "type": "string", "description": "BCP 47 locale code, e.g. en, pt-PT, fr, de, uk." },
+        "lang_name": { "type": "string", "description": "Native name of the language for the switcher." },
+        "lang_dir": { "type": "string", "enum": ["ltr", "rtl"], "description": "Text direction." },
+        "title": { "type": "string", "description": "Page <title>." },
+        "description": { "type": "string", "description": "Meta description, ~150 chars." },
+        "og_title": { "type": "string" },
+        "og_description": { "type": "string" },
+        "og_image_alt": { "type": "string" },
+        "twitter_title": { "type": "string" },
+        "twitter_description": { "type": "string" }
+      }
+    },
+    "nav": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["about", "services", "spots", "gallery", "testimonials", "faq", "contact", "book_now", "menu_open", "menu_close", "lang_switcher", "back_to_home"],
+      "properties": {
+        "about": { "type": "string" },
+        "services": { "type": "string" },
+        "spots": { "type": "string" },
+        "gallery": { "type": "string" },
+        "testimonials": { "type": "string" },
+        "faq": { "type": "string" },
+        "contact": { "type": "string" },
+        "book_now": { "type": "string", "description": "Primary CTA label, used in nav and hero." },
+        "menu_open": { "type": "string", "description": "aria-label for mobile menu open." },
+        "menu_close": { "type": "string", "description": "aria-label for mobile menu close." },
+        "lang_switcher": { "type": "string", "description": "aria-label for language switcher." },
+        "back_to_home": { "type": "string", "description": "Back-to-home link label used on subpages (privacy, etc.). Convention: prefixed with '← '." }
+      }
+    },
+    "hero": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["eyebrow", "cta_primary", "cta_secondary", "scroll_hint"],
+      "properties": {
+        "eyebrow": { "type": "string", "description": "Small label above the headline, e.g. 'Surf Guide · Madeira Island'." },
+        "cta_primary": { "type": "string", "description": "Primary CTA button label." },
+        "cta_secondary": { "type": "string", "description": "Secondary CTA — usually 'See services' or 'Watch reel'." },
+        "scroll_hint": { "type": "string", "description": "aria-label / visible hint for the scroll indicator." }
+      }
+    },
+    "about": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["section_label", "stat_years_label", "stat_certs_label", "stat_spots_label", "cta"],
+      "properties": {
+        "section_label": { "type": "string", "description": "Section eyebrow, e.g. 'About Nilton'." },
+        "stat_years_label": { "type": "string", "description": "Label for the 'years guiding' stat." },
+        "stat_certs_label": { "type": "string", "description": "Label for the 'certifications' stat." },
+        "stat_spots_label": { "type": "string", "description": "Label for the 'spots covered' stat." },
+        "cta": { "type": "string", "description": "Inline CTA at end of bio." }
+      }
+    },
+    "services": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["section_label", "section_title", "eyebrow", "card_includes_label", "card_duration_label", "card_level_label", "card_cta", "disclaimer"],
+      "properties": {
+        "section_label": { "type": "string" },
+        "section_title": { "type": "string" },
+        "eyebrow": { "type": "string", "description": "Per-card kicker label above the card title (e.g. 'Service' / 'Serviço' / 'Angebot')." },
+        "card_includes_label": { "type": "string", "description": "e.g. 'Includes'." },
+        "card_duration_label": { "type": "string", "description": "e.g. 'Duration'." },
+        "card_level_label": { "type": "string", "description": "e.g. 'Level'." },
+        "card_cta": { "type": "string", "description": "Per-card CTA, e.g. 'Book this'." },
+        "disclaimer": { "type": "string", "description": "Small print under cards, e.g. price/availability note." }
+      }
+    },
+    "spots": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["section_label", "section_title", "tag_level_label", "tag_swell_label", "tag_wind_label", "tag_season_label"],
+      "properties": {
+        "section_label": { "type": "string" },
+        "section_title": { "type": "string" },
+        "tag_level_label": { "type": "string", "description": "e.g. 'Level'." },
+        "tag_swell_label": { "type": "string", "description": "e.g. 'Swell'." },
+        "tag_wind_label": { "type": "string", "description": "e.g. 'Wind'." },
+        "tag_season_label": { "type": "string", "description": "e.g. 'Best season'." }
+      }
+    },
+    "gallery": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["section_label", "section_title", "open_lightbox", "close_lightbox", "next_image", "prev_image"],
+      "properties": {
+        "section_label": { "type": "string" },
+        "section_title": { "type": "string" },
+        "open_lightbox": { "type": "string", "description": "aria-label for opening lightbox." },
+        "close_lightbox": { "type": "string", "description": "aria-label for closing lightbox." },
+        "next_image": { "type": "string", "description": "aria-label." },
+        "prev_image": { "type": "string", "description": "aria-label." }
+      }
+    },
+    "testimonials": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["section_label", "section_title", "next", "prev"],
+      "properties": {
+        "section_label": { "type": "string" },
+        "section_title": { "type": "string" },
+        "next": { "type": "string", "description": "aria-label for next testimonial." },
+        "prev": { "type": "string", "description": "aria-label for previous testimonial." }
+      }
+    },
+    "faq": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["section_label", "section_title", "expand", "collapse"],
+      "properties": {
+        "section_label": { "type": "string" },
+        "section_title": { "type": "string" },
+        "expand": { "type": "string", "description": "aria-label for expanding an FAQ item." },
+        "collapse": { "type": "string", "description": "aria-label for collapsing an FAQ item." }
+      }
+    },
+    "contact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["section_label", "section_title", "whatsapp_cta", "whatsapp_prefill", "email_label", "phone_label", "response_time"],
+      "properties": {
+        "section_label": { "type": "string" },
+        "section_title": { "type": "string" },
+        "whatsapp_cta": { "type": "string", "description": "Button label, e.g. 'Message on WhatsApp'." },
+        "whatsapp_prefill": { "type": "string", "description": "Pre-filled WhatsApp message body, localized." },
+        "email_label": { "type": "string" },
+        "phone_label": { "type": "string" },
+        "response_time": { "type": "string", "description": "e.g. 'Replies within 24 hours'." }
+      }
+    },
+    "footer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tagline", "follow_label", "instagram_label", "facebook_label", "rights", "made_in"],
+      "properties": {
+        "tagline": { "type": "string", "description": "Short footer tagline under the wordmark." },
+        "follow_label": { "type": "string", "description": "e.g. 'Follow'." },
+        "instagram_label": { "type": "string", "description": "Visible/aria text for Instagram link." },
+        "facebook_label": { "type": "string", "description": "Visible/aria text for Facebook link (slot reserved)." },
+        "rights": { "type": "string", "description": "Copyright line. Use the {year} token where the year should appear — i18n binder substitutes the current year at render. Example: '© {year} Nilton Freitas. All rights reserved.'" },
+        "made_in": { "type": "string", "description": "e.g. 'Made in Madeira'." }
+      }
+    },
+    "consent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["banner_text", "accept", "decline", "settings", "policy_link"],
+      "properties": {
+        "banner_text": { "type": "string", "description": "Short cookie-banner body. Keep under 200 chars." },
+        "accept": { "type": "string" },
+        "decline": { "type": "string" },
+        "settings": { "type": "string", "description": "e.g. 'Settings' or 'Manage preferences'." },
+        "policy_link": { "type": "string", "description": "Link label, e.g. 'Privacy policy'." }
+      }
+    },
+    "a11y": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["skip_to_content", "external_link", "loading", "image_loading"],
+      "properties": {
+        "skip_to_content": { "type": "string", "description": "Skip-link text." },
+        "external_link": { "type": "string", "description": "aria suffix for external links." },
+        "loading": { "type": "string", "description": "Generic loading aria-label." },
+        "image_loading": { "type": "string", "description": "aria-label while image loads." }
+      }
+    },
+    "floating_cta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["label"],
+      "properties": {
+        "label": { "type": "string", "description": "aria-label for the floating WhatsApp action button (icon-only, no visible text)." }
+      }
+    }
+  }
+}

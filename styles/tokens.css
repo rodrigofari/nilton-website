@@ -1,0 +1,247 @@
+/* =============================================================
+ * Design tokens — single source of truth.
+ * Direction: Clean & Premium (editorial). Madeira palette.
+ * Every value the site uses lives here. If a component needs
+ * a value that isn't a token, add the token first.
+ * ============================================================= */
+
+:root {
+  /* -----------------------------------------------------------
+   * COLOR — Madeira palette
+   *
+   * No pure black or white. Base is warm sand/linen; ink is
+   * atlantic deep navy. Accents pulled from volcanic-coast
+   * earth tones (terracotta, gold). Surfaces lean warm, not
+   * neutral gray.
+   *
+   * Token naming:
+   *   --color-bg-*       page + section backgrounds
+   *   --color-surface-*  cards, panels, raised elements
+   *   --color-ink-*      text and iconography
+   *   --color-line-*     borders, dividers
+   *   --color-accent-*   brand accents
+   *   --color-state-*    semantic (success, warning, danger)
+   * --------------------------------------------------------- */
+
+  /* Backgrounds — warm sand foundation */
+  --color-bg-base:        #F4EFE7;  /* primary page bg — linen */
+  --color-bg-soft:        #FAF6EE;  /* lifted sections, cards-on-page */
+  --color-bg-deep:        #0B1A2E;  /* dark sections — atlantic night */
+  --color-bg-deep-soft:   #122A47;  /* dark section variant */
+
+  /* Surfaces — for cards, modals, banners on top of bg */
+  --color-surface:        #FBF8F2;
+  --color-surface-raised: #FFFEFA;  /* elevated card */
+  --color-surface-sunken: #EDE6D8;  /* inset / muted panel */
+
+  /* Ink (text + icons) */
+  --color-ink-strong:     #0F2340;  /* headlines, primary text */
+  --color-ink:            #1B3050;  /* body text default */
+  --color-ink-soft:       #3A4A66;  /* secondary text */
+  --color-ink-muted:      #6F7A8E;  /* tertiary / meta */
+  --color-ink-on-dark:    #F4EFE7;  /* text on dark surfaces */
+  --color-ink-on-dark-soft: #C9CFDA;
+
+  /* Lines — warm-tinted dividers */
+  --color-line:           #E5DDD0;
+  --color-line-soft:      #ECE6DB;
+  --color-line-strong:    #D4C9B5;
+  --color-line-on-dark:   rgba(244, 239, 231, 0.12);
+
+  /* Accents — terracotta + gold (volcanic coast) */
+  --color-accent:         #C66B3D;  /* terracotta — primary accent */
+  --color-accent-strong:  #A8542A;  /* hover/active */
+  --color-accent-soft:    #E8A982;  /* tints, backgrounds */
+  --color-accent-wash:    #F5E1D2;  /* very light wash */
+
+  --color-gold:           #C99C5A;  /* secondary accent */
+  --color-gold-strong:    #A8803E;
+  --color-gold-soft:      #E8D4A8;
+  --color-gold-wash:      #F4E9D2;
+
+  /* Brand-specific */
+  --color-brand-ink:      var(--color-ink-strong);
+  --color-brand-accent:   var(--color-accent);
+
+  /* Semantic state colors — muted, in palette */
+  --color-state-success:  #2E7D6A;  /* muted teal, in keeping with palette */
+  --color-state-warning:  #B07B17;  /* amber-gold */
+  --color-state-danger:   #A8442B;  /* terracotta-leaning red */
+  --color-state-info:     #2D5A87;  /* navy-blue */
+
+  /* Focus ring — accessible, in palette */
+  --color-focus:          var(--color-accent);
+  --color-focus-ring:     rgba(198, 107, 61, 0.32);
+
+  /* Selection */
+  --color-selection-bg:   var(--color-gold-wash);
+  --color-selection-fg:   var(--color-ink-strong);
+
+  /* -----------------------------------------------------------
+   * TYPOGRAPHY
+   *
+   * Display: Fraunces (variable, optical sizing)
+   * Body:    Inter (Cyrillic-complete for UK locale)
+   *
+   * Both self-hosted as woff2. See assets/fonts/README.md
+   * for the file inventory each face requires.
+   *
+   * Scale: 1.250 (major third), classical proportions.
+   * Display leans large with tracking-tight; body keeps
+   * comfortable line-height (~1.6).
+   * --------------------------------------------------------- */
+
+  --font-display: "Fraunces", "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-body:    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono:    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Type scale (1.250) — anchor at 16px = 1rem */
+  --type-2xs:    0.64rem;   /* 10.24px */
+  --type-xs:     0.8rem;    /* 12.80px */
+  --type-sm:     0.9rem;    /* 14.40px */
+  --type-base:   1rem;      /* 16.00px */
+  --type-md:     1.125rem;  /* 18.00px */
+  --type-lg:     1.25rem;   /* 20.00px */
+  --type-xl:     1.563rem;  /* 25.00px */
+  --type-2xl:    1.953rem;  /* 31.25px */
+  --type-3xl:    2.441rem;  /* 39.06px */
+  --type-4xl:    3.052rem;  /* 48.83px */
+  --type-5xl:    3.815rem;  /* 61.04px */
+  --type-6xl:    4.768rem;  /* 76.29px */
+
+  /* Line heights — tight for display, comfortable for body */
+  --leading-tight:    1.05;
+  --leading-snug:     1.2;
+  --leading-normal:   1.5;
+  --leading-relaxed:  1.6;
+  --leading-loose:    1.75;
+
+  /* Letter spacing — display tight, eyebrows wide */
+  --tracking-tighter:  -0.03em;
+  --tracking-tight:    -0.015em;
+  --tracking-normal:   0em;
+  --tracking-wide:     0.04em;
+  --tracking-wider:    0.12em;   /* eyebrows / kicker labels */
+  --tracking-widest:   0.18em;
+
+  /* Font weights — Fraunces variable + Inter variable */
+  --weight-light:     300;
+  --weight-regular:   400;
+  --weight-medium:    500;
+  --weight-semibold:  600;
+  --weight-bold:      700;
+
+  /* -----------------------------------------------------------
+   * SPACING — generous, classical rhythm
+   *
+   * 4px base, geometric-ish scale. Premium feel comes from
+   * whitespace discipline; tokens skew toward larger steps
+   * earlier in the scale.
+   * --------------------------------------------------------- */
+
+  --space-0:   0;
+  --space-1:   0.25rem;   /*   4px */
+  --space-2:   0.5rem;    /*   8px */
+  --space-3:   0.75rem;   /*  12px */
+  --space-4:   1rem;      /*  16px */
+  --space-5:   1.5rem;    /*  24px */
+  --space-6:   2rem;      /*  32px */
+  --space-7:   3rem;      /*  48px */
+  --space-8:   4rem;      /*  64px */
+  --space-9:   6rem;      /*  96px */
+  --space-10:  8rem;      /* 128px */
+  --space-11:  12rem;     /* 192px */
+  --space-12:  16rem;     /* 256px */
+
+  /* Section padding — top/bottom rhythm for major sections */
+  --section-pad-y-mobile:  var(--space-8);   /* 64px */
+  --section-pad-y-tablet:  var(--space-9);   /* 96px */
+  --section-pad-y-desktop: var(--space-10);  /* 128px */
+
+  /* -----------------------------------------------------------
+   * RADII — small or pill. Never 8–12px.
+   * --------------------------------------------------------- */
+
+  --radius-none: 0;
+  --radius-xs:   2px;
+  --radius-sm:   4px;
+  --radius-pill: 999px;
+
+  /* -----------------------------------------------------------
+   * SHADOWS — soft, warm-tinted (navy alpha, not gray)
+   *
+   * Used sparingly. Premium UIs lean on borders + bg shifts
+   * before reaching for elevation.
+   * --------------------------------------------------------- */
+
+  --shadow-xs: 0 1px 2px rgba(15, 35, 64, 0.04);
+  --shadow-sm: 0 2px 8px rgba(15, 35, 64, 0.06);
+  --shadow-md: 0 8px 24px rgba(15, 35, 64, 0.08);
+  --shadow-lg: 0 16px 48px rgba(15, 35, 64, 0.10);
+  --shadow-xl: 0 24px 72px rgba(15, 35, 64, 0.14);
+
+  /* Inset — for sunken panels */
+  --shadow-inset: inset 0 1px 2px rgba(15, 35, 64, 0.06);
+
+  /* Focus ring — paired with --color-focus */
+  --shadow-focus: 0 0 0 3px var(--color-focus-ring);
+
+  /* -----------------------------------------------------------
+   * MOTION — restrained, editorial
+   * --------------------------------------------------------- */
+
+  --duration-instant: 100ms;
+  --duration-fast:    200ms;
+  --duration-base:    300ms;
+  --duration-slow:    500ms;
+  --duration-slower:  800ms;
+
+  --easing-standard:    cubic-bezier(0.2, 0.8, 0.2, 1);
+  --easing-emphasized:  cubic-bezier(0.3, 0.9, 0.15, 1);
+  --easing-exit:        cubic-bezier(0.4, 0.0, 0.8, 0.4);
+  --easing-linear:      linear;
+
+  /* -----------------------------------------------------------
+   * LAYOUT
+   * --------------------------------------------------------- */
+
+  --container-max:       1280px;
+  --container-narrow:    920px;
+  --container-prose:     680px;
+  --container-pad-x:     var(--space-5);
+
+  /* Breakpoints — documentation only; media queries hard-code
+   * these values because CSS custom properties don't work in
+   * @media. Listed here so designers and devs share one map. */
+  --bp-sm:  640px;
+  --bp-md:  768px;
+  --bp-lg:  1024px;
+  --bp-xl:  1280px;
+
+  /* -----------------------------------------------------------
+   * Z-INDEX — named layers, no magic numbers
+   * --------------------------------------------------------- */
+
+  --z-base:        0;
+  --z-raised:      10;
+  --z-sticky:      100;
+  --z-nav:         200;
+  --z-overlay:     900;
+  --z-modal:       1000;
+  --z-toast:       1100;
+}
+
+/* -----------------------------------------------------------
+ * Reduced motion — kill animations and transitions for users
+ * who request it. Token override, not per-component logic.
+ * --------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-instant: 0ms;
+    --duration-fast:    0ms;
+    --duration-base:    0ms;
+    --duration-slow:    0ms;
+    --duration-slower:  0ms;
+  }
+}

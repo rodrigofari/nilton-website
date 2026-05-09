@@ -1,0 +1,214 @@
+/* =============================================================
+ * Base — reset + element defaults + typography scale.
+ * Reads tokens from tokens.css. No component styles here.
+ * ============================================================= */
+
+/* -----------------------------------------------------------
+ * Self-hosted fonts. The actual woff2 files must be placed in
+ * /assets/fonts/ before deploy. See assets/fonts/README.md
+ * for the file inventory. Browsers will fall back to the system
+ * stack (Georgia / system sans) until the files land — design
+ * system structure is correct either way.
+ *
+ * Subsets:
+ *   - Fraunces:   latin + latin-ext
+ *   - Inter:      latin + latin-ext + cyrillic + cyrillic-ext
+ *                 (Cyrillic required for UK locale — must not
+ *                 fall back to system fonts mid-page)
+ * --------------------------------------------------------- */
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces-Variable.woff2") format("woff2-variations"),
+       url("/assets/fonts/Fraunces-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-024F, U+1E00-1EFF, U+2000-206F, U+20A0-20BF;
+}
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces-Variable-Italic.woff2") format("woff2-variations"),
+       url("/assets/fonts/Fraunces-Variable-Italic.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+0000-024F, U+1E00-1EFF, U+2000-206F, U+20A0-20BF;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/assets/fonts/Inter-Variable.woff2") format("woff2-variations"),
+       url("/assets/fonts/Inter-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-024F, U+0400-04FF, U+0500-052F, U+1E00-1EFF, U+2000-206F, U+20A0-20BF;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/assets/fonts/Inter-Variable-Italic.woff2") format("woff2-variations"),
+       url("/assets/fonts/Inter-Variable-Italic.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+0000-024F, U+0400-04FF, U+0500-052F, U+1E00-1EFF, U+2000-206F, U+20A0-20BF;
+}
+
+/* -----------------------------------------------------------
+ * Reset
+ * --------------------------------------------------------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+html { min-height: 100%; }
+body { min-height: 100%; line-height: var(--leading-relaxed); -webkit-font-smoothing: antialiased; }
+
+img, picture, video, canvas, svg { display: block; max-width: 100%; }
+input, button, textarea, select { font: inherit; color: inherit; }
+button { background: none; border: 0; padding: 0; cursor: pointer; }
+a { color: inherit; }
+
+p, h1, h2, h3, h4, h5, h6 { overflow-wrap: break-word; }
+
+/* Scroll padding so anchor jumps clear the sticky nav */
+html { scroll-padding-top: 80px; }
+
+/* -----------------------------------------------------------
+ * Element defaults
+ * --------------------------------------------------------- */
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--type-base);
+  font-weight: var(--weight-regular);
+  color: var(--color-ink);
+  background: var(--color-bg-base);
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern", "liga", "calt";
+}
+
+::selection {
+  background: var(--color-selection-bg);
+  color: var(--color-selection-fg);
+}
+
+/* Headings — Fraunces, optical-sized, tracking-tight at large scales */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  color: var(--color-ink-strong);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  font-variation-settings: "opsz" 36;
+}
+
+.display-xl { font-size: var(--type-6xl); letter-spacing: var(--tracking-tighter); font-variation-settings: "opsz" 144; }
+.display    { font-size: var(--type-5xl); letter-spacing: var(--tracking-tighter); font-variation-settings: "opsz" 120; }
+
+h1 { font-size: var(--type-4xl); }
+h2 { font-size: var(--type-3xl); }
+h3 { font-size: var(--type-2xl); }
+h4 { font-size: var(--type-xl); }
+h5 { font-size: var(--type-lg); }
+h6 { font-size: var(--type-md); letter-spacing: var(--tracking-normal); }
+
+p { line-height: var(--leading-relaxed); }
+small, .text-small { font-size: var(--type-sm); }
+
+a {
+  color: var(--color-ink-strong);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  transition: color var(--duration-fast) var(--easing-standard);
+}
+a:hover { color: var(--color-accent-strong); }
+
+strong, b { font-weight: var(--weight-semibold); }
+em, i { font-style: italic; }
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--color-line);
+  margin: var(--space-7) 0;
+}
+
+/* -----------------------------------------------------------
+ * Focus — visible, in-palette, never the browser default
+ * --------------------------------------------------------- */
+
+:focus { outline: none; }
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
+  border-radius: var(--radius-xs);
+}
+
+/* -----------------------------------------------------------
+ * Eyebrow / kicker label — recurring premium pattern
+ * --------------------------------------------------------- */
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--type-xs);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+}
+
+/* -----------------------------------------------------------
+ * Skip link — visible only on focus
+ * --------------------------------------------------------- */
+
+.skip-link {
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-bg-deep);
+  color: var(--color-ink-on-dark);
+  border-radius: var(--radius-sm);
+  transform: translateY(-200%);
+  transition: transform var(--duration-fast) var(--easing-standard);
+  z-index: var(--z-toast);
+}
+.skip-link:focus-visible { transform: translateY(0); }
+
+/* -----------------------------------------------------------
+ * Containers
+ * --------------------------------------------------------- */
+
+.container        { max-width: var(--container-max);    margin-inline: auto; padding-inline: var(--container-pad-x); }
+.container-narrow { max-width: var(--container-narrow); margin-inline: auto; padding-inline: var(--container-pad-x); }
+.container-prose  { max-width: var(--container-prose);  margin-inline: auto; padding-inline: var(--container-pad-x); }
+
+/* -----------------------------------------------------------
+ * Section wrappers — vertical rhythm token-driven
+ * --------------------------------------------------------- */
+
+.section {
+  padding-block: var(--section-pad-y-mobile);
+}
+@media (min-width: 768px) { .section { padding-block: var(--section-pad-y-tablet); } }
+@media (min-width: 1024px) { .section { padding-block: var(--section-pad-y-desktop); } }
+
+.section--dark {
+  background: var(--color-bg-deep);
+  color: var(--color-ink-on-dark);
+}
+.section--dark h1, .section--dark h2, .section--dark h3, .section--dark h4, .section--dark h5, .section--dark h6 {
+  color: var(--color-ink-on-dark);
+}
+/* Eyebrows on dark sections use gold-soft for warmth + contrast.
+ * Default eyebrow color (--color-ink-soft, navy) is invisible on
+ * --color-bg-deep. Same family as the hero eyebrow for consistency. */
+.section--dark .eyebrow {
+  color: var(--color-gold-soft);
+}
+.section--soft {
+  background: var(--color-bg-soft);
+}

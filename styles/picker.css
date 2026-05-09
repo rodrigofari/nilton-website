@@ -1,0 +1,99 @@
+/* Root language-picker fallback page — only seen when _redirects doesn't fire
+ * (local dev, edge cases, deep-linked /). CSS-only, no script dependencies. */
+
+.picker-page {
+  background: var(--color-bg-deep);
+  color: var(--color-ink-on-dark);
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.picker {
+  width: 100%;
+  padding: var(--space-7) var(--space-5);
+}
+.picker__inner {
+  max-width: 480px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  text-align: center;
+}
+
+.picker__brand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-display);
+  font-size: var(--type-lg);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-ink-on-dark);
+  text-decoration: none;
+  margin-bottom: var(--space-4);
+}
+
+.picker__eyebrow {
+  color: var(--color-gold-soft);
+}
+
+.picker__title {
+  font-family: var(--font-display);
+  font-size: clamp(var(--type-3xl), 6vw, var(--type-5xl));
+  letter-spacing: var(--tracking-tighter);
+  color: var(--color-ink-on-dark);
+  font-variation-settings: "opsz" 96;
+  line-height: var(--leading-tight);
+}
+
+.picker__lede {
+  color: var(--color-ink-on-dark-soft);
+  font-size: var(--type-sm);
+}
+
+.picker__list {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-4) 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.picker__option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-4) var(--space-5);
+  background: rgba(244, 239, 231, 0.06);
+  border: 1px solid var(--color-line-on-dark);
+  border-radius: var(--radius-sm);
+  color: var(--color-ink-on-dark);
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: var(--type-md);
+  transition:
+    background-color var(--duration-fast) var(--easing-standard),
+    border-color var(--duration-fast) var(--easing-standard),
+    transform var(--duration-fast) var(--easing-standard);
+}
+.picker__option:hover {
+  background: rgba(244, 239, 231, 0.12);
+  border-color: var(--color-gold-soft);
+  color: var(--color-ink-on-dark);
+  transform: translateY(-1px);
+}
+.picker__option:focus-visible {
+  outline: 2px solid var(--color-gold-soft);
+  outline-offset: 2px;
+}
+
+.picker__option-tag {
+  font-family: var(--font-mono);
+  font-size: var(--type-xs);
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-ink-on-dark-soft);
+}

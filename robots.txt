@@ -1,0 +1,14 @@
+# robots.txt for niltonfreitas.surf
+#
+# Note on /styleguide.html: explicitly NOT disallowed here. Per DECISIONS,
+# noindex is enforced via meta tag + X-Robots-Tag header. Disallowing in
+# robots.txt would prevent crawlers from seeing the meta noindex, which
+# can paradoxically result in indexing without content if linked externally.
+
+User-agent: *
+Allow: /
+
+# Working / internal artifacts (don't crawl, but don't block — see note above)
+# /styleguide.html — handled by noindex meta + X-Robots-Tag
+
+Sitemap: https://niltonfreitas.surf/sitemap.xml

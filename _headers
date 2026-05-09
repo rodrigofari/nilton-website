@@ -1,0 +1,43 @@
+# Cloudflare Pages _headers
+# Strict CSP from day one. No inline scripts, no inline styles.
+# X-Robots-Tag layered noindex on /styleguide.html (defense in depth with meta tag).
+# Long cache on hashable assets, short cache on HTML.
+
+# ---------- Global security headers (all paths) ----------
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com https://*.analytics.google.com https://*.g.doubleclick.net; img-src 'self' data: https://images.unsplash.com https://picsum.photos https://fastly.picsum.photos https://www.google-analytics.com; style-src 'self'; font-src 'self' data:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+
+# ---------- Internal: styleguide noindex (layered) ----------
+/styleguide.html
+  X-Robots-Tag: noindex, nofollow
+
+# ---------- Cache: HTML (short, must-revalidate) ----------
+/*.html
+  Cache-Control: public, max-age=300, must-revalidate
+
+/
+  Cache-Control: public, max-age=300, must-revalidate
+
+# ---------- Cache: hashable static assets (long) ----------
+# CSS, JS, fonts, images all share the same long cache.
+# When content changes, file path changes (or query-string-bust on deploy).
+/styles/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/scripts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# ---------- JSON content (short — same as HTML) ----------
+/content/*
+  Cache-Control: public, max-age=300, must-revalidate

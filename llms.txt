@@ -1,0 +1,53 @@
+# Nilton Freitas — Surf Guide Madeira
+
+> Personal coaching and guided surf sessions on Madeira Island, Portugal. Run by Nilton Freitas, a certified surf coach based in Machico. Bookings happen via WhatsApp.
+
+Nilton Freitas is a Madeira-based freelance surf guide. He offers private surf lessons, multi-day coaching, and guided surf trips across Madeira's signature spots — Jardim do Mar, Paul do Mar, Ponta Pequena, Fajã da Areia, Porto da Cruz, and Machico. Sessions are forecast-driven (only run when the swell is right) and booked directly with him via WhatsApp at +351 966 236 416.
+
+The site is available in five languages — English, European Portuguese, French, German, and Ukrainian — at folder-per-locale URLs. There is no shop, no school, no fixed schedule.
+
+## Languages
+
+- [English](https://niltonfreitas.surf/en/): Canonical homepage in English
+- [Português (Portugal)](https://niltonfreitas.surf/pt/): Homepage in European Portuguese
+- [Français](https://niltonfreitas.surf/fr/): Homepage in French
+- [Deutsch](https://niltonfreitas.surf/de/): Homepage in German
+- [Українська](https://niltonfreitas.surf/uk/): Homepage in Ukrainian
+
+## Services
+
+Three offerings, all booked via WhatsApp; pricing varies with season:
+
+- **Guided Session (€80)**: Half-day with Nilton at the spot that's working that day. Boards, wetsuit, and transport from accommodation included.
+- **Coaching Intensive (€280)**: Multi-day coaching with daily sessions, video review, and structured feedback. For surfers serious about levelling up.
+- **Surf Trip (from €650)**: Full week chasing swell across the island — south coast on west swells, north coast when it switches. Boards, transport, and local insight throughout.
+
+## Spots covered
+
+- **Jardim do Mar** — long, fast right-hander down a basalt boulder beach. World-class point break on a clean NW–W swell. Advanced.
+- **Paul do Mar** — heavier sibling of Jardim. Powerful left and right peaks under cliffs. Short, hollow, advanced only. (Note: spelled "Paul do Mar" without the accent — local convention, not the formally-correct "Paúl".)
+- **Ponta Pequena** — right-hand point with lined-up walls. Friendlier than Jardim and Paul. Intermediate+.
+- **Fajã da Areia** — pebble-and-sand beach break on the north coast. Catches summer swells the south coast doesn't see.
+- **Porto da Cruz** — iconic black-sand bay under the Penha de Águia rock. Intermediate.
+- **Machico** — Nilton's home spot. Sheltered bay, forgiving whitewater. Beginner-friendly, year-round.
+
+Madeira's surf is **point breaks, rock breaks, and beach breaks** — there are no reef breaks on the island.
+
+## Booking
+
+All bookings via WhatsApp: [+351 966 236 416](https://wa.me/351966236416). The site has no booking form, no email contact, no phone-call channel. WhatsApp is the only contact method.
+
+## Privacy and analytics
+
+Anonymous analytics (Google Analytics 4 with IP anonymisation) only after explicit consent. Global Privacy Control is honored as automatic decline. No personal data collected on the website. See [Privacy Policy](https://niltonfreitas.surf/en/privacy/) for details.
+
+## Authority
+
+- Nilton is certified through Surfing Portugal.
+- Long-time member of Ludens Clube de Machico.
+- Instagram: [@niltonfreitaas](https://instagram.com/niltonfreitaas)
+
+## Optional
+
+- [Sitemap](https://niltonfreitas.surf/sitemap.xml)
+- [Robots](https://niltonfreitas.surf/robots.txt)

@@ -1,0 +1,119 @@
+{
+  "$schema": "./schema.json",
+  "_meta": {
+    "locale": "fr",
+    "direction": "ltr",
+    "last_updated": "2026-05-09",
+    "translator": "claude"
+  },
+  "meta": {
+    "locale": "fr",
+    "lang_name": "Français",
+    "lang_dir": "ltr",
+    "title": "Nilton Freitas — Surf Guide Madeira | Coaching et sessions guidées",
+    "description": "Surfez les vagues emblématiques de Madeira avec Nilton Freitas — coach certifié qui guide tous les niveaux à Jardim do Mar, Paul do Mar, Ponta Pequena et au-delà.",
+    "og_title": "Nilton Freitas — Surf Guide Madeira",
+    "og_description": "Coach de surf certifié sur la côte volcanique de Madeira. Réserve une session via WhatsApp.",
+    "og_image_alt": "Surfeur sur une longue droite à Jardim do Mar, Madeira.",
+    "twitter_title": "Nilton Freitas — Surf Guide Madeira",
+    "twitter_description": "Coach de surf certifié sur la côte volcanique de Madeira."
+  },
+  "nav": {
+    "about": "À propos",
+    "services": "Services",
+    "spots": "Spots",
+    "gallery": "Galerie",
+    "testimonials": "Avis",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "book_now": "Réserver",
+    "menu_open": "Ouvrir le menu",
+    "menu_close": "Fermer le menu",
+    "lang_switcher": "Changer de langue",
+    "back_to_home": "← Retour à l'accueil"
+  },
+  "hero": {
+    "eyebrow": "Surf Guide · Île de Madeira",
+    "cta_primary": "Réserver",
+    "cta_secondary": "Voir les services",
+    "scroll_hint": "Fais défiler pour explorer"
+  },
+  "about": {
+    "section_label": "À propos de Nilton",
+    "stat_years_label": "Années de guidage",
+    "stat_certs_label": "Certifications",
+    "stat_spots_label": "Spots couverts",
+    "cta": "Planifie ta session"
+  },
+  "services": {
+    "section_label": "Services",
+    "section_title": "Des sessions construites autour du swell",
+    "eyebrow": "Service",
+    "card_includes_label": "Inclus",
+    "card_duration_label": "Durée",
+    "card_level_label": "Niveau",
+    "card_cta": "Réserver",
+    "disclaimer": "Les tarifs et la disponibilité varient selon la saison et les conditions. Confirme via WhatsApp."
+  },
+  "spots": {
+    "section_label": "Spots de Madeira",
+    "section_title": "Côte volcanique, vagues de classe mondiale",
+    "tag_level_label": "Niveau",
+    "tag_swell_label": "Swell",
+    "tag_wind_label": "Vent",
+    "tag_season_label": "Meilleure saison"
+  },
+  "gallery": {
+    "section_label": "Galerie",
+    "section_title": "Sur l'eau",
+    "open_lightbox": "Ouvrir l'image",
+    "close_lightbox": "Fermer l'image",
+    "next_image": "Image suivante",
+    "prev_image": "Image précédente"
+  },
+  "testimonials": {
+    "section_label": "Avis",
+    "section_title": "Ce que disent les surfeurs",
+    "next": "Avis suivant",
+    "prev": "Avis précédent"
+  },
+  "faq": {
+    "section_label": "FAQ",
+    "section_title": "Questions fréquentes",
+    "expand": "Déplier la réponse",
+    "collapse": "Replier la réponse"
+  },
+  "contact": {
+    "section_label": "Contact",
+    "section_title": "On te met à l'eau",
+    "whatsapp_cta": "Envoyer un message sur WhatsApp",
+    "whatsapp_prefill": "Salut Nilton ! J'aimerais réserver une session de surf à Madeira. Peux-tu m'indiquer tes disponibilités ?",
+    "email_label": "E-mail",
+    "phone_label": "Téléphone",
+    "response_time": "Réponse sous 24 heures"
+  },
+  "footer": {
+    "tagline": "Surf guide certifié — Île de Madeira, Portugal",
+    "follow_label": "Suivre",
+    "instagram_label": "Instagram",
+    "facebook_label": "Facebook",
+    "rights": "© {year} Nilton Freitas. Tous droits réservés.",
+    "made_in": "Fait à Madeira"
+  },
+  "consent": {
+    "banner_text": "Nous utilisons des cookies pour mesurer le trafic de manière anonyme. Aucun suivi avant ton accord.",
+    "accept": "Accepter",
+    "decline": "Refuser",
+    "settings": "Paramètres",
+    "policy_link": "Politique de confidentialité"
+  },
+  "a11y": {
+    "skip_to_content": "Aller au contenu",
+    "external_link": "(ouvre dans un nouvel onglet)",
+    "loading": "Chargement",
+    "image_loading": "Chargement de l'image"
+  },
+  "floating_cta": {
+    "label": "Envoyer un message à Nilton sur WhatsApp"
+  }
+}

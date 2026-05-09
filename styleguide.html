@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Style Guide — Nilton Freitas</title>
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="/styles/styleguide.css">
+</head>
+<body>
+
+<header class="sg-header">
+  <div class="container">
+    <p class="eyebrow">Internal — not for client review yet</p>
+    <h1 class="sg-header__title">Design system</h1>
+    <p class="sg-header__subtitle">
+      Clean &amp; Premium direction. Madeira palette: warm sand base, atlantic deep navy ink,
+      terracotta and gold accents. Fraunces (display) + Inter (body), self-hosted.
+      Every token in <code>tokens.css</code> is documented below.
+    </p>
+    <nav class="sg-toc" aria-label="Style guide sections">
+      <a href="#color">Color</a>
+      <a href="#type">Typography</a>
+      <a href="#spacing">Spacing</a>
+      <a href="#radii">Radii</a>
+      <a href="#shadows">Shadows</a>
+      <a href="#motion">Motion</a>
+      <a href="#buttons">Buttons</a>
+      <a href="#nav">Nav</a>
+      <a href="#lang">Language switcher</a>
+      <a href="#cards">Cards</a>
+      <a href="#forms">Forms</a>
+      <a href="#consent">Consent</a>
+      <a href="#stress">Length stress test</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- ============== COLOR ============== -->
+  <section id="color" class="sg-section">
+    <div class="sg-section__heading">
+      <h2>Color</h2>
+      <span class="sg-pill">tokens.css · color</span>
+    </div>
+    <p class="sg-section__lede">
+      No pure <code>#000</code> or <code>#FFF</code>. Backgrounds lean warm sand; ink is atlantic deep navy.
+      Accents pull from volcanic-coast earth (terracotta + gold). Semantic state colors are muted,
+      kept inside the palette so they don't feel like a different system bolted on.
+    </p>
+
+    <h3 class="eyebrow">Backgrounds &amp; surfaces</h3>
+    <div class="sg-color-grid sg-subgroup">
+      <div class="sg-swatch"><div class="sg-swatch__chip sg-chip--bg-base"></div><div class="sg-swatch__meta"><span class="sg-swatch__token">--color-bg-base</span><span class="sg-swatch__hex">#F4EFE7 · linen</span><span class="sg-swatch__use">Primary page background.</span></div></div>
+      <div class="sg-swatch"><div class="sg-swatch__chip sg-chip--bg-soft"></div><div class="sg-swatch__meta"><span class="sg-swatch__token">--color-bg-soft</span><span class="sg-swatch__hex">#FAF6EE</span><span class="sg-swatch__use">Lifted sections, "card on page" backgrounds.</span></div></div>
+      <div class="sg-swatch"><div class="sg-swatch__chip sg-chip--bg-deep"></div><div class="sg-swatch__meta"><span class="sg-swatch__token">--color-bg-deep</span><span class="sg-swatch__hex">#0B1A2E · atlantic night</span><span class="sg-swatch__use">Dark sections (hero overlay, footer).</span></div></div>
+      <div class="sg-swatch"><div class="sg-swatch__chip sg-chip--bg-deep-soft"></div><div class="sg-swatch__meta"><span class="sg-swatch__token">--color-bg-deep-soft</span><span class="sg-swatch__hex">#122A47</span><span class="sg-swatch__use">Dark section variant.</span></div></div>
+      <div class="sg-swatch"><div class="sg-swatch__chip sg-chip--surface"></div><div class="sg-swatch__meta"><span class="sg-swatch__token">--color-surface</span><span class="sg-swatch__hex">#FBF8F2</span><span class="sg-swatch__use">Default card / form surface.</span></div></div>
+      <div class="sg-swatch"><div class="sg-swatch__chip sg-chip--surface-raised"></div><div class="sg-swatch__meta"><span class="sg-swatch__token">--color-surface-raised</span><span class="sg-swatch__hex">#FFFEFA</span><span class="sg-swatch__use">Elevated card, modals.</span></div></div>
+      <div class="sg-swatch"><div class="sg-swatch__chip sg-chip--surface-sunken"></div><div class="sg-swatch__meta"><span class="sg-swatch__token">--color-surface-sunken</span><span class="sg-swatch__hex">#EDE6D8</span><span class="sg-swatch__use">Inset / muted panels.</span></div></div>
+    </div>
+
+    <h3 class="eyebrow">Ink (text + icons)</h3>
+    <div class="sg-color-grid sg-subgroup">
+      <div class="sg-swatch"><div class="sg-swatch__chip sg-chip--ink-strong"></div><div class="sg-swatch__meta"><span class="sg-swatch__token">--color-ink-strong</span><span class="sg-swatch__hex">#0F2340</span><span class="sg-swatch__use">Headlines, primary text.</span></div></div>
+      <div class="sg-swatch"><div class="sg-swatch__chip sg-chip--ink"></div><div class="sg-swatch__meta"><span class="sg-swatch__token">--color-ink</span><span class="sg-swatch__hex">#1B3050</span><span class="sg-swatch__use">Body text default.</span></div></div>
+      <div class="sg-swatch"><div class="sg-swatch__chip sg-chip--ink-soft"></div><div class="sg-swatch__meta"><span class="sg-swatch__token">--color-ink-soft</span><span class="sg-swatch__hex">#3A4A66</span><span class="sg-swatch__use">Secondary text, eyebrows, soft labels.</span></div></div>
+      <div class="sg-swatch"><div class="sg-swatch__chip sg-chip--ink-muted"></div><div class="sg-swatch__meta"><span class="sg-swatch__token">--color-ink-muted</span><span class="sg-swatch__hex">#6F7A8E</span><span class="sg-swatch__use">Tertiary, meta, hint text.</span></div></div>
+      <div class="sg-swatch"><div class="sg-swatch__chip sg-chip--ink-on-dark"></div><div class="sg-swatch__meta"><span class="sg-swatch__token">--color-ink-on-dark</span><span class="sg-swatch__hex">#F4EFE7</span><span class="sg-swatch__use">Text on dark surfaces.</span></div></div>
+    </div>
+
+    <h3 class="eyebrow">Lines</h3>
+    <div class="sg-color-grid sg-subgroup">
+      <div class="sg-swatch"><div class="sg-swatch__chip sg-chip--line"></div><div class="sg-swatch__meta"><span class="sg-swatch__token">--color-line</span><span class="sg-swatch__hex">#E5DDD0</span><span class="sg-swatch__use">Default border / divider.</span></div></div>
+      <div class="sg-swatch"><div class="sg-swatch__chip sg-chip--line-soft"></div><div class="sg-swatch__meta"><span class="sg-swatch__token">--color-line-soft</span><span class="sg-swatch__hex">#ECE6DB</span><span class="sg-swatch__use">Whisper-thin divider.</span></div></div>
+      <div class="sg-swatch"><div class="sg-swatch__chip sg-chip--line-strong"></div><div class="sg-swatch__meta"><span class="sg-swatch__token">--color-line-strong</span><span class="sg-swatch__hex">#D4C9B5</span><span class="sg-swatch__use">Hover/active border.</span></div></div>
+    </div>
+
+    <h3 class="eyebrow">Accents — terracotta &amp; gold</h3>
+    <div class="sg-color-grid sg-subgroup">
+      <div class="sg-swatch"><div class="sg-swatch__chip sg-chip--accent"></div><div class="sg-swatch__meta"><span class="sg-swatch__token">--color-accent</span><span class="sg-swatch__hex">#C66B3D · terracotta</span><span class="sg-swatch__use">Primary accent — CTAs, focus, accent rules.</span></div></div>
+      <div class="sg-swatch"><div class="sg-swatch__chip sg-chip--accent-strong"></div><div class="sg-swatch__meta"><span class="sg-swatch__token">--color-accent-strong</span><span class="sg-swatch__hex">#A8542A</span><span class="sg-swatch__use">Hover / active state.</span></div></div>
+      <div class="sg-swatch"><div class="sg-swatch__chip sg-chip--accent-soft"></div><div class="sg-swatch__meta"><span class="sg-swatch__token">--color-accent-soft</span><span class="sg-swatch__hex">#E8A982</span><span class="sg-swatch__use">Tints, highlight backgrounds.</span></div></div>
+      <div class="sg-swatch"><div class="sg-swatch__chip sg-chip--accent-wash"></div><div class="sg-swatch__meta"><span class="sg-swatch__token">--color-accent-wash</span><span class="sg-swatch__hex">#F5E1D2</span><span class="sg-swatch__use">Wash backgrounds for tags / pills.</span></div></div>
+      <div class="sg-swatch"><div class="sg-swatch__chip sg-chip--gold"></div><div class="sg-swatch__meta"><span class="sg-swatch__token">--color-gold</span><span class="sg-swatch__hex">#C99C5A</span><span class="sg-swatch__use">Secondary accent.</span></div></div>
+      <div class="sg-swatch"><div class="sg-swatch__chip sg-chip--gold-strong"></div><div class="sg-swatch__meta"><span class="sg-swatch__token">--color-gold-strong</span><span class="sg-swatch__hex">#A8803E</span><span class="sg-swatch__use">Gold hover / active.</span></div></div>
+      <div class="sg-swatch"><div class="sg-swatch__chip sg-chip--gold-soft"></div><div class="sg-swatch__meta"><span class="sg-swatch__token">--color-gold-soft</span><span class="sg-swatch__hex">#E8D4A8</span><span class="sg-swatch__use">Gold tints.</span></div></div>
+      <div class="sg-swatch"><div class="sg-swatch__chip sg-chip--gold-wash"></div><div class="sg-swatch__meta"><span class="sg-swatch__token">--color-gold-wash</span><span class="sg-swatch__hex">#F4E9D2</span><span class="sg-swatch__use">Editorial highlight wash.</span></div></div>
+    </div>
+
+    <h3 class="eyebrow">Semantic state</h3>
+    <div class="sg-color-grid">
+      <div class="sg-swatch"><div class="sg-swatch__chip sg-chip--state-success"></div><div class="sg-swatch__meta"><span class="sg-swatch__token">--color-state-success</span><span class="sg-swatch__hex">#2E7D6A</span><span class="sg-swatch__use">Muted teal — kept in palette.</span></div></div>
+      <div class="sg-swatch"><div class="sg-swatch__chip sg-chip--state-warning"></div><div class="sg-swatch__meta"><span class="sg-swatch__token">--color-state-warning</span><span class="sg-swatch__hex">#B07B17</span><span class="sg-swatch__use">Amber-gold.</span></div></div>
+      <div class="sg-swatch"><div class="sg-swatch__chip sg-chip--state-danger"></div><div class="sg-swatch__meta"><span class="sg-swatch__token">--color-state-danger</span><span class="sg-swatch__hex">#A8442B</span><span class="sg-swatch__use">Terracotta-leaning red.</span></div></div>
+      <div class="sg-swatch"><div class="sg-swatch__chip sg-chip--state-info"></div><div class="sg-swatch__meta"><span class="sg-swatch__token">--color-state-info</span><span class="sg-swatch__hex">#2D5A87</span><span class="sg-swatch__use">Navy-blue info.</span></div></div>
+    </div>
+  </section>
+
+  <!-- ============== TYPOGRAPHY ============== -->
+  <section id="type" class="sg-section">
+    <div class="sg-section__heading">
+      <h2>Typography</h2>
+      <span class="sg-pill">tokens.css · type</span>
+    </div>
+    <p class="sg-section__lede">
+      Display: <strong>Fraunces</strong> (variable, optical-sized — handles editorial italic moments).
+      Body: <strong>Inter</strong> (Cyrillic-complete; UK locale must not fall back mid-page).
+      Scale: <strong>1.250</strong> (major third). Display sizes lean large with tracking-tight; body keeps
+      comfortable line-height around 1.6.
+    </p>
+
+    <div class="sg-note">
+      <strong>Font payload status:</strong> woff2 files for Fraunces (variable + variable-italic)
+      and Inter (variable + variable-italic) need to be placed in <code>/assets/fonts/</code>
+      before deploy. See <code>assets/fonts/README.md</code> for the file inventory and
+      Google Fonts download path. Until then, the styleguide renders with system serif/sans
+      fallback — token structure is correct either way.
+    </div>
+
+    <div class="sg-type-row"><div class="sg-type-row__meta"><span class="sg-type-row__token">--type-6xl · 4.768rem</span><span>display-xl · Fraunces</span></div><div class="display-xl sg-type-row__sample">Surf Madeira</div></div>
+    <div class="sg-type-row"><div class="sg-type-row__meta"><span class="sg-type-row__token">--type-5xl · 3.815rem</span><span>display · Fraunces</span></div><div class="display sg-type-row__sample">Surf Madeira</div></div>
+    <div class="sg-type-row"><div class="sg-type-row__meta"><span class="sg-type-row__token">--type-4xl · 3.052rem</span><span>h1</span></div><h1 class="sg-type-row__sample">Sessions built around the swell</h1></div>
+    <div class="sg-type-row"><div class="sg-type-row__meta"><span class="sg-type-row__token">--type-3xl · 2.441rem</span><span>h2</span></div><h2 class="sg-type-row__sample">Volcanic coast, world-class waves</h2></div>
+    <div class="sg-type-row"><div class="sg-type-row__meta"><span class="sg-type-row__token">--type-2xl · 1.953rem</span><span>h3</span></div><h3 class="sg-type-row__sample">What surfers say</h3></div>
+    <div class="sg-type-row"><div class="sg-type-row__meta"><span class="sg-type-row__token">--type-xl · 1.563rem</span><span>h4 · card titles</span></div><h4 class="sg-type-row__sample">Coaching Intensive</h4></div>
+    <div class="sg-type-row"><div class="sg-type-row__meta"><span class="sg-type-row__token">--type-lg · 1.25rem</span><span>h5 · large body</span></div><h5 class="sg-type-row__sample">Lead paragraph treatment</h5></div>
+    <div class="sg-type-row"><div class="sg-type-row__meta"><span class="sg-type-row__token">--type-md · 1.125rem</span><span>h6 · large body</span></div><h6 class="sg-type-row__sample">Subheading or large body</h6></div>
+    <div class="sg-type-row"><div class="sg-type-row__meta"><span class="sg-type-row__token">--type-base · 1rem</span><span>body</span></div><p class="sg-type-row__sample">Body copy default — comfortable for paragraph reading. Line-height ~1.6, tracking neutral. The Atlantic crashes against basalt cliffs that drop straight into the ocean.</p></div>
+    <div class="sg-type-row"><div class="sg-type-row__meta"><span class="sg-type-row__token">--type-sm · 0.9rem</span><span>small / meta</span></div><p class="text-small sg-type-row__sample">Captions, meta text, form hints, secondary UI labels.</p></div>
+    <div class="sg-type-row"><div class="sg-type-row__meta"><span class="sg-type-row__token">--type-xs · 0.8rem</span><span>eyebrow / kicker</span></div><p class="eyebrow sg-type-row__sample">Surf Guide · Madeira Island</p></div>
+
+    <h3 class="eyebrow sg-mt-7">Italic display sample</h3>
+    <p class="sg-italic-demo">Editorial restraint, with a single moment of italic emphasis where the voice softens.</p>
+  </section>
+
+  <!-- ============== SPACING ============== -->
+  <section id="spacing" class="sg-section">
+    <div class="sg-section__heading"><h2>Spacing</h2><span class="sg-pill">tokens.css · space</span></div>
+    <p class="sg-section__lede">4px base. Generous, not dense — the premium feel comes partly from whitespace discipline. Tokens skew toward larger steps as the scale climbs.</p>
+    <div class="sg-space-list">
+      <div class="sg-space-row"><span>--space-1 · 0.25rem</span><span class="sg-space-row__bar sg-space-row__bar--1"></span></div>
+      <div class="sg-space-row"><span>--space-2 · 0.5rem</span><span class="sg-space-row__bar sg-space-row__bar--2"></span></div>
+      <div class="sg-space-row"><span>--space-3 · 0.75rem</span><span class="sg-space-row__bar sg-space-row__bar--3"></span></div>
+      <div class="sg-space-row"><span>--space-4 · 1rem</span><span class="sg-space-row__bar sg-space-row__bar--4"></span></div>
+      <div class="sg-space-row"><span>--space-5 · 1.5rem</span><span class="sg-space-row__bar sg-space-row__bar--5"></span></div>
+      <div class="sg-space-row"><span>--space-6 · 2rem</span><span class="sg-space-row__bar sg-space-row__bar--6"></span></div>
+      <div class="sg-space-row"><span>--space-7 · 3rem</span><span class="sg-space-row__bar sg-space-row__bar--7"></span></div>
+      <div class="sg-space-row"><span>--space-8 · 4rem</span><span class="sg-space-row__bar sg-space-row__bar--8"></span></div>
+      <div class="sg-space-row"><span>--space-9 · 6rem</span><span class="sg-space-row__bar sg-space-row__bar--9"></span></div>
+      <div class="sg-space-row"><span>--space-10 · 8rem</span><span class="sg-space-row__bar sg-space-row__bar--10"></span></div>
+      <div class="sg-space-row"><span>--space-11 · 12rem</span><span class="sg-space-row__bar sg-space-row__bar--11"></span></div>
+      <div class="sg-space-row"><span>--space-12 · 16rem</span><span class="sg-space-row__bar sg-space-row__bar--12"></span></div>
+    </div>
+  </section>
+
+  <!-- ============== RADII ============== -->
+  <section id="radii" class="sg-section">
+    <div class="sg-section__heading"><h2>Radii</h2><span class="sg-pill">tokens.css · radius</span></div>
+    <p class="sg-section__lede">
+      Small (2–4px) or pill. Never the 8–12px "default modern web" radius — they read generic and undermine the editorial tone.
+    </p>
+    <div class="sg-radii">
+      <div class="sg-radii__item"><div class="sg-radii__box sg-radii__box--xs"></div><span>--radius-xs · 2px</span></div>
+      <div class="sg-radii__item"><div class="sg-radii__box sg-radii__box--sm"></div><span>--radius-sm · 4px</span></div>
+      <div class="sg-radii__item"><div class="sg-radii__box sg-radii__box--pill"></div><span>--radius-pill · 999px</span></div>
+    </div>
+  </section>
+
+  <!-- ============== SHADOWS ============== -->
+  <section id="shadows" class="sg-section">
+    <div class="sg-section__heading"><h2>Shadows</h2><span class="sg-pill">tokens.css · shadow</span></div>
+    <p class="sg-section__lede">
+      Soft, warm-tinted (navy alpha, never gray). Used sparingly — premium UIs lean on borders + bg shifts before reaching for elevation.
+    </p>
+    <div class="sg-shadows">
+      <div class="sg-shadow-card sg-shadow-card--xs">--shadow-xs</div>
+      <div class="sg-shadow-card sg-shadow-card--sm">--shadow-sm</div>
+      <div class="sg-shadow-card sg-shadow-card--md">--shadow-md</div>
+      <div class="sg-shadow-card sg-shadow-card--lg">--shadow-lg</div>
+      <div class="sg-shadow-card sg-shadow-card--xl">--shadow-xl</div>
+    </div>
+  </section>
+
+  <!-- ============== MOTION ============== -->
+  <section id="motion" class="sg-section">
+    <div class="sg-section__heading"><h2>Motion</h2><span class="sg-pill">tokens.css · duration / easing</span></div>
+    <p class="sg-section__lede">
+      Restrained. 200–500ms with the standard easing family. No bouncy, no spring, no overshoot.
+      Hover any card to see the dot translate.
+    </p>
+    <div class="sg-motion-grid">
+      <div class="sg-motion-card sg-motion-card--fast"><div class="sg-motion-dot"></div>--duration-fast · 200ms<br>standard easing</div>
+      <div class="sg-motion-card"><div class="sg-motion-dot"></div>--duration-base · 300ms<br>standard easing</div>
+      <div class="sg-motion-card sg-motion-card--slow"><div class="sg-motion-dot"></div>--duration-slow · 500ms<br>standard easing</div>
+      <div class="sg-motion-card sg-motion-card--slower"><div class="sg-motion-dot"></div>--duration-slower · 800ms<br>standard easing</div>
+      <div class="sg-motion-card sg-motion-card--emphasized"><div class="sg-motion-dot"></div>--duration-base · 300ms<br>emphasized easing</div>
+      <div class="sg-motion-card sg-motion-card--exit"><div class="sg-motion-dot"></div>--duration-base · 300ms<br>exit easing</div>
+    </div>
+    <div class="sg-note sg-mt-6">
+      <strong>Reduced motion:</strong> when <code>prefers-reduced-motion: reduce</code> is on, all duration tokens
+      collapse to 0ms via tokens.css media query — components don't need per-rule overrides.
+    </div>
+  </section>
+
+  <!-- ============== BUTTONS ============== -->
+  <section id="buttons" class="sg-section">
+    <div class="sg-section__heading"><h2>Buttons</h2><span class="sg-pill">components.css · btn</span></div>
+    <p class="sg-section__lede">Pill radius. Min 48px touch target. Primary is ink-on-ink (atlantic navy bg) with terracotta hover — confident, not loud.</p>
+
+    <h3 class="eyebrow">Variants</h3>
+    <div class="sg-row">
+      <button class="btn btn--primary">Book Now</button>
+      <button class="btn btn--accent">Book Now</button>
+      <button class="btn btn--secondary">See services</button>
+      <button class="btn btn--ghost">Learn more</button>
+    </div>
+
+    <h3 class="eyebrow sg-mt-6">Sizes</h3>
+    <div class="sg-row">
+      <button class="btn btn--primary btn--sm">Small</button>
+      <button class="btn btn--primary">Default</button>
+      <button class="btn btn--primary btn--lg">Large</button>
+    </div>
+
+    <h3 class="eyebrow sg-mt-6">States</h3>
+    <div class="sg-row">
+      <button class="btn btn--primary">Default</button>
+      <button class="btn btn--primary" disabled>Disabled</button>
+      <button class="btn btn--accent" disabled>Accent disabled</button>
+    </div>
+
+    <h3 class="eyebrow sg-mt-6">On dark surface</h3>
+    <div class="section--dark sg-on-dark">
+      <div class="sg-row">
+        <button class="btn btn--accent">Book Now</button>
+        <button class="btn btn--secondary">See services</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== NAV ============== -->
+  <section id="nav" class="sg-section">
+    <div class="sg-section__heading"><h2>Site nav</h2><span class="sg-pill">components.css · site-nav</span></div>
+    <p class="sg-section__lede">Sticky, backdrop-blurred. Wordmark + reserved mark slot (currently rendered with monogram "N"). Active state uses a thin terracotta underline, not a heavy fill.</p>
+
+    <nav class="site-nav sg-nav-inline">
+      <div class="container site-nav__inner">
+        <a href="#" class="site-nav__brand">
+          <span class="site-nav__brand-mark">N</span>
+          Nilton Freitas
+        </a>
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="#">About</a></li>
+          <li><a class="site-nav__link" href="#" aria-current="page">Services</a></li>
+          <li><a class="site-nav__link" href="#">Spots</a></li>
+          <li><a class="site-nav__link" href="#">Gallery</a></li>
+          <li><a class="site-nav__link" href="#">FAQ</a></li>
+        </ul>
+        <a href="#" class="btn btn--primary btn--sm site-nav__cta">Book Now</a>
+      </div>
+    </nav>
+  </section>
+
+  <!-- ============== LANGUAGE SWITCHER ============== -->
+  <section id="lang" class="sg-section">
+    <div class="sg-section__heading"><h2>Language switcher</h2><span class="sg-pill">components.css · lang-switcher</span></div>
+    <p class="sg-section__lede">Pill trigger, surface menu. Native language names per BCP-47.</p>
+
+    <div class="lang-switcher sg-inline-block">
+      <button class="lang-switcher__trigger" aria-expanded="true" aria-haspopup="listbox">
+        English
+        <svg class="lang-switcher__caret" viewBox="0 0 12 12" aria-hidden="true">
+          <path d="M2 4.5L6 8.5L10 4.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <ul class="lang-switcher__menu" role="listbox" aria-label="Choose language">
+        <li><a class="lang-switcher__option" aria-current="true" href="/en/">English</a></li>
+        <li><a class="lang-switcher__option" href="/pt/">Português</a></li>
+        <li><a class="lang-switcher__option" href="/fr/">Français</a></li>
+        <li><a class="lang-switcher__option" href="/de/">Deutsch</a></li>
+        <li><a class="lang-switcher__option" href="/uk/">Українська</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============== CARDS ============== -->
+  <section id="cards" class="sg-section">
+    <div class="sg-section__heading"><h2>Cards</h2><span class="sg-pill">components.css · card</span></div>
+    <p class="sg-section__lede">Surface + line + soft hover. Image scales subtly on hover (slow easing). Used for services, spots, testimonials.</p>
+
+    <div class="sg-card-grid">
+      <article class="card" data-placeholder="true">
+        <div class="card__media">
+          <img src="https://picsum.photos/seed/svc-guided/800/600" alt="" width="800" height="600" loading="lazy">
+        </div>
+        <div class="card__body">
+          <span class="card__eyebrow">Service</span>
+          <h3 class="card__title">Guided Session</h3>
+          <p>Half-day with Nilton at the spot that's firing. Boards and transport included.</p>
+          <div class="card__meta">
+            <span class="tag">Duration · 4h</span>
+            <span class="tag">Level · All</span>
+            <span class="tag tag--accent">€80</span>
+          </div>
+          <a href="#" class="btn btn--secondary btn--sm card__cta">Book this</a>
+        </div>
+      </article>
+      <article class="card" data-placeholder="true">
+        <div class="card__media">
+          <img src="https://picsum.photos/seed/spot-jardim/800/600" alt="" width="800" height="600" loading="lazy">
+        </div>
+        <div class="card__body">
+          <span class="card__eyebrow">Spot</span>
+          <h3 class="card__title">Jardim do Mar</h3>
+          <p>Long peeling right-hander down a basalt boulder beach. World-class on the right swell.</p>
+          <div class="card__meta">
+            <span class="tag">Level · Advanced</span>
+            <span class="tag">Swell · NW–W</span>
+            <span class="tag tag--gold">Best · Oct–Mar</span>
+          </div>
+        </div>
+      </article>
+      <article class="card" data-placeholder="true">
+        <div class="card__media">
+          <img src="https://picsum.photos/seed/svc-trip/800/600" alt="" width="800" height="600" loading="lazy">
+        </div>
+        <div class="card__body">
+          <span class="card__eyebrow">Service</span>
+          <h3 class="card__title">Surf Trip</h3>
+          <p>Multi-day, multi-spot. We chase the swell across the island — south coast, north coast, wherever it's working.</p>
+          <div class="card__meta">
+            <span class="tag">Duration · 3+ days</span>
+            <span class="tag tag--accent">From €650</span>
+          </div>
+          <a href="#" class="btn btn--secondary btn--sm card__cta">Plan a trip</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============== FORMS ============== -->
+  <section id="forms" class="sg-section">
+    <div class="sg-section__heading"><h2>Form inputs</h2><span class="sg-pill">components.css · field</span></div>
+    <p class="sg-section__lede">Quiet borders, terracotta focus ring, surface-raised on focus. Min 48px height — comfortable touch.</p>
+
+    <div class="sg-form-grid">
+      <div class="field">
+        <label class="field__label" for="sg-name">Name</label>
+        <input class="field__input" id="sg-name" type="text" placeholder="Full name">
+      </div>
+      <div class="field">
+        <label class="field__label" for="sg-email">Email</label>
+        <input class="field__input" id="sg-email" type="email" placeholder="you@example.com">
+        <span class="field__hint">We'll only use this to confirm your booking.</span>
+      </div>
+      <div class="field sg-form-grid__full">
+        <label class="field__label" for="sg-msg">Message</label>
+        <textarea class="field__textarea" id="sg-msg" placeholder="When are you visiting Madeira? What's your level?"></textarea>
+      </div>
+      <div class="field">
+        <label class="field__label" for="sg-level">Level</label>
+        <select class="field__select" id="sg-level">
+          <option>Beginner</option>
+          <option>Intermediate</option>
+          <option>Advanced</option>
+        </select>
+      </div>
+      <div class="field">
+        <label class="field__label" for="sg-error">Field with error</label>
+        <input class="field__input" id="sg-error" type="text" value="Invalid value" aria-invalid="true">
+        <span class="field__error">Please enter a valid value.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== CONSENT ============== -->
+  <section id="consent" class="sg-section">
+    <div class="sg-section__heading"><h2>Cookie consent banner</h2><span class="sg-pill">components.css · consent</span></div>
+    <p class="sg-section__lede">Floating card, lower-center, deny-by-default. GA4 stays uninitialized until accept.</p>
+
+    <div class="consent sg-consent-inline">
+      <p class="consent__text">
+        We use cookies to measure site traffic anonymously. No tracking until you accept.
+        <a href="#">Privacy policy</a>.
+      </p>
+      <div class="consent__actions">
+        <button class="btn btn--ghost btn--sm">Decline</button>
+        <button class="btn btn--primary btn--sm">Accept</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== STRESS TEST ============== -->
+  <section id="stress" class="sg-section">
+    <div class="sg-section__heading"><h2>String-length stress test</h2><span class="sg-pill">i18n</span></div>
+    <p class="sg-section__lede">
+      Same components rendered with the actual translated strings from <code>content/*.json</code>.
+      DE and FR run 1.5–2× longer than EN on legal/a11y strings; UK doubles on aria-labels. Catch
+      breakage here, not in step 4 when fixes mean re-checking all five layouts.
+    </p>
+
+    <h3 class="eyebrow">Primary CTA — <code>nav.book_now</code> / <code>hero.cta_primary</code></h3>
+    <div class="sg-stress sg-block-pad-4">
+      <span class="sg-stress__row-label">Button</span>
+      <span class="sg-stress__locale">EN</span>
+      <span class="sg-stress__locale">PT</span>
+      <span class="sg-stress__locale">FR</span>
+      <span class="sg-stress__locale">DE</span>
+      <span class="sg-stress__locale">UK</span>
+      <span class="sg-stress__row-blank"></span>
+      <div class="sg-stress__cell"><button class="btn btn--primary">Book Now</button></div>
+      <div class="sg-stress__cell"><button class="btn btn--primary">Reservar</button></div>
+      <div class="sg-stress__cell"><button class="btn btn--primary">Réserver</button></div>
+      <div class="sg-stress__cell"><button class="btn btn--primary">Jetzt buchen</button></div>
+      <div class="sg-stress__cell"><button class="btn btn--primary">Забронювати</button></div>
+    </div>
+
+    <h3 class="eyebrow">Secondary CTA — <code>hero.cta_secondary</code></h3>
+    <div class="sg-stress sg-block-pad-4">
+      <span class="sg-stress__row-label">Button</span>
+      <span class="sg-stress__locale">EN</span>
+      <span class="sg-stress__locale">PT</span>
+      <span class="sg-stress__locale">FR</span>
+      <span class="sg-stress__locale">DE</span>
+      <span class="sg-stress__locale">UK</span>
+      <span class="sg-stress__row-blank"></span>
+      <div class="sg-stress__cell"><button class="btn btn--secondary">See services</button></div>
+      <div class="sg-stress__cell"><button class="btn btn--secondary">Ver serviços</button></div>
+      <div class="sg-stress__cell"><button class="btn btn--secondary">Voir les services</button></div>
+      <div class="sg-stress__cell"><button class="btn btn--secondary">Angebote ansehen</button></div>
+      <div class="sg-stress__cell"><button class="btn btn--secondary">Послуги</button></div>
+    </div>
+
+    <h3 class="eyebrow">Section title — <code>services.section_title</code></h3>
+    <div class="sg-stress sg-block-pad-4">
+      <span class="sg-stress__row-label">h2</span>
+      <span class="sg-stress__locale">EN</span>
+      <span class="sg-stress__locale">PT</span>
+      <span class="sg-stress__locale">FR</span>
+      <span class="sg-stress__locale">DE</span>
+      <span class="sg-stress__locale">UK</span>
+      <span class="sg-stress__row-blank"></span>
+      <div class="sg-stress__cell"><h3 class="card__title">Sessions built around the swell</h3></div>
+      <div class="sg-stress__cell"><h3 class="card__title">Sessões construídas à volta do swell</h3></div>
+      <div class="sg-stress__cell"><h3 class="card__title">Des sessions construites autour du swell</h3></div>
+      <div class="sg-stress__cell"><h3 class="card__title">Sessions, die sich nach dem Swell richten</h3></div>
+      <div class="sg-stress__cell"><h3 class="card__title">Сесії під swell</h3></div>
+    </div>
+
+    <h3 class="eyebrow">Cookie banner — <code>consent.banner_text</code> + actions</h3>
+    <div class="sg-stress sg-block-pad-4">
+      <span class="sg-stress__row-label">Banner</span>
+      <span class="sg-stress__locale">EN</span>
+      <span class="sg-stress__locale">PT</span>
+      <span class="sg-stress__locale">FR</span>
+      <span class="sg-stress__locale">DE</span>
+      <span class="sg-stress__locale">UK</span>
+      <span class="sg-stress__row-blank"></span>
+      <div class="sg-stress__cell"><p class="text-small">We use cookies to measure site traffic anonymously. No tracking until you accept.</p><div class="consent__actions"><button class="btn btn--ghost btn--sm">Decline</button><button class="btn btn--primary btn--sm">Accept</button></div></div>
+      <div class="sg-stress__cell"><p class="text-small">Usamos cookies para medir o tráfego do site de forma anónima. Nada é registado até aceitares.</p><div class="consent__actions"><button class="btn btn--ghost btn--sm">Recusar</button><button class="btn btn--primary btn--sm">Aceitar</button></div></div>
+      <div class="sg-stress__cell"><p class="text-small">Nous utilisons des cookies pour mesurer le trafic de manière anonyme. Aucun suivi avant ton accord.</p><div class="consent__actions"><button class="btn btn--ghost btn--sm">Refuser</button><button class="btn btn--primary btn--sm">Accepter</button></div></div>
+      <div class="sg-stress__cell"><p class="text-small">Wir verwenden Cookies, um den Website-Traffic anonym zu messen. Kein Tracking, bevor du zustimmst.</p><div class="consent__actions"><button class="btn btn--ghost btn--sm">Ablehnen</button><button class="btn btn--primary btn--sm">Akzeptieren</button></div></div>
+      <div class="sg-stress__cell"><p class="text-small">Ми використовуємо файли cookie, щоб анонімно оцінювати трафік сайту. Нічого не відстежується, поки ти не погодишся.</p><div class="consent__actions"><button class="btn btn--ghost btn--sm">Відхилити</button><button class="btn btn--primary btn--sm">Прийняти</button></div></div>
+    </div>
+
+    <h3 class="eyebrow">Nav links — full row, EN vs DE (longest expansion locale)</h3>
+    <p class="text-small sg-mb-4">
+      Real test: full nav rendered with the longest locale's strings to confirm the row holds together.
+    </p>
+    <nav class="site-nav sg-nav-inline sg-mb-4">
+      <div class="container site-nav__inner">
+        <a href="#" class="site-nav__brand"><span class="site-nav__brand-mark">N</span>Nilton Freitas</a>
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="#">About</a></li>
+          <li><a class="site-nav__link" href="#">Services</a></li>
+          <li><a class="site-nav__link" href="#">Spots</a></li>
+          <li><a class="site-nav__link" href="#">Gallery</a></li>
+          <li><a class="site-nav__link" href="#">Reviews</a></li>
+          <li><a class="site-nav__link" href="#">FAQ</a></li>
+        </ul>
+        <a href="#" class="btn btn--primary btn--sm site-nav__cta">Book Now</a>
+      </div>
+    </nav>
+    <nav class="site-nav sg-nav-inline">
+      <div class="container site-nav__inner">
+        <a href="#" class="site-nav__brand"><span class="site-nav__brand-mark">N</span>Nilton Freitas</a>
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="#">Über</a></li>
+          <li><a class="site-nav__link" href="#">Angebote</a></li>
+          <li><a class="site-nav__link" href="#">Spots</a></li>
+          <li><a class="site-nav__link" href="#">Galerie</a></li>
+          <li><a class="site-nav__link" href="#">Stimmen</a></li>
+          <li><a class="site-nav__link" href="#">FAQ</a></li>
+        </ul>
+        <a href="#" class="btn btn--primary btn--sm site-nav__cta">Jetzt buchen</a>
+      </div>
+    </nav>
+
+    <div class="sg-note sg-mt-7">
+      <strong>Findings to address before step 4:</strong>
+      <ul class="sg-stress__note-list">
+        <li>Cookie banner UK row is the longest (~80 chars) — make sure the banner's max-width allows wrap to 3 lines without overflow.</li>
+        <li>"Politique de confidentialité" (FR <code>consent.policy_link</code>) is 2.0× EN — it must wrap inline within the banner text, not collide with the action buttons.</li>
+        <li>"Jetzt buchen" / "Забронювати" both fit comfortably in the primary CTA at default size — no width changes needed.</li>
+        <li>UK <code>nav.testimonials</code> = "Відгуки" is shorter than EN; non-issue.</li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="section section--dark sg-footer">
+  <div class="container">
+    <p class="text-small sg-footer-text">
+      Internal styleguide — noindex via meta + (planned) <code>X-Robots-Tag</code> in <code>_headers</code> (step 4).
+      All tokens defined in <code>styles/tokens.css</code>. Components in <code>styles/components.css</code>.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

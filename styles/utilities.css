@@ -1,0 +1,30 @@
+/* =============================================================
+ * Utilities — small, semantic helpers. Not a Tailwind clone.
+ * ============================================================= */
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.no-scroll { overflow: hidden; }
+
+/* prose paragraph rhythm for inline copy blocks */
+.prose > * + * { margin-top: var(--space-4); }
+.prose p, .prose li { line-height: var(--leading-relaxed); color: var(--color-ink); }
+
+/* -----------------------------------------------------------
+ * Missing i18n key — visually loud. See DECISIONS for rationale.
+ * Set by scripts/i18n.js when a key cannot be resolved.
+ * --------------------------------------------------------- */
+[data-missing="true"] {
+  color: #D11A2A !important;
+  outline: 2px solid #D11A2A !important;
+  outline-offset: 2px;
+  background: #FFE5E5 !important;
+}

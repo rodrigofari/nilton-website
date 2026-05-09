@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Homepages × 5 locales, with hreflang alternates each -->
+  <url>
+    <loc>https://niltonfreitas.surf/en/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://niltonfreitas.surf/en/"/>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://niltonfreitas.surf/pt/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://niltonfreitas.surf/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://niltonfreitas.surf/de/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://niltonfreitas.surf/uk/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://niltonfreitas.surf/"/>
+  </url>
+
+  <url>
+    <loc>https://niltonfreitas.surf/pt/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://niltonfreitas.surf/en/"/>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://niltonfreitas.surf/pt/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://niltonfreitas.surf/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://niltonfreitas.surf/de/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://niltonfreitas.surf/uk/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://niltonfreitas.surf/"/>
+  </url>
+
+  <url>
+    <loc>https://niltonfreitas.surf/fr/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://niltonfreitas.surf/en/"/>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://niltonfreitas.surf/pt/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://niltonfreitas.surf/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://niltonfreitas.surf/de/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://niltonfreitas.surf/uk/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://niltonfreitas.surf/"/>
+  </url>
+
+  <url>
+    <loc>https://niltonfreitas.surf/de/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://niltonfreitas.surf/en/"/>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://niltonfreitas.surf/pt/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://niltonfreitas.surf/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://niltonfreitas.surf/de/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://niltonfreitas.surf/uk/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://niltonfreitas.surf/"/>
+  </url>
+
+  <url>
+    <loc>https://niltonfreitas.surf/uk/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://niltonfreitas.surf/en/"/>
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://niltonfreitas.surf/pt/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://niltonfreitas.surf/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://niltonfreitas.surf/de/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://niltonfreitas.surf/uk/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://niltonfreitas.surf/"/>
+  </url>
+
+  <!-- Privacy pages × 5 locales (lower priority — secondary content) -->
+  <url>
+    <loc>https://niltonfreitas.surf/en/privacy/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://niltonfreitas.surf/pt/privacy/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://niltonfreitas.surf/fr/privacy/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://niltonfreitas.surf/de/privacy/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://niltonfreitas.surf/uk/privacy/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+</urlset>

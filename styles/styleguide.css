@@ -1,0 +1,368 @@
+/* =============================================================
+ * styleguide.css — page-only styles for /styleguide.html
+ * Documentation layout, not reused in production sections.
+ * ============================================================= */
+
+.sg-header {
+  padding-block: var(--space-7) var(--space-6);
+  border-bottom: 1px solid var(--color-line);
+  background: var(--color-bg-soft);
+}
+.sg-header__title {
+  font-family: var(--font-display);
+  font-size: var(--type-4xl);
+  letter-spacing: var(--tracking-tighter);
+  color: var(--color-ink-strong);
+  font-variation-settings: "opsz" 96;
+}
+.sg-header__subtitle {
+  margin-top: var(--space-3);
+  color: var(--color-ink-soft);
+  max-width: 60ch;
+}
+
+.sg-toc {
+  display: flex; flex-wrap: wrap; gap: var(--space-3) var(--space-5);
+  margin-top: var(--space-5);
+  font-size: var(--type-sm);
+}
+.sg-toc a {
+  color: var(--color-ink-soft);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-line);
+}
+.sg-toc a:hover { color: var(--color-accent-strong); border-color: var(--color-accent); }
+
+.sg-section {
+  padding-block: var(--space-8);
+  border-bottom: 1px solid var(--color-line);
+}
+.sg-section__heading {
+  display: flex; align-items: baseline; gap: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+.sg-section__heading h2 {
+  font-size: var(--type-3xl);
+  font-variation-settings: "opsz" 72;
+}
+.sg-section__heading .sg-pill {
+  font-size: var(--type-xs);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+  padding: 2px var(--space-2);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-pill);
+}
+.sg-section__lede {
+  max-width: 70ch; color: var(--color-ink-soft); margin-bottom: var(--space-6);
+}
+
+/* Color swatches */
+.sg-color-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--space-4);
+}
+.sg-swatch {
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--color-surface-raised);
+}
+.sg-swatch__chip {
+  height: 96px;
+  border-bottom: 1px solid var(--color-line);
+}
+.sg-swatch__meta {
+  padding: var(--space-3) var(--space-4);
+  display: flex; flex-direction: column; gap: var(--space-1);
+  font-size: var(--type-xs);
+}
+.sg-swatch__token { font-family: var(--font-mono); color: var(--color-ink-strong); }
+.sg-swatch__hex   { color: var(--color-ink-muted); }
+.sg-swatch__use   { color: var(--color-ink-soft); margin-top: var(--space-1); }
+
+/* Type scale */
+.sg-type-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: var(--space-5);
+  padding-block: var(--space-4);
+  border-bottom: 1px solid var(--color-line-soft);
+  align-items: baseline;
+}
+.sg-type-row__meta {
+  font-family: var(--font-mono);
+  font-size: var(--type-xs);
+  color: var(--color-ink-muted);
+  display: flex; flex-direction: column; gap: 2px;
+}
+.sg-type-row__token { color: var(--color-ink-strong); }
+.sg-type-row__sample {
+  color: var(--color-ink-strong);
+}
+
+/* Spacing visualizer */
+.sg-space-list { display: flex; flex-direction: column; gap: var(--space-3); }
+.sg-space-row {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: var(--space-4);
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: var(--type-xs);
+}
+.sg-space-row__bar {
+  height: 12px;
+  background: var(--color-accent-wash);
+  border-left: 2px solid var(--color-accent);
+}
+
+/* Radii visualizer */
+.sg-radii { display: flex; flex-wrap: wrap; gap: var(--space-5); }
+.sg-radii__item {
+  display: flex; flex-direction: column; align-items: center; gap: var(--space-2);
+  font-family: var(--font-mono); font-size: var(--type-xs); color: var(--color-ink-muted);
+}
+.sg-radii__box {
+  width: 96px; height: 96px;
+  background: var(--color-surface-sunken);
+  border: 1px solid var(--color-line);
+}
+
+/* Shadows visualizer */
+.sg-shadows { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: var(--space-5); }
+.sg-shadow-card {
+  height: 96px;
+  background: var(--color-surface-raised);
+  border-radius: var(--radius-sm);
+  display: grid; place-items: center;
+  font-family: var(--font-mono); font-size: var(--type-xs); color: var(--color-ink-muted);
+}
+
+/* Motion samples */
+.sg-motion-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: var(--space-4); }
+.sg-motion-card {
+  padding: var(--space-4);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-raised);
+  font-family: var(--font-mono);
+  font-size: var(--type-xs);
+  color: var(--color-ink-muted);
+}
+.sg-motion-dot {
+  width: 16px; height: 16px;
+  background: var(--color-accent);
+  border-radius: var(--radius-pill);
+  margin-bottom: var(--space-3);
+  transition: transform var(--duration-base) var(--easing-standard);
+}
+.sg-motion-card:hover .sg-motion-dot { transform: translateX(140px); }
+.sg-motion-card--fast .sg-motion-dot     { transition-duration: var(--duration-fast); }
+.sg-motion-card--slow .sg-motion-dot     { transition-duration: var(--duration-slow); }
+.sg-motion-card--slower .sg-motion-dot   { transition-duration: var(--duration-slower); }
+.sg-motion-card--emphasized .sg-motion-dot { transition-timing-function: var(--easing-emphasized); }
+.sg-motion-card--exit .sg-motion-dot     { transition-timing-function: var(--easing-exit); }
+
+/* Component grids */
+.sg-row {
+  display: flex; flex-wrap: wrap; gap: var(--space-4);
+  align-items: center;
+  margin-bottom: var(--space-4);
+}
+.sg-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-5);
+}
+.sg-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5);
+  max-width: 720px;
+}
+@media (max-width: 640px) {
+  .sg-form-grid { grid-template-columns: 1fr; }
+}
+.sg-form-grid__full { grid-column: 1 / -1; }
+
+/* String-length stress test */
+.sg-stress {
+  display: grid;
+  grid-template-columns: 120px repeat(5, 1fr);
+  gap: var(--space-3) var(--space-4);
+  align-items: center;
+  font-size: var(--type-sm);
+}
+.sg-stress__row-label {
+  font-family: var(--font-mono);
+  font-size: var(--type-xs);
+  color: var(--color-ink-muted);
+  letter-spacing: var(--tracking-wide);
+  grid-column: 1;
+}
+.sg-stress__locale {
+  font-family: var(--font-mono);
+  font-size: var(--type-2xs);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+  text-align: center;
+}
+.sg-stress__cell {
+  display: flex; flex-direction: column; gap: var(--space-2);
+  padding: var(--space-3);
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  min-height: 64px;
+}
+@media (max-width: 1024px) {
+  .sg-stress {
+    grid-template-columns: 1fr;
+  }
+  .sg-stress__locale { text-align: left; padding-top: var(--space-3); border-top: 1px dashed var(--color-line); }
+}
+
+.sg-note {
+  padding: var(--space-4) var(--space-5);
+  background: var(--color-gold-wash);
+  border-left: 2px solid var(--color-gold);
+  border-radius: var(--radius-sm);
+  font-size: var(--type-sm);
+  color: var(--color-ink);
+  margin-block: var(--space-5);
+}
+.sg-note strong { color: var(--color-ink-strong); }
+
+/* -----------------------------------------------------------
+ * Color chip backgrounds — one class per token. Avoids inline
+ * styles on the styleguide page (CSP-strict from day one).
+ * --------------------------------------------------------- */
+
+.sg-chip--bg-base        { background: var(--color-bg-base); }
+.sg-chip--bg-soft        { background: var(--color-bg-soft); }
+.sg-chip--bg-deep        { background: var(--color-bg-deep); }
+.sg-chip--bg-deep-soft   { background: var(--color-bg-deep-soft); }
+.sg-chip--surface        { background: var(--color-surface); }
+.sg-chip--surface-raised { background: var(--color-surface-raised); }
+.sg-chip--surface-sunken { background: var(--color-surface-sunken); }
+.sg-chip--ink-strong     { background: var(--color-ink-strong); }
+.sg-chip--ink            { background: var(--color-ink); }
+.sg-chip--ink-soft       { background: var(--color-ink-soft); }
+.sg-chip--ink-muted      { background: var(--color-ink-muted); }
+.sg-chip--ink-on-dark    { background: var(--color-ink-on-dark); }
+.sg-chip--line           { background: var(--color-line); }
+.sg-chip--line-soft      { background: var(--color-line-soft); }
+.sg-chip--line-strong    { background: var(--color-line-strong); }
+.sg-chip--accent         { background: var(--color-accent); }
+.sg-chip--accent-strong  { background: var(--color-accent-strong); }
+.sg-chip--accent-soft    { background: var(--color-accent-soft); }
+.sg-chip--accent-wash    { background: var(--color-accent-wash); }
+.sg-chip--gold           { background: var(--color-gold); }
+.sg-chip--gold-strong    { background: var(--color-gold-strong); }
+.sg-chip--gold-soft      { background: var(--color-gold-soft); }
+.sg-chip--gold-wash      { background: var(--color-gold-wash); }
+.sg-chip--state-success  { background: var(--color-state-success); }
+.sg-chip--state-warning  { background: var(--color-state-warning); }
+.sg-chip--state-danger   { background: var(--color-state-danger); }
+.sg-chip--state-info     { background: var(--color-state-info); }
+
+/* Radii visualizer — per-token classes (avoids inline) */
+.sg-radii__box--xs   { border-radius: var(--radius-xs); }
+.sg-radii__box--sm   { border-radius: var(--radius-sm); }
+.sg-radii__box--pill { border-radius: var(--radius-pill); }
+
+/* Shadow card variants */
+.sg-shadow-card--xs { box-shadow: var(--shadow-xs); }
+.sg-shadow-card--sm { box-shadow: var(--shadow-sm); }
+.sg-shadow-card--md { box-shadow: var(--shadow-md); }
+.sg-shadow-card--lg { box-shadow: var(--shadow-lg); }
+.sg-shadow-card--xl { box-shadow: var(--shadow-xl); }
+
+/* -----------------------------------------------------------
+ * Spacing-bar widths — one class per token. Avoids inline.
+ * --------------------------------------------------------- */
+.sg-space-row__bar--1  { width: 4px;   }
+.sg-space-row__bar--2  { width: 8px;   }
+.sg-space-row__bar--3  { width: 12px;  }
+.sg-space-row__bar--4  { width: 16px;  }
+.sg-space-row__bar--5  { width: 24px;  }
+.sg-space-row__bar--6  { width: 32px;  }
+.sg-space-row__bar--7  { width: 48px;  }
+.sg-space-row__bar--8  { width: 64px;  }
+.sg-space-row__bar--9  { width: 96px;  }
+.sg-space-row__bar--10 { width: 128px; }
+.sg-space-row__bar--11 { width: 192px; }
+.sg-space-row__bar--12 { width: 256px; }
+
+/* -----------------------------------------------------------
+ * Tiny utility set for the styleguide page only.
+ * Production code uses semantic component classes; this is
+ * documentation scaffolding, kept off the main bundle by
+ * loading styleguide.css only on /styleguide.html.
+ * --------------------------------------------------------- */
+
+.sg-mt-3 { margin-top: var(--space-3); }
+.sg-mt-4 { margin-top: var(--space-4); }
+.sg-mt-5 { margin-top: var(--space-5); }
+.sg-mt-6 { margin-top: var(--space-6); }
+.sg-mt-7 { margin-top: var(--space-7); }
+.sg-mt-9 { margin-top: var(--space-9); }
+.sg-mb-4 { margin-bottom: var(--space-4); }
+.sg-mb-7 { margin-bottom: var(--space-7); }
+.sg-block-pad-4 { margin-block: var(--space-4) var(--space-7); }
+.sg-block-pad-5 { margin-block: var(--space-5) var(--space-7); }
+
+.sg-inline-block { display: inline-block; }
+
+/* Subsections inside a sg-section — used for color groupings */
+.sg-subgroup { margin-block: var(--space-4) var(--space-7); }
+
+/* Inline nav preview — styleguide-only override of position so
+   demos render without sticking to viewport top. */
+.sg-nav-inline { position: relative; top: 0; }
+
+/* Inline consent preview — same idea, full-width demo card. */
+.sg-consent-inline {
+  position: relative;
+  bottom: 0; left: 0; right: 0;
+  margin: var(--space-5) 0;
+}
+
+/* Dark surface preview wrapper for buttons-on-dark demo */
+.sg-on-dark {
+  padding: var(--space-6);
+  border-radius: var(--radius-sm);
+}
+
+/* Italic display demo */
+.sg-italic-demo {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--type-3xl);
+  line-height: var(--leading-snug);
+  color: var(--color-ink-strong);
+  font-variation-settings: "opsz" 72;
+  margin-top: var(--space-3);
+}
+
+/* Footnote findings list */
+.sg-findings { margin-top: var(--space-2); padding-left: var(--space-5); }
+
+/* Sg-footer small print */
+.sg-footer-text { color: var(--color-ink-on-dark-soft); }
+
+/* Dark footer wrapper */
+.sg-footer { margin-top: var(--space-9); }
+
+/* Nav row spacing inside stress test */
+.sg-stress__row-blank { grid-column: 1; }
+
+/* Stress test note list */
+.sg-stress__note-list {
+  margin-top: var(--space-2);
+  padding-left: var(--space-5);
+}

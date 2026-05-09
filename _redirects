@@ -1,0 +1,35 @@
+# Cloudflare Pages _redirects
+# Locale resolution at the edge based on Accept-Language.
+# Falls back to /en/ when the header is absent or unrecognised.
+#
+# Order matters — first match wins. Specific rules first, fallback last.
+
+# Pretty paths (no trailing slash) → with trailing slash
+/en        /en/        301
+/pt        /pt/        301
+/fr        /fr/        301
+/de        /de/        301
+/uk        /uk/        301
+
+# Locale-resolved root: Accept-Language header drives redirect from /
+# Cloudflare Pages reads the Language quality-pair list and matches.
+# x-default → /en/
+/  /pt/  302  Language=pt
+/  /pt/  302  Language=pt-PT
+/  /pt/  302  Language=pt-BR
+/  /fr/  302  Language=fr
+/  /fr/  302  Language=fr-FR
+/  /fr/  302  Language=fr-CA
+/  /de/  302  Language=de
+/  /de/  302  Language=de-DE
+/  /de/  302  Language=de-AT
+/  /de/  302  Language=de-CH
+/  /uk/  302  Language=uk
+/  /uk/  302  Language=uk-UA
+/  /en/  302  Language=en
+/  /en/  302  Language=en-US
+/  /en/  302  Language=en-GB
+
+# Final fallback for root — sends unknown languages to EN.
+# This is also the path served when the user has no Accept-Language at all.
+/  /en/  302

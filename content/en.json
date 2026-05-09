@@ -1,0 +1,119 @@
+{
+  "$schema": "./schema.json",
+  "_meta": {
+    "locale": "en",
+    "direction": "ltr",
+    "last_updated": "2026-05-09",
+    "translator": "claude"
+  },
+  "meta": {
+    "locale": "en",
+    "lang_name": "English",
+    "lang_dir": "ltr",
+    "title": "Nilton Freitas — Surf Guide Madeira | Coaching & Guided Sessions",
+    "description": "Surf Madeira's signature waves with Nilton Freitas — certified coach guiding all levels at Jardim do Mar, Paul do Mar, Ponta Pequena and beyond.",
+    "og_title": "Nilton Freitas — Surf Guide Madeira",
+    "og_description": "Certified surf coach guiding Madeira's volcanic coastline. Book a session via WhatsApp.",
+    "og_image_alt": "Surfer riding a long right-hander at Jardim do Mar, Madeira.",
+    "twitter_title": "Nilton Freitas — Surf Guide Madeira",
+    "twitter_description": "Certified surf coach guiding Madeira's volcanic coastline."
+  },
+  "nav": {
+    "about": "About",
+    "services": "Services",
+    "spots": "Spots",
+    "gallery": "Gallery",
+    "testimonials": "Reviews",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "book_now": "Book Now",
+    "menu_open": "Open menu",
+    "menu_close": "Close menu",
+    "lang_switcher": "Change language",
+    "back_to_home": "← Back to home"
+  },
+  "hero": {
+    "eyebrow": "Surf Guide · Madeira Island",
+    "cta_primary": "Book Now",
+    "cta_secondary": "See Services",
+    "scroll_hint": "Scroll to explore"
+  },
+  "about": {
+    "section_label": "About Nilton",
+    "stat_years_label": "Years guiding",
+    "stat_certs_label": "Certifications",
+    "stat_spots_label": "Spots covered",
+    "cta": "Plan Your Session"
+  },
+  "services": {
+    "section_label": "Services",
+    "section_title": "Sessions built around the swell",
+    "eyebrow": "Service",
+    "card_includes_label": "Includes",
+    "card_duration_label": "Duration",
+    "card_level_label": "Level",
+    "card_cta": "Book This",
+    "disclaimer": "Pricing and availability vary with season and conditions. Confirm via WhatsApp."
+  },
+  "spots": {
+    "section_label": "Madeira Spots",
+    "section_title": "Volcanic coast, world-class waves",
+    "tag_level_label": "Level",
+    "tag_swell_label": "Swell",
+    "tag_wind_label": "Wind",
+    "tag_season_label": "Best season"
+  },
+  "gallery": {
+    "section_label": "Gallery",
+    "section_title": "On the water",
+    "open_lightbox": "Open image",
+    "close_lightbox": "Close image",
+    "next_image": "Next image",
+    "prev_image": "Previous image"
+  },
+  "testimonials": {
+    "section_label": "Reviews",
+    "section_title": "What surfers say",
+    "next": "Next review",
+    "prev": "Previous review"
+  },
+  "faq": {
+    "section_label": "FAQ",
+    "section_title": "Frequently asked",
+    "expand": "Expand answer",
+    "collapse": "Collapse answer"
+  },
+  "contact": {
+    "section_label": "Contact",
+    "section_title": "Let's get you on the water",
+    "whatsapp_cta": "Message on WhatsApp",
+    "whatsapp_prefill": "Hi Nilton! I'd like to book a surf session in Madeira. Could you share availability?",
+    "email_label": "Email",
+    "phone_label": "Phone",
+    "response_time": "Replies within 24 hours"
+  },
+  "footer": {
+    "tagline": "Certified surf guide — Madeira Island, Portugal",
+    "follow_label": "Follow",
+    "instagram_label": "Instagram",
+    "facebook_label": "Facebook",
+    "rights": "© {year} Nilton Freitas. All rights reserved.",
+    "made_in": "Made in Madeira"
+  },
+  "consent": {
+    "banner_text": "We use cookies to measure site traffic anonymously. No tracking until you accept.",
+    "accept": "Accept",
+    "decline": "Decline",
+    "settings": "Settings",
+    "policy_link": "Privacy policy"
+  },
+  "a11y": {
+    "skip_to_content": "Skip to content",
+    "external_link": "(opens in new tab)",
+    "loading": "Loading",
+    "image_loading": "Image loading"
+  },
+  "floating_cta": {
+    "label": "Message Nilton on WhatsApp"
+  }
+}

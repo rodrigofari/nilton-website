@@ -1,0 +1,50 @@
+/* Privacy page — typographic prose layout. Loaded only on /{locale}/privacy/. */
+
+.privacy { padding-block: var(--space-9) var(--space-8); }
+.privacy__article { padding-block: 0; }
+
+.privacy h1 {
+  font-family: var(--font-display);
+  font-size: clamp(var(--type-3xl), 5vw, var(--type-5xl));
+  letter-spacing: var(--tracking-tighter);
+  margin-top: var(--space-3);
+  font-variation-settings: "opsz" 96;
+}
+
+.privacy__updated { color: var(--color-ink-muted); margin-top: var(--space-2); }
+
+.privacy__disclaimer {
+  margin-block: var(--space-6) var(--space-7);
+  padding: var(--space-4) var(--space-5);
+  background: var(--color-gold-wash);
+  border-left: 2px solid var(--color-gold);
+  border-radius: var(--radius-sm);
+  font-size: var(--type-sm);
+  color: var(--color-ink);
+}
+
+.privacy h2 {
+  margin-top: var(--space-7);
+  font-size: var(--type-xl);
+  font-variation-settings: "opsz" 36;
+}
+
+.privacy ul {
+  margin-top: var(--space-3);
+  padding-left: var(--space-5);
+}
+.privacy li + li { margin-top: var(--space-2); }
+
+.privacy a {
+  color: var(--color-accent-strong);
+  text-underline-offset: 0.2em;
+}
+.privacy a:hover { color: var(--color-ink-strong); }
+
+.privacy code {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  padding: 1px 6px;
+  background: var(--color-surface-sunken);
+  border-radius: var(--radius-xs);
+}
