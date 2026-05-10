@@ -35,16 +35,15 @@
     "back_to_home": "← Zurück zur Startseite"
   },
   "hero": {
-    "eyebrow": "Surf Guide · Insel Madeira",
-    "cta_primary": "Jetzt buchen",
+    "eyebrow": "Premium Surf Coaching · Madeira Island",
     "cta_secondary": "Angebote ansehen",
     "scroll_hint": "Scrollen zum Entdecken"
   },
   "about": {
     "section_label": "Über Nilton",
-    "stat_years_label": "Jahre als Guide",
-    "stat_certs_label": "Zertifizierungen",
-    "stat_spots_label": "Abgedeckte Spots",
+    "stat_years_label": "Years on the water",
+    "stat_certs_label": "Coach certifications",
+    "stat_spots_label": "Spots known intimately",
     "cta": "Plane deine Session"
   },
   "services": {

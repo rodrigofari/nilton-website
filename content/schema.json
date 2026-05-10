@@ -80,11 +80,10 @@
     "hero": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["eyebrow", "cta_primary", "cta_secondary", "scroll_hint"],
+      "required": ["eyebrow", "cta_secondary", "scroll_hint"],
       "properties": {
-        "eyebrow": { "type": "string", "description": "Small label above the headline, e.g. 'Surf Guide · Madeira Island'." },
-        "cta_primary": { "type": "string", "description": "Primary CTA button label." },
-        "cta_secondary": { "type": "string", "description": "Secondary CTA — usually 'See services' or 'Watch reel'." },
+        "eyebrow": { "type": "string", "description": "Small label above the headline, e.g. 'Premium Surf Coaching · Madeira Island'." },
+        "cta_secondary": { "type": "string", "description": "Secondary CTA — usually 'See Services' or similar in-page anchor link." },
         "scroll_hint": { "type": "string", "description": "aria-label / visible hint for the scroll indicator." }
       }
     },

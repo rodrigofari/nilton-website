@@ -35,16 +35,15 @@
     "back_to_home": "← Повернутися на головну"
   },
   "hero": {
-    "eyebrow": "Серф-гід · острів Madeira",
-    "cta_primary": "Забронювати",
+    "eyebrow": "Premium Surf Coaching · Madeira Island",
     "cta_secondary": "Послуги",
     "scroll_hint": "Гортай, щоб побачити більше"
   },
   "about": {
     "section_label": "Про Nilton",
-    "stat_years_label": "Років як гід",
-    "stat_certs_label": "Сертифікати",
-    "stat_spots_label": "Покритих спотів",
+    "stat_years_label": "Years on the water",
+    "stat_certs_label": "Coach certifications",
+    "stat_spots_label": "Spots known intimately",
     "cta": "Сплануй сесію"
   },
   "services": {

@@ -35,16 +35,15 @@
     "back_to_home": "← Voltar à página inicial"
   },
   "hero": {
-    "eyebrow": "Guia de Surf · Ilha da Madeira",
-    "cta_primary": "Reservar",
+    "eyebrow": "Premium Surf Coaching · Madeira Island",
     "cta_secondary": "Ver serviços",
     "scroll_hint": "Desliza para explorar"
   },
   "about": {
     "section_label": "Sobre o Nilton",
-    "stat_years_label": "Anos a guiar",
-    "stat_certs_label": "Certificações",
-    "stat_spots_label": "Spots cobertos",
+    "stat_years_label": "Years on the water",
+    "stat_certs_label": "Coach certifications",
+    "stat_spots_label": "Spots known intimately",
     "cta": "Planeia a tua sessão"
   },
   "services": {

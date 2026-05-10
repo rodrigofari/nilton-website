@@ -161,12 +161,12 @@
 
     <div class="container hero__content">
       <p class="eyebrow" data-i18n="hero.eyebrow"></p>
-      <h1 class="display-xl" data-content-id="hero.headline">Серфи фірмові хвилі Madeira <em>з тим, хто ними живе.</em></h1>
-      <p class="hero__lede" data-content-id="hero.lede">Персональний коучинг і керовані сесії на острові Madeira. Від твоєї першої хвилі в Machico до полювання за свелами на point breaks у Jardim і Paul.</p>
+      <h1 class="display-xl" data-content-id="hero.headline" data-placeholder="true">Real progression. <em>Real waves.</em> Madeira's premium surf coaching.</h1>
+      <p class="hero__lede" data-content-id="hero.lede" data-placeholder="true">Private coaching, surf guiding, and week-long progression programmes on Madeira's volcanic coastline. Coached by Nilton Freitas — competitive surfer trained under high-level coaches, focused on the technique, timing and ocean reading that actually move surfers forward.</p>
       <div class="hero__ctas">
         <a class="btn btn--accent btn--lg"
            href="https://wa.me/351966236416" target="_blank" rel="noopener"
-           data-i18n="hero.cta_primary"
+           data-i18n="services.cta_enquire"
            data-i18n-href="contact.whatsapp_prefill"></a>
         <a class="btn btn--secondary btn--on-media btn--lg" href="#services" data-i18n="hero.cta_secondary"></a>
       </div>
@@ -186,12 +186,12 @@
       </figure>
       <div class="about__body">
         <p class="eyebrow" data-i18n="about.section_label"></p>
-        <h2 id="about-title" data-content-id="about.h2">Народжений для свелу, вирощений на базальті.</h2>
+        <h2 id="about-title" data-content-id="about.h2" data-placeholder="true">Coached by a competitor. Built on the island's edge.</h2>
         <span class="rule" aria-hidden="true"></span>
-        <div class="prose" data-placeholder="true">
-          <p data-content-id="about.bio.p1">Nilton виріс у Machico, на східному узбережжі Madeira, де м'яка піна затоки навчила серфити ціле покоління остров'ян. Підлітком він почав полювати за point breaks південного узбережжя і провів останнє десятиліття, читаючи вікна свелу, вітру й припливу для серферів, які приїжджають на острів.</p>
-          <p data-content-id="about.bio.p2">Сертифікований через Surfing Portugal і давній член Ludens Clube de Machico, Nilton працює з усіма — від тих, хто на Madeira вперше, до досвідчених серферів, які хочуть уперше вийти на серйозний point break.</p>
-          <p data-content-id="about.bio.p3">Він не тримає ані школи, ані магазину — це просто він, його фургон, його дошки і телефон, який постійно перевіряє наступний прогноз.</p>
+        <div class="prose">
+          <p data-content-id="about.bio.p1" data-placeholder="true">Madeira Surf Progress is led by Nilton Freitas — competitive surfer, trained under high-level coaches, born and raised on the volcanic coastline he now coaches on. Years on the Portuguese national circuit taught him how to read waves at speed; years of technical training taught him how to teach what he learned.</p>
+          <p data-content-id="about.bio.p2" data-placeholder="true">The brand exists because Nilton saw a gap. Madeira is one of Europe's most serious surf destinations, but most visiting surfers spend their week guessing the forecast, surfing the wrong spot for the day, or stuck in group lessons that don't move them forward. Madeira Surf Progress is built around the opposite: the right spot for the conditions, the right wave for your level, structured technical feedback every session.</p>
+          <p data-content-id="about.bio.p3" data-placeholder="true">Whether you're standing up for the first time at Machico or stepping onto Jardim do Mar's point for the first serious right-hander of your life, the methodology is the same — read the day, pick the wave, refine the technique, ride forward. No shortcuts. Real progression.</p>
         </div>
         <ul class="about__stats">
           <li class="stat">
@@ -506,51 +506,65 @@
 
       <ul class="faq__list">
         <li><details class="faq__item" data-placeholder="true">
-          <summary data-content-id="faq.1.q">Чи треба брати свою дошку?</summary>
+          <summary data-content-id="faq.1.q">What level do I need to be?</summary>
           <div class="faq__answer">
-            <p data-content-id="faq.1.a">Дошки і гідрокостюми входять у кожну сесію. Якщо хочеш узяти свою — без проблем, зустрінемось на споті.</p>
+            <p data-content-id="faq.1.a">Every level — beginner, intermediate, advanced. The methodology is the same regardless: read the conditions, pick the right spot for your level, work on technique that actually moves you forward. Beginners surf forgiving sand-bottom waves at Machico; intermediates and advanced surfers head to the south-coast points when conditions line up. The session is built around you, not the other way around.</p>
           </div>
         </details></li>
 
         <li><details class="faq__item" data-placeholder="true">
-          <summary data-content-id="faq.2.q">Який рівень мені потрібен?</summary>
+          <summary data-content-id="faq.2.q">How is this different from a regular surf school?</summary>
           <div class="faq__answer">
-            <p data-content-id="faq.2.a">Будь-який — від «ніколи не вставав на дошку» до просунутого. Сесії підлаштовуються під твій рівень і умови дня — Machico для початківців, points південного узбережжя, коли будеш готовий.</p>
+            <p data-content-id="faq.2.a">A traditional surf school is built around delivering lessons at scale — usually group lessons, fixed times, beginner-focused, often at the same beach regardless of conditions. Madeira Surf Progress is built around progression. Private or near-private coaching, forecast-driven scheduling, spot selection based on the day's conditions and your specific goals. Every booking is shaped around moving you forward, not filling a class.</p>
           </div>
         </details></li>
 
         <li><details class="faq__item" data-placeholder="true">
-          <summary data-content-id="faq.3.q">Як працює планування?</summary>
+          <summary data-content-id="faq.3.q">How do I know if a 1-Week or 2-Week programme is right for me?</summary>
           <div class="faq__answer">
-            <p data-content-id="faq.3.a">Сесії будуються навколо прогнозу. Після бронювання фіксуємо приблизні дати, а точний спот і час підтверджуємо за 24–48 годин до сесії, виходячи з вікна свелу. Без жорсткого графіка — лише сесії тоді, коли є щось варте серфінгу.</p>
+            <p data-content-id="faq.3.a">The 1-Week programme is the right call if you want serious, structured progression in a defined window — daily coaching, daily surfing, focused work on technique and ocean reading. The 2-Week Intensive Camp goes further: it's an application-based, performance-led programme designed for surfers who want transformation, not improvement. If you're not sure, send a message — we'll talk through your level and goals and recommend the right fit.</p>
           </div>
         </details></li>
 
         <li><details class="faq__item" data-placeholder="true">
-          <summary data-content-id="faq.4.q">Чи забираєш мене з готелю?</summary>
+          <summary data-content-id="faq.4.q">How does scheduling work?</summary>
           <div class="faq__answer">
-            <p data-content-id="faq.4.a">Так — заїзд і повернення включено в межах усього південного узбережжя і Funchal. Заїзди на північному узбережжі домовляємося індивідуально.</p>
+            <p data-content-id="faq.4.a">Sessions are forecast-driven, not fixed. Once your booking is confirmed, we lock approximate dates; the exact spot and time get confirmed 24–48 hours ahead based on the swell window. No fixed schedule means no wasted sessions — only days when there's something worth surfing.</p>
           </div>
         </details></li>
 
         <li><details class="faq__item" data-placeholder="true">
-          <summary data-content-id="faq.5.q">А якщо під час мого візиту не буде свелу?</summary>
+          <summary data-content-id="faq.5.q">Do I need to bring my own board?</summary>
           <div class="faq__answer">
-            <p data-content-id="faq.5.a">Якщо умови повністю flat, або переносимо, або переходимо на прогулянку узбережжям + тур по спотах, або повертаємо вартість сесії. Ти не платиш за те, щоб не серфити.</p>
+            <p data-content-id="faq.5.a">Boards and wetsuits are included with every session. If you'd rather bring your own quiver, that works too — we'll meet at the spot.</p>
           </div>
         </details></li>
 
         <li><details class="faq__item" data-placeholder="true">
-          <summary data-content-id="faq.6.q">Чи Madeira — гарне місце для перших уроків серфінгу?</summary>
+          <summary data-content-id="faq.6.q">What about transport?</summary>
           <div class="faq__answer">
-            <p data-content-id="faq.6.a">Для початківців — так, у бухті Machico, де дно піщане, а хвилі поблажливі. Points і rock breaks у решті острова — лише для просунутих.</p>
+            <p data-content-id="faq.6.a">Pick-up and drop-off from your accommodation are available across the south coast and Funchal. North-coast pickups are arranged case by case depending on conditions and where the swell is working that day.</p>
           </div>
         </details></li>
 
         <li><details class="faq__item" data-placeholder="true">
-          <summary data-content-id="faq.7.q">Як платити?</summary>
+          <summary data-content-id="faq.7.q">What if there's no swell during my visit?</summary>
           <div class="faq__answer">
-            <p data-content-id="faq.7.a">Банківським переказом або готівкою в день сесії, залежно від тривалості перебування. Спосіб оплати узгоджуємо під час бронювання.</p>
+            <p data-content-id="faq.7.a">If conditions are completely flat, we either reschedule, switch to a coastal walk and spot-knowledge tour, or refund the session. You don't pay to surf nothing.</p>
+          </div>
+        </details></li>
+
+        <li><details class="faq__item" data-placeholder="true">
+          <summary data-content-id="faq.8.q">Is Madeira a good destination for first-time surfers?</summary>
+          <div class="faq__answer">
+            <p data-content-id="faq.8.a">For absolute beginners, yes — at Machico bay, where the bottom is sandy and the waves are forgiving. The south-coast point breaks and rock breaks elsewhere on the island are advanced-only. Madeira's reputation as a serious surf destination comes from those advanced waves, but Machico keeps it accessible for anyone learning.</p>
+          </div>
+        </details></li>
+
+        <li><details class="faq__item" data-placeholder="true">
+          <summary data-content-id="faq.9.q">How do I pay?</summary>
+          <div class="faq__answer">
+            <p data-content-id="faq.9.a">Bank transfer or in person on the day, depending on your stay length and the programme you book. We'll agree the method when we confirm.</p>
           </div>
         </details></li>
       </ul>
