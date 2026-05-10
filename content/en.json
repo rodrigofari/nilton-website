@@ -10,13 +10,15 @@
     "locale": "en",
     "lang_name": "English",
     "lang_dir": "ltr",
-    "title": "Nilton Freitas — Surf Guide Madeira | Coaching & Guided Sessions",
+    "title": "Madeira Surf Progress | Coaching & Guided Sessions",
     "description": "Surf Madeira's signature waves with Nilton Freitas — certified coach guiding all levels at Jardim do Mar, Paul do Mar, Ponta Pequena and beyond.",
-    "og_title": "Nilton Freitas — Surf Guide Madeira",
+    "og_title": "Madeira Surf Progress",
     "og_description": "Certified surf coach guiding Madeira's volcanic coastline. Book a session via WhatsApp.",
     "og_image_alt": "Surfer riding a long right-hander at Jardim do Mar, Madeira.",
-    "twitter_title": "Nilton Freitas — Surf Guide Madeira",
-    "twitter_description": "Certified surf coach guiding Madeira's volcanic coastline."
+    "twitter_title": "Madeira Surf Progress",
+    "twitter_description": "Certified surf coach guiding Madeira's volcanic coastline.",
+    "brand_name": "Madeira Surf Progress",
+    "legal_name": "Nilton Freitas"
   },
   "nav": {
     "about": "About",
@@ -97,8 +99,9 @@
     "follow_label": "Follow",
     "instagram_label": "Instagram",
     "facebook_label": "Facebook",
-    "rights": "© {year} Nilton Freitas. All rights reserved.",
-    "made_in": "Made in Madeira"
+    "rights": "© {year} Madeira Surf Progress. All rights reserved.",
+    "made_in": "Made in Madeira",
+    "legal_entity": "Madeira Surf Progress is a brand of Nilton Freitas, licensed surf school in Madeira, Portugal."
   },
   "consent": {
     "banner_text": "We use cookies to measure site traffic anonymously. No tracking until you accept.",

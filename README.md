@@ -1,4 +1,4 @@
-# Nilton Freitas — Surf Guide Madeira
+# Madeira Surf Progress
 
 Multi-locale marketing site for Nilton Freitas, freelance surf guide in Madeira, Portugal. Drives bookings via WhatsApp.
 

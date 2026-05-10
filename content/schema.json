@@ -42,7 +42,7 @@
     "meta": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["locale", "lang_name", "lang_dir", "title", "description", "og_title", "og_description", "og_image_alt", "twitter_title", "twitter_description"],
+      "required": ["locale", "lang_name", "lang_dir", "title", "description", "og_title", "og_description", "og_image_alt", "twitter_title", "twitter_description", "brand_name", "legal_name"],
       "properties": {
         "locale": { "type": "string", "description": "BCP 47 locale code, e.g. en, pt-PT, fr, de, uk." },
         "lang_name": { "type": "string", "description": "Native name of the language for the switcher." },
@@ -53,7 +53,9 @@
         "og_description": { "type": "string" },
         "og_image_alt": { "type": "string" },
         "twitter_title": { "type": "string" },
-        "twitter_description": { "type": "string" }
+        "twitter_description": { "type": "string" },
+        "brand_name": { "type": "string", "description": "Commercial brand name. Public-facing — appears in nav/footer wordmarks, page titles, OG, Schema.org name. Currently 'Madeira Surf Progress'." },
+        "legal_name": { "type": "string", "description": "Registered legal entity behind the brand (regulatory). Appears in footer small print, privacy policy, Schema.org legalName. Currently placeholder 'Nilton Freitas' until Nilton provides the real registered name." }
       }
     },
     "nav": {
@@ -178,14 +180,15 @@
     "footer": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["tagline", "follow_label", "instagram_label", "facebook_label", "rights", "made_in"],
+      "required": ["tagline", "follow_label", "instagram_label", "facebook_label", "rights", "made_in", "legal_entity"],
       "properties": {
         "tagline": { "type": "string", "description": "Short footer tagline under the wordmark." },
         "follow_label": { "type": "string", "description": "e.g. 'Follow'." },
         "instagram_label": { "type": "string", "description": "Visible/aria text for Instagram link." },
         "facebook_label": { "type": "string", "description": "Visible/aria text for Facebook link (slot reserved)." },
-        "rights": { "type": "string", "description": "Copyright line. Use the {year} token where the year should appear — i18n binder substitutes the current year at render. Example: '© {year} Nilton Freitas. All rights reserved.'" },
-        "made_in": { "type": "string", "description": "e.g. 'Made in Madeira'." }
+        "rights": { "type": "string", "description": "Copyright line. Use the {year} token where the year should appear — i18n binder substitutes the current year at render. Example: '© {year} Madeira Surf Progress. All rights reserved.'" },
+        "made_in": { "type": "string", "description": "e.g. 'Made in Madeira'." },
+        "legal_entity": { "type": "string", "description": "Legal entity disclosure for the footer small print. Pattern: '[brand] is a brand of [legal name], licensed surf school in Madeira, Portugal.' Element rendered with data-placeholder='true' until Nilton confirms the registered legal name + license number." }
       }
     },
     "consent": {

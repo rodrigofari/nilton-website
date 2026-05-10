@@ -10,13 +10,15 @@
     "locale": "uk",
     "lang_name": "Українська",
     "lang_dir": "ltr",
-    "title": "Nilton Freitas — серф-гід на Madeira | Коучинг і супровідні сесії",
+    "title": "Madeira Surf Progress | Коучинг і супровідні сесії",
     "description": "Серфи легендарні хвилі Madeira з Nilton Freitas — сертифікованим коучем, що супроводжує всі рівні в Jardim do Mar, Paul do Mar, Ponta Pequena та інших місцях.",
-    "og_title": "Nilton Freitas — серф-гід на Madeira",
+    "og_title": "Madeira Surf Progress",
     "og_description": "Сертифікований серф-коуч на вулканічному узбережжі Madeira. Бронюй сесію через WhatsApp.",
     "og_image_alt": "Серфер на довгому правому брейку в Jardim do Mar, Madeira.",
-    "twitter_title": "Nilton Freitas — серф-гід на Madeira",
-    "twitter_description": "Сертифікований серф-коуч на вулканічному узбережжі Madeira."
+    "twitter_title": "Madeira Surf Progress",
+    "twitter_description": "Сертифікований серф-коуч на вулканічному узбережжі Madeira.",
+    "brand_name": "Madeira Surf Progress",
+    "legal_name": "Nilton Freitas"
   },
   "nav": {
     "about": "Про мене",
@@ -97,8 +99,9 @@
     "follow_label": "Стежити",
     "instagram_label": "Instagram",
     "facebook_label": "Facebook",
-    "rights": "© {year} Nilton Freitas. Усі права захищено.",
-    "made_in": "Зроблено на Madeira"
+    "rights": "© {year} Madeira Surf Progress. Усі права захищено.",
+    "made_in": "Зроблено на Madeira",
+    "legal_entity": "Madeira Surf Progress — це бренд Nilton Freitas, ліцензованої серф-школи на Madeira, Portugal."
   },
   "consent": {
     "banner_text": "Ми використовуємо файли cookie, щоб анонімно оцінювати трафік сайту. Нічого не відстежується, поки ти не погодишся.",

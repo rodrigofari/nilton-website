@@ -17,6 +17,57 @@ Any HTML element rendering placeholder content (mockup service cards, sample tes
 
 ---
 
+## 2026-05-10 — Brand name and legal entity are intentionally distinct
+
+The commercial brand is **"Madeira Surf Progress"** (premium coaching positioning, what the public sees and books). The legal entity is **Nilton Freitas's registered surf school in Portugal** (regulatory shell — Portuguese licensing under IPDJ / tourism authority requires this category for anyone operating commercially as a surf instructor).
+
+The two coexist by design. Don't merge them. Don't "fix" the apparent contradiction.
+
+**Where the brand appears (public-facing):**
+- Nav and footer wordmark
+- Page `<title>`, OG/Twitter titles
+- Schema.org `LocalBusiness.name`
+- llms.txt header
+- Hero, marketing copy, all client-facing surfaces
+
+**Where the legal entity appears (small print / regulatory disclosure):**
+- Footer legal small print (one-line disclosure under the rights line)
+- Privacy policy "Who runs this site" section
+- Schema.org `LocalBusiness.legalName`
+- Eventually: terms of service page (when one exists)
+- Eventually: any invoice/contract surface
+
+**Why this pattern is correct, not weird:** Boutique service businesses commonly have a legal shell that names a regulatory category while the commercial brand names a positioning. A wine bar registered as a "restaurant" because licensing demands it. A creative agency registered as "marketing services LLC" while branded as something else. Same here — Portuguese surf-instruction licensing requires "surf school" categorization. The brand "Madeira Surf Progress" markets premium coaching; the legal entity "[Nilton's registered name] — Surf School" satisfies IPDJ requirements. Both true simultaneously.
+
+**The logo's "SURF SCHOOL · MADEIRA ISLAND, PORTUGAL" tagline is regulatory disclosure**, not a positioning contradiction. Earlier flagged as an issue — that flag was wrong. Logo stays as-is.
+
+**How to apply:**
+- New JSON keys `meta.brand_name`, `meta.legal_name`, `footer.legal_entity` exist as the canonical references.
+- `meta.legal_name` is currently set to placeholder `"Nilton Freitas"` (sole-proprietor default). Real registered name from Nilton replaces it pre-launch — content swap, not architectural change.
+- `footer.legal_entity` is the disclosure sentence; carries `data-placeholder="true"` on the rendered element until Nilton confirms the legal name + license number to insert.
+- JSON-LD `LocalBusiness.legalName` mirrors `meta.legal_name`. JSON-LD `LocalBusiness.additionalType` is set to `https://schema.org/SportsActivityLocation` to give Google an explicit sports-activity hint alongside the LocalBusiness shell.
+- Don't move legal disclosure into the prominent footer brand area. It's deliberately small-print.
+
+---
+
+## 2026-05-09 — Cloudflare Pages, not GitHub Pages. Site assumes root-domain serving.
+
+The site is deployed to Cloudflare Pages (`nilton-website.pages.dev`, eventually a custom domain). GitHub Pages is **not** a viable target for this codebase as-shipped.
+
+**Why:**
+- Every absolute path in the HTML/CSS/JS uses leading `/` (e.g. `/styles/main.css`, `/en/`, `/scripts/main.js`, `fetch(\`/content/${locale}.json\`)`). 100+ references.
+- These resolve from the domain root.
+- **GitHub Pages serves project repos at a subpath** (`https://USERNAME.github.io/REPO/`) — absolute paths 404 there. The site loads HTML; nothing else loads.
+- **Cloudflare Pages serves at the subdomain root** (`https://PROJECT.pages.dev`) — absolute paths resolve correctly.
+- **`_redirects` and `_headers` are Cloudflare-specific** — GitHub Pages ignores both, so edge-side locale auto-routing and CSP enforcement disappear there.
+
+**How to apply:**
+- If anyone ever wants to deploy to GitHub Pages, they need either: (a) a build step that rewrites every absolute path to include the subpath prefix, (b) a custom domain wired at the GitHub Pages root, or (c) renaming the repo to `USERNAME.github.io` (which serves at root). All three are workarounds, not improvements.
+- Custom-domain DNS in Cloudflare is one-click from the Pages dashboard — no separate provider needed.
+- Don't introduce relative paths "for portability" — they make resolution context-dependent (`/en/privacy/index.html` referencing `/styles/main.css` would need a different path than `/index.html`). The absolute-path convention is intentional and right for this hosting target.
+
+---
+
 ## 2026-05-09 — Short fixed labels live in JSON, not inline. Migrate retroactively.
 
 Any inline text that's actually a single-word label, fixed kicker, or short repeated UI string belongs in `content/*.json` keyed under the appropriate section, not hard-coded in HTML — even when discovered after-the-fact.

@@ -1,6 +1,23 @@
-# Nilton Freitas — Surf Guide Madeira: Build Plan
+# Madeira Surf Progress: Build Plan
 
 Marketing site for Nilton Freitas, surf guide in Madeira, Portugal. Single page per locale, drives bookings via WhatsApp.
+
+## Live state (2026-05-10)
+- **Brand:** Madeira Surf Progress (commercial). Legal entity: Nilton Freitas, licensed surf school (Portuguese IPDJ regulatory category). See DECISIONS for the brand-vs-legal-entity rationale.
+- **Repo:** https://github.com/rodrigofari/nilton-website
+- **Preview deploy:** https://nilton-website.pages.dev — Cloudflare Pages, auto-deploys on push to `main`
+- **Production domain:** not yet wired — Nilton will buy the domain later. Placeholder `niltonfreitas.surf` hardcoded in 16 files; one-line sed swap when the real domain lands. See "Pre-deploy items" below.
+- **Status:** Build complete (4a + 4b + 4c). Phase 1 brand pivot shipped (Madeira Surf Progress sweep). Phase 2 (content rewrite for new positioning) in progress.
+
+## Coordinated rename pass (defer until production domain is bought)
+
+When Nilton purchases the real domain, three renames happen in one coordinated pass:
+1. **Repo** `rodrigofari/nilton-website` → `madeira-surf-progress` (GitHub Settings → Rename; old URL auto-redirects)
+2. **Cloudflare Pages project** `nilton-website` → `madeira-surf-progress` (Pages dashboard → Settings)
+3. **Hardcoded `niltonfreitas.surf`** in repo (16 files) → real domain via single sed across HTML/JSON/MD/TXT/XML
+4. **Cloudflare Pages → Custom domains** → add real domain → DNS auto-provisioned
+
+Until then, all three names stay as-is. They drift from the brand cosmetically but break nothing.
 
 ## Stack (locked)
 - Plain HTML, CSS, JavaScript. No framework, no build step.
@@ -41,9 +58,17 @@ Root `/` → `_redirects` resolves via `Accept-Language` (Cloudflare-side, not J
 ## Project structure (current state)
 ```
 nilton_website/
+├── README.md                   # public-facing project overview (renders on GitHub repo home)
 ├── PLAN.md                     # this file — build state + open items
 ├── DECISIONS.md                # log of non-obvious architectural choices
-├── .gitignore                  # ignores .claude/, .DS_Store, .env, etc.
+├── .gitignore                  # ignores .claude/, .DS_Store, translation-pack-*, .env, etc.
+│
+├── index.html                  # root: no-JS language picker fallback
+├── _redirects                  # Cloudflare Pages: Accept-Language → /{locale}/
+├── _headers                    # Cloudflare Pages: strict CSP, HSTS, cache rules
+├── robots.txt
+├── sitemap.xml                 # 5 homepages + 5 privacy pages, hreflang × 5 + x-default
+├── llms.txt                    # AI-crawler summary
 │
 ├── styleguide.html             # internal: design system reference (noindex meta)
 │
@@ -101,15 +126,9 @@ nilton_website/
 │       ├── testimonials/       # 3 avatars — empty (Picsum)
 │       └── og/                 # 5 OG images per locale — empty (referenced in <head>)
 │
-└── (queued — 4c)
-    ├── index.html              # root: no-JS language picker fallback
-    ├── robots.txt              # allows styleguide.html crawl (meta noindex layered)
-    ├── sitemap.xml
-    ├── llms.txt
-    ├── _redirects              # CF Pages: Accept-Language → /{locale}/
-    ├── _headers                # CF Pages: CSP, cache-control, X-Robots-Tag for styleguide
-    └── pt|fr|de|uk/privacy/    # 4 locale privacy pages (after translation pass)
 ```
+
+All files in the tree above are committed and live. No queued items remain in the build sequence.
 
 ## Cross-cutting requirements
 
@@ -174,7 +193,14 @@ WhatsApp redirect → `https://wa.me/351966236416` with prefilled message locali
    - **4a — EN locale + scripts + sections.css + utilities.css + EN privacy** ✅ shipped
    - **4b — PT/FR/DE/UK locale pages + privacy × 5** ✅ shipped (9 mechanical content-id replaces from translation pack + 4 locale privacy pages with `data-content-id` markers)
    - **4c — `_redirects`, `_headers`, `robots.txt`, `sitemap.xml`, `llms.txt`, root `index.html` + `styles/picker.css`** ✅ shipped
-5. **Pre-deploy checklist** — see below; awaits client deliverables (woff2 fonts, real GA4 ID, real photos)
+5. **Repo + deploy** ✅ shipped
+   - GitHub repo created and initial commit pushed: `rodrigofari/nilton-website`
+   - `.gitignore` covers `.claude/`, `.DS_Store`, `translation-pack-*.md`, `.env`, etc.
+   - `README.md` written — describes stack, structure, locale model, pre-deploy checklist
+   - Cloudflare Pages connected to GitHub repo, framework preset `None`, no build command, output `/`
+   - First production build green; preview live at `nilton-website.pages.dev`
+   - Auto-deploy on every push to `main` (typically ~30s build)
+6. **Pre-deploy items for production launch** — see below; awaits client deliverables (woff2 fonts, real GA4 ID, real photos, finalized copy)
 
 ---
 
@@ -254,17 +280,33 @@ All bug fixes from review:
 
 ---
 
-## Pre-deploy checklist (will be enforced before 4c ships)
-- [ ] woff2 fonts present in `/assets/fonts/` (per `assets/fonts/README.md`)
-- [ ] Real GA4 Measurement ID swapped into `scripts/config.js` (placeholder is `G-XXXXXXXXXX`)
-- [ ] Real photos placed (replaces Picsum URLs and Unsplash hero)
-- [ ] `grep -rn 'picsum.photos' .` → zero hits
-- [ ] `grep -rn 'data-placeholder' .` → zero hits
-- [ ] `grep -ri 'reef\|récif\|riff\|риф' content/ */index.html` → zero hits
-- [ ] `grep -rn 'data-missing' .` → zero hits
-- [ ] Production HTML eyebrow gate: `grep -rn '<span class="card__eyebrow">[A-Za-z]' --include="*.html" --exclude="styleguide.html"` → zero hits
-- [ ] All 5 locale homepages render without `[key.path]` red-outlined missing keys
-- [ ] WhatsApp links all open new tab (`target="_blank" rel="noopener"`)
+## Pre-deploy items still outstanding (for production launch)
+
+The site is live at the preview URL but these need to land before pointing the production domain:
+
+**Client-side deliverables (waiting on Nilton):**
+- [ ] **Real photos** — replaces 32 Picsum URLs + 1 Unsplash hero (per `assets/images/MANIFEST.md` slot specs)
+- [ ] **Service descriptions** confirmed — currently 3 placeholder cards marked `data-placeholder="true"`
+- [ ] **About bio** confirmed — current draft is placeholder, marked `data-placeholder="true"`
+- [ ] **FAQ answers** confirmed — 7 working drafts, all marked placeholder
+- [ ] **Real testimonials** collected — 3 sample quotes marked placeholder
+- [ ] **Brand approval** of design direction (Clean & Premium) and copy tone
+
+**Technical deliverables (build-side):**
+- [ ] **woff2 fonts** dropped into `/assets/fonts/` (per `assets/fonts/README.md` — Fraunces variable + italic, Inter variable + italic with Cyrillic subset). Currently fonts fall back to system stacks.
+- [ ] **Real GA4 Measurement ID** swapped into `scripts/config.js` (placeholder is `G-XXXXXXXXXX` — invalid by design so a forgotten swap shows as a GA4 rejection in DevTools)
+
+**Pre-deploy QA gates (must all return zero hits):**
+- [ ] `grep -rn 'picsum.photos' . --include="*.html"` (currently 108 — all by design, swap with real images)
+- [ ] `grep -rn 'data-placeholder' . --include="*.html"` (currently 93 — all by design, replace with confirmed copy)
+- [ ] `grep -rn 'data-missing' . --include="*.html"` ✅ already 0
+- [ ] `grep -ri 'reef\|récif\|riff\|риф' content/ */index.html` ✅ already 0
+- [ ] Production HTML eyebrow gate: `grep -rn '<span class="card__eyebrow">[A-Za-z]' --include="*.html" --exclude="styleguide.html"` ✅ already 0
+
+**Production launch (post-Nilton-deliverables):**
+- [ ] **Custom domain** wired in Cloudflare Pages (Add custom domain → DNS auto-provisioned)
+- [ ] **Manually verify** all 5 locale homepages and 5 privacy pages render cleanly with real content
+- [ ] **Lighthouse pass** ≥ 95 on Performance, Accessibility, Best Practices, SEO (will be achievable once fonts + photos are in)
 
 ## Decision log
 Detailed rationale for non-obvious choices lives in `DECISIONS.md` (created in step 4).
