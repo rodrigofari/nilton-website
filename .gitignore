@@ -15,8 +15,9 @@ Thumbs.db
 .env.*
 !.env.example
 
-# Working artifacts (translation packs, scratch files)
+# Working artifacts (translation packs / extractions, scratch files)
 translation-pack-*.md
+translation-extraction-*.md
 
 # Logs
 *.log

@@ -11,12 +11,12 @@
     "lang_name": "Français",
     "lang_dir": "ltr",
     "title": "Madeira Surf Progress | Coaching et sessions guidées",
-    "description": "Surfez les vagues emblématiques de Madeira avec Nilton Freitas — coach certifié qui guide tous les niveaux à Jardim do Mar, Paul do Mar, Ponta Pequena et au-delà.",
+    "description": "Surf coaching premium, surf guiding et programmes de progression sur l'île de Madeira. Coaching privé et intensifs d'1 à 2 semaines — avec Nilton Freitas, surfeur de compétition formé par des entraîneurs de haut niveau.",
     "og_title": "Madeira Surf Progress",
-    "og_description": "Coach de surf certifié sur la côte volcanique de Madeira. Réserve une session via WhatsApp.",
+    "og_description": "Surf coaching premium et programmes de progression sur l'île de Madeira. Avec Nilton Freitas — surfeur de compétition focalisé sur une vraie progression technique.",
     "og_image_alt": "Surfeur sur une longue droite à Jardim do Mar, Madeira.",
     "twitter_title": "Madeira Surf Progress",
-    "twitter_description": "Coach de surf certifié sur la côte volcanique de Madeira.",
+    "twitter_description": "Surf coaching premium et programmes de progression sur l'île de Madeira. Vraie progression technique à tous les niveaux.",
     "brand_name": "Madeira Surf Progress",
     "legal_name": "Nilton Freitas"
   },
@@ -35,30 +35,30 @@
     "back_to_home": "← Retour à l'accueil"
   },
   "hero": {
-    "eyebrow": "Premium Surf Coaching · Madeira Island",
+    "eyebrow": "Surf Coaching Premium · Île de Madeira",
     "cta_secondary": "Voir les services",
     "scroll_hint": "Fais défiler pour explorer"
   },
   "about": {
     "section_label": "À propos de Nilton",
-    "stat_years_label": "Years on the water",
-    "stat_certs_label": "Coach certifications",
-    "stat_spots_label": "Spots known intimately",
+    "stat_years_label": "Années sur l'eau",
+    "stat_certs_label": "Certifications de coach",
+    "stat_spots_label": "Spots connus en profondeur",
     "cta": "Planifie ta session"
   },
   "services": {
     "section_label": "Coaching & Guiding",
-    "section_title": "Built around your progression.",
-    "section_lede": "Four ways to train and surf with Madeira Surf Progress — from single sessions to two-week intensive camps. Every booking is shaped around your level, the conditions, and the goals you want to reach.",
+    "section_title": "Construit autour de ta progression.",
+    "section_lede": "Quatre façons de t'entraîner et de surfer avec Madeira Surf Progress — de la session unique aux camps intensifs de deux semaines. Chaque réservation est façonnée autour de ton niveau, des conditions et des objectifs que tu veux atteindre.",
     "eyebrow": "Coaching & Guiding",
-    "card_includes_label": "Includes",
-    "cta_enquire": "Enquire on WhatsApp",
-    "cta_apply": "Apply on WhatsApp",
+    "card_includes_label": "Inclus",
+    "cta_enquire": "Demander info sur WhatsApp",
+    "cta_apply": "Candidater sur WhatsApp",
     "flagship_label": "Flagship",
-    "coaching_prefill": "Hi Nilton, I'd like to book a Private Surf Coaching session.",
-    "guiding_prefill": "Hi Nilton, I'd like to enquire about the Surf Guiding Experience.",
-    "week_prefill": "Hi Nilton, I'm interested in the 1 Week Surf Progression Program.",
-    "intensive_prefill": "Hi Nilton, I'd like to apply for the 2 Week Intensive Surf Camp."
+    "coaching_prefill": "Salut Nilton, j'aimerais réserver une session de Private Surf Coaching.",
+    "guiding_prefill": "Salut Nilton, j'aimerais en savoir plus sur la Surf Guiding Experience.",
+    "week_prefill": "Salut Nilton, je suis intéressé par le 1 Week Surf Progression Program.",
+    "intensive_prefill": "Salut Nilton, j'aimerais candidater au 2 Week Intensive Surf Camp."
   },
   "spots": {
     "section_label": "Spots de Madeira",
