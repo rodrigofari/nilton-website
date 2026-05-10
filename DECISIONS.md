@@ -17,6 +17,36 @@ Any HTML element rendering placeholder content (mockup service cards, sample tes
 
 ---
 
+## 2026-05-10 — Logo is raster (transparent PNG) until designer ships an SVG
+
+The brand mark currently lives as a set of transparent PNGs at `assets/images/logos/`:
+- `logo-master-1254.png` (master, 1254×1254)
+- `logo-2400.png` (OG cards, high-DPI surfaces)
+- `logo-1200.png` (footer, large surfaces)
+- `logo-512.png` (favicon source, medium surfaces)
+- `logo-256.png` (nav-mark @ 1x; 512 used for @2x retina)
+
+All are 8-bit RGBA with true alpha transparency, processed from the original JPEG the client provided. The cream background that the JPEG had has been removed; logos composite cleanly on any colour surface (navy footer, cream nav, etc.).
+
+**Why raster, not SVG:**
+- Original deliverable was JPEG. No vector source file exists yet.
+- The illustrated badge style (cliffs, surfer, sun, birds, multiple text layers) is detail-heavy enough that a hand-traced SVG would either lose fidelity or balloon in file size.
+- At the rendering sizes we use (40px nav, 64px footer, 180px apple-touch-icon, 460px OG), the PNG raster set is visually indistinguishable from a hypothetical SVG.
+
+**Future swap path (single pass when SVG arrives):**
+1. Drop the SVG into `assets/images/logos/logo.svg`
+2. Update `.site-nav__brand-mark` references in HTML across 12 files: change `<img>` to `<img>` pointing to `.svg` instead of `.png`, drop the srcset
+3. Regenerate favicon set from SVG (Pillow + cairosvg, or external tool)
+4. Re-render OG cards using the SVG-rasterised logo as source
+5. Delete the PNG set if the SVG covers all sizes cleanly
+
+**How to apply:**
+- Don't add new code paths that assume vector logo. The current setup is the canonical state.
+- If retina concerns ever bite (4K monitors), bump the srcset's `2x` to use `logo-1200.png` instead of `logo-512.png` — already in the asset folder.
+- The `apple-touch-icon.png` is 180×180 — Apple's spec. Don't resize it, generate fresh from `logo-512.png` if the source ever changes.
+
+---
+
 ## 2026-05-10 — Brand name and legal entity are intentionally distinct
 
 The commercial brand is **"Madeira Surf Progress"** (premium coaching positioning, what the public sees and books). The legal entity is **Nilton Freitas's registered surf school in Portugal** (regulatory shell — Portuguese licensing under IPDJ / tourism authority requires this category for anyone operating commercially as a surf instructor).

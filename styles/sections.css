@@ -689,6 +689,7 @@
   }
 }
 .site-footer__brand .site-nav__brand { color: var(--color-ink-on-dark); }
+.site-footer__brand .site-nav__brand-mark { width: 64px; height: 64px; }
 .site-footer__tagline {
   margin-top: var(--space-3);
   max-width: 36ch;

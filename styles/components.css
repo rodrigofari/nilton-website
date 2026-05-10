@@ -178,14 +178,14 @@
   color: var(--color-ink-strong);
   text-decoration: none;
 }
+/* Brand mark — currently a transparent PNG logo (Phase 3).
+ * Lives in /assets/images/logos/, rendered at 40×40 in nav with retina srcset.
+ * Footer override in sections.css renders larger.
+ * If the slot ever holds an empty <span> (legacy / fallback), it collapses. */
 .site-nav__brand-mark {
-  /* reserved 40×40 slot for future logo mark; collapses cleanly */
   width: 40px; height: 40px;
-  display: inline-grid; place-items: center;
-  border-radius: var(--radius-pill);
-  background: var(--color-ink-strong);
-  color: var(--color-ink-on-dark);
-  font-size: var(--type-base);
+  flex-shrink: 0;
+  object-fit: contain;
 }
 .site-nav__brand-mark:empty { display: none; }
 
