@@ -48,14 +48,18 @@
     "cta": "Planifie ta session"
   },
   "services": {
-    "section_label": "Services",
-    "section_title": "Des sessions construites autour du swell",
-    "eyebrow": "Service",
-    "card_includes_label": "Inclus",
-    "card_duration_label": "Durée",
-    "card_level_label": "Niveau",
-    "card_cta": "Réserver",
-    "disclaimer": "Les tarifs et la disponibilité varient selon la saison et les conditions. Confirme via WhatsApp."
+    "section_label": "Coaching & Guiding",
+    "section_title": "Built around your progression.",
+    "section_lede": "Four ways to train and surf with Madeira Surf Progress — from single sessions to two-week intensive camps. Every booking is shaped around your level, the conditions, and the goals you want to reach.",
+    "eyebrow": "Coaching & Guiding",
+    "card_includes_label": "Includes",
+    "cta_enquire": "Enquire on WhatsApp",
+    "cta_apply": "Apply on WhatsApp",
+    "flagship_label": "Flagship",
+    "coaching_prefill": "Hi Nilton, I'd like to book a Private Surf Coaching session.",
+    "guiding_prefill": "Hi Nilton, I'd like to enquire about the Surf Guiding Experience.",
+    "week_prefill": "Hi Nilton, I'm interested in the 1 Week Surf Progression Program.",
+    "intensive_prefill": "Hi Nilton, I'd like to apply for the 2 Week Intensive Surf Camp."
   },
   "spots": {
     "section_label": "Spots de Madeira",

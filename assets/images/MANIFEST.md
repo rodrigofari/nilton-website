@@ -74,37 +74,49 @@ Every image slot the site uses, defined before any photo arrives. Reserves dimen
 
 ---
 
-## Services *(3 placeholder cards — `data-placeholder="true"` until Nilton confirms)*
+## Services *(4 cards — Phase 2 service tiers, real pricing, EN canonical)*
 
-### `services/guided-session`
-- **File:** `assets/images/services/guided-session.{avif,webp,jpg}`
+The services section is a 2×2 grid: Card 1 entry-level top-left, Card 4 flagship bottom-right. Diagonal reading flow walks the user up the tier ladder.
+
+### `services/coaching` — Card 1: Private Surf Coaching
+- **File:** `assets/images/services/coaching.{avif,webp,jpg}`
 - **Dimensions:** 1200 × 900
 - **Aspect ratio:** 4:3
 - **Focal:** 50% 50%
 - **Widths (srcset):** 600w, 900w, 1200w
-- **Brief:** Single surfer + guide context. Calm framing, suggests one-session vibe. Boards on cliff path, or two figures walking to the water, or one in the lineup with another paddling out.
-- **Placeholder:** `https://picsum.photos/seed/svc-guided/1200/900`
-- **Unsplash search:** `surf guide lesson coast`
-
-### `services/coaching-intensive`
-- **File:** `assets/images/services/coaching-intensive.{avif,webp,jpg}`
-- **Dimensions:** 1200 × 900
-- **Aspect ratio:** 4:3
-- **Focal:** 50% 50%
-- **Widths (srcset):** 600w, 900w, 1200w
-- **Brief:** Coaching context — surfer on whitewater, instructor pointing/gesturing from beach, or video-review feel. Sense of progression and instruction.
+- **Brief:** Intimate 1-on-1 coaching scene. Nilton + a single surfer in/at the water. Could be a quiet beach moment talking through the next set, or coaching in the lineup. Personal, focused, technical.
 - **Placeholder:** `https://picsum.photos/seed/svc-coaching/1200/900`
-- **Unsplash search:** `surf coaching instructor beach`
+- **Unsplash search:** `surf coach personal lesson`
 
-### `services/surf-trip`
-- **File:** `assets/images/services/surf-trip.{avif,webp,jpg}`
+### `services/guiding` — Card 2: Surf Guiding Experience
+- **File:** `assets/images/services/guiding.{avif,webp,jpg}`
 - **Dimensions:** 1200 × 900
 - **Aspect ratio:** 4:3
 - **Focal:** 50% 50%
 - **Widths (srcset):** 600w, 900w, 1200w
-- **Brief:** Multi-day trip vibe. Boards on car roof, group on cliff overlooking break, or van on coastal road. Sense of adventure / multiple spots.
-- **Placeholder:** `https://picsum.photos/seed/svc-trip/1200/900`
-- **Unsplash search:** `surf trip van coastline boards`
+- **Brief:** Premium-day vibe. Cliff overlook with surf below + a board, or van + boards on the coastal road, or a group walking to a hidden spot. Sense of being shown the island, not just dropped at a beach.
+- **Placeholder:** `https://picsum.photos/seed/svc-guiding/1200/900`
+- **Unsplash search:** `surf guide coast scout madeira`
+
+### `services/week` — Card 3: 1 Week Surf Progression Program
+- **File:** `assets/images/services/week.{avif,webp,jpg}`
+- **Dimensions:** 1200 × 900
+- **Aspect ratio:** 4:3
+- **Focal:** 50% 50%
+- **Widths (srcset):** 600w, 900w, 1200w
+- **Brief:** Progression / methodical training feel. Multiple sessions visible (e.g. surfer + coach + iPad video review on beach). Shows the structured nature.
+- **Placeholder:** `https://picsum.photos/seed/svc-week/1200/900`
+- **Unsplash search:** `surf coaching video review training`
+
+### `services/intensive` — Card 4: 2 Week Intensive Surf Camp [FLAGSHIP]
+- **File:** `assets/images/services/intensive.{avif,webp,jpg}`
+- **Dimensions:** 1200 × 900
+- **Aspect ratio:** 4:3
+- **Focal:** 50% 50%
+- **Widths (srcset):** 600w, 900w, 1200w
+- **Brief:** The hero shot of the services section. High-performance surfing — Nilton or an advanced student in a serious wave. This is the image that telegraphs "this is the top tier." Should look distinctly different from the other three (more dramatic, more performance-y).
+- **Placeholder:** `https://picsum.photos/seed/svc-intensive/1200/900`
+- **Unsplash search:** `surf performance bottom turn dramatic`
 
 ---
 

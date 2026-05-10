@@ -227,71 +227,103 @@
       <header class="services__head">
         <p class="eyebrow" data-i18n="services.section_label"></p>
         <h2 id="services-title" data-i18n="services.section_title"></h2>
+        <p class="services__lede" data-i18n="services.section_lede"></p>
       </header>
 
       <ul class="services__grid">
-        <li><article class="card" data-placeholder="true">
-          <div class="card__media">
-            <img src="https://picsum.photos/seed/svc-guided/1200/900" alt="" width="1200" height="900" loading="lazy">
-          </div>
-          <div class="card__body">
-            <span class="card__eyebrow" data-i18n="services.eyebrow"></span>
-            <h3 class="card__title" data-content-id="services.guided.title">Guided Session</h3>
-            <p data-content-id="services.guided.desc">Half-day with Nilton at the spot that's firing. Boards, wetsuit, and transport from your accommodation included.</p>
-            <div class="card__meta">
-              <span class="tag"><span data-i18n="services.card_duration_label"></span> · 4h</span>
-              <span class="tag"><span data-i18n="services.card_level_label"></span> · All</span>
-            </div>
-            <span class="card__price">€80</span>
-            <a class="btn btn--secondary btn--sm card__cta"
-               href="https://wa.me/351966236416" target="_blank" rel="noopener"
-               data-i18n="services.card_cta"
-               data-i18n-href="contact.whatsapp_prefill"></a>
-          </div>
-        </article></li>
 
-        <li><article class="card" data-placeholder="true">
+        <li><article class="card service-card">
           <div class="card__media">
             <img src="https://picsum.photos/seed/svc-coaching/1200/900" alt="" width="1200" height="900" loading="lazy">
           </div>
           <div class="card__body">
-            <span class="card__eyebrow" data-i18n="services.eyebrow"></span>
-            <h3 class="card__title" data-content-id="services.coaching.title">Coaching Intensive</h3>
-            <p data-content-id="services.coaching.desc">Multi-day coaching with daily sessions, video review, and structured feedback. For surfers serious about levelling up.</p>
-            <div class="card__meta">
-              <span class="tag"><span data-i18n="services.card_duration_label"></span> · 4 days</span>
-              <span class="tag"><span data-i18n="services.card_level_label"></span> · Intermediate+</span>
-            </div>
-            <span class="card__price">€280</span>
+            <h3 class="card__title" data-content-id="services.coaching.title">Private Surf Coaching</h3>
+            <p class="card__lede" data-content-id="services.coaching.lede">One-on-one or two-person coaching sessions focused on real technical progression. The right spot for the conditions, the right wave for your level, real feedback in and out of the water.</p>
+            <h4 class="card__includes-label" data-i18n="services.card_includes_label"></h4>
+            <ul class="card__includes">
+              <li data-content-id="services.coaching.includes.1">2–2.5 hour session</li>
+              <li data-content-id="services.coaching.includes.2">1 or 2 surfers max</li>
+              <li data-content-id="services.coaching.includes.3">Spot selected to match conditions + your level</li>
+              <li data-content-id="services.coaching.includes.4">Equipment available</li>
+              <li data-content-id="services.coaching.includes.5">Transport optional</li>
+            </ul>
+            <span class="card__price" data-content-id="services.coaching.price">From €90–120 per person</span>
             <a class="btn btn--secondary btn--sm card__cta"
                href="https://wa.me/351966236416" target="_blank" rel="noopener"
-               data-i18n="services.card_cta"
-               data-i18n-href="contact.whatsapp_prefill"></a>
+               data-i18n="services.cta_enquire"
+               data-i18n-href="services.coaching_prefill"></a>
           </div>
         </article></li>
 
-        <li><article class="card" data-placeholder="true">
+        <li><article class="card service-card">
           <div class="card__media">
-            <img src="https://picsum.photos/seed/svc-trip/1200/900" alt="" width="1200" height="900" loading="lazy">
+            <img src="https://picsum.photos/seed/svc-guiding/1200/900" alt="" width="1200" height="900" loading="lazy">
           </div>
           <div class="card__body">
-            <span class="card__eyebrow" data-i18n="services.eyebrow"></span>
-            <h3 class="card__title" data-content-id="services.trip.title">Surf Trip</h3>
-            <p data-content-id="services.trip.desc">A full week chasing swell across the island — south coast on west swells, north coast when it switches. Boards, transport, and local insight throughout.</p>
-            <div class="card__meta">
-              <span class="tag"><span data-i18n="services.card_duration_label"></span> · 7 days</span>
-              <span class="tag"><span data-i18n="services.card_level_label"></span> · All</span>
-            </div>
-            <span class="card__price">From €650</span>
+            <h3 class="card__title" data-content-id="services.guiding.title">Surf Guiding Experience</h3>
+            <p class="card__lede" data-content-id="services.guiding.lede">A premium day chasing Madeira's best waves with local knowledge and coaching woven in. Designed for surfers who want the day mapped intelligently — best spot, best window, best of the island.</p>
+            <h4 class="card__includes-label" data-i18n="services.card_includes_label"></h4>
+            <ul class="card__includes">
+              <li data-content-id="services.guiding.includes.1">Half-day or full-day</li>
+              <li data-content-id="services.guiding.includes.2">Spot scouting and personal guidance</li>
+              <li data-content-id="services.guiding.includes.3">Coaching integrated throughout</li>
+              <li data-content-id="services.guiding.includes.4">Transport optional</li>
+            </ul>
+            <span class="card__price" data-content-id="services.guiding.price">From €150–220</span>
             <a class="btn btn--secondary btn--sm card__cta"
                href="https://wa.me/351966236416" target="_blank" rel="noopener"
-               data-i18n="services.card_cta"
-               data-i18n-href="contact.whatsapp_prefill"></a>
+               data-i18n="services.cta_enquire"
+               data-i18n-href="services.guiding_prefill"></a>
           </div>
         </article></li>
-      </ul>
 
-      <p class="services__disclaimer" data-i18n="services.disclaimer"></p>
+        <li><article class="card service-card">
+          <div class="card__media">
+            <img src="https://picsum.photos/seed/svc-week/1200/900" alt="" width="1200" height="900" loading="lazy">
+          </div>
+          <div class="card__body">
+            <h3 class="card__title" data-content-id="services.week.title">1 Week Surf Progression Program</h3>
+            <p class="card__lede" data-content-id="services.week.lede">A full week of structured progression. Daily coaching, surf guiding, and forecast-driven planning — all designed around accelerating your surfing in seven days.</p>
+            <h4 class="card__includes-label" data-i18n="services.card_includes_label"></h4>
+            <ul class="card__includes">
+              <li data-content-id="services.week.includes.1">Daily coaching + guiding sessions</li>
+              <li data-content-id="services.week.includes.2">Forecast-led day planning</li>
+              <li data-content-id="services.week.includes.3">Focus: technique, positioning, timing, ocean reading</li>
+              <li data-content-id="services.week.includes.4">Customised to your level</li>
+              <li data-content-id="services.week.includes.5">Equipment included</li>
+            </ul>
+            <span class="card__price" data-content-id="services.week.price">Custom (package-dependent)</span>
+            <a class="btn btn--secondary btn--sm card__cta"
+               href="https://wa.me/351966236416" target="_blank" rel="noopener"
+               data-i18n="services.cta_enquire"
+               data-i18n-href="services.week_prefill"></a>
+          </div>
+        </article></li>
+
+        <li><article class="card service-card service-card--flagship">
+          <span class="card__flagship" data-i18n="services.flagship_label"></span>
+          <div class="card__media">
+            <img src="https://picsum.photos/seed/svc-intensive/1200/900" alt="" width="1200" height="900" loading="lazy">
+          </div>
+          <div class="card__body">
+            <h3 class="card__title" data-content-id="services.intensive.title">2 Week Intensive Surf Camp</h3>
+            <p class="card__lede" data-content-id="services.intensive.lede">The flagship. Two weeks of complete immersion — premium coaching, performance focus, accelerated progression. Application-based, custom-priced, designed for surfers serious about transformation.</p>
+            <h4 class="card__includes-label" data-i18n="services.card_includes_label"></h4>
+            <ul class="card__includes">
+              <li data-content-id="services.intensive.includes.1">Two weeks of personalised coaching</li>
+              <li data-content-id="services.intensive.includes.2">Performance-led methodology</li>
+              <li data-content-id="services.intensive.includes.3">Application &amp; enquiry based</li>
+              <li data-content-id="services.intensive.includes.4">Pricing tailored to programme</li>
+            </ul>
+            <span class="card__price" data-content-id="services.intensive.price">Custom pricing</span>
+            <a class="btn btn--accent btn--sm card__cta"
+               href="https://wa.me/351966236416" target="_blank" rel="noopener"
+               data-i18n="services.cta_apply"
+               data-i18n-href="services.intensive_prefill"></a>
+          </div>
+        </article></li>
+
+      </ul>
     </div>
   </section>
 

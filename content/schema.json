@@ -103,16 +103,24 @@
     "services": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["section_label", "section_title", "eyebrow", "card_includes_label", "card_duration_label", "card_level_label", "card_cta", "disclaimer"],
+      "required": [
+        "section_label", "section_title", "section_lede", "eyebrow",
+        "card_includes_label", "cta_enquire", "cta_apply", "flagship_label",
+        "coaching_prefill", "guiding_prefill", "week_prefill", "intensive_prefill"
+      ],
       "properties": {
-        "section_label": { "type": "string" },
-        "section_title": { "type": "string" },
-        "eyebrow": { "type": "string", "description": "Per-card kicker label above the card title (e.g. 'Service' / 'Serviço' / 'Angebot')." },
-        "card_includes_label": { "type": "string", "description": "e.g. 'Includes'." },
-        "card_duration_label": { "type": "string", "description": "e.g. 'Duration'." },
-        "card_level_label": { "type": "string", "description": "e.g. 'Level'." },
-        "card_cta": { "type": "string", "description": "Per-card CTA, e.g. 'Book this'." },
-        "disclaimer": { "type": "string", "description": "Small print under cards, e.g. price/availability note." }
+        "section_label": { "type": "string", "description": "Section eyebrow above the title — e.g. 'Coaching & Guiding'." },
+        "section_title": { "type": "string", "description": "Section h2." },
+        "section_lede": { "type": "string", "description": "Lead paragraph under the section h2. Sets context for the four service tiers." },
+        "eyebrow": { "type": "string", "description": "Legacy per-card kicker. Currently mirrors section_label; not rendered on cards in the 4-tier layout. Kept for back-compat — drop in a future cleanup if unused." },
+        "card_includes_label": { "type": "string", "description": "Subheading inside each card above the includes list — e.g. 'Includes'." },
+        "cta_enquire": { "type": "string", "description": "CTA label for the three non-flagship tiers (Coaching, Guiding, 1 Week). Pattern: 'Enquire on WhatsApp'." },
+        "cta_apply": { "type": "string", "description": "CTA label for the flagship 2-Week Intensive only — 'Apply on WhatsApp'. Linguistic distinction signals selectivity for application-based tier." },
+        "flagship_label": { "type": "string", "description": "Small uppercase tag on the flagship card. Pattern: 'Flagship'." },
+        "coaching_prefill": { "type": "string", "description": "WhatsApp prefilled message for Card 1 (Private Surf Coaching)." },
+        "guiding_prefill": { "type": "string", "description": "WhatsApp prefilled message for Card 2 (Surf Guiding Experience)." },
+        "week_prefill": { "type": "string", "description": "WhatsApp prefilled message for Card 3 (1 Week Surf Progression Program)." },
+        "intensive_prefill": { "type": "string", "description": "WhatsApp prefilled message for Card 4 (2 Week Intensive Surf Camp, flagship)." }
       }
     },
     "spots": {

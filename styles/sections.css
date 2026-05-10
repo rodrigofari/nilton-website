@@ -306,26 +306,32 @@
   flex-direction: column;
   gap: var(--space-3);
   margin-bottom: var(--space-7);
-  max-width: 60ch;
+  max-width: 64ch;
 }
 .services__head h2 {
   font-size: clamp(var(--type-3xl), 4vw, var(--type-4xl));
   font-variation-settings: "opsz" 96;
 }
+.services__lede {
+  font-size: var(--type-md);
+  color: var(--color-ink-soft);
+  line-height: var(--leading-relaxed);
+}
+
+/* 2×2 grid on desktop, stacked on mobile.
+ * Card 1 top-left = entry; Card 4 bottom-right = flagship.
+ * Diagonal reading flow walks the user up the tier ladder. */
 .services__grid {
   list-style: none; padding: 0; margin: 0;
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-5);
 }
-@media (min-width: 768px)  { .services__grid { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 1024px) { .services__grid { grid-template-columns: repeat(3, 1fr); } }
-.services__disclaimer {
-  margin-top: var(--space-6);
-  font-size: var(--type-sm);
-  font-weight: var(--weight-bold);
-  color: var(--color-ink-soft);
-  max-width: 60ch;
+@media (min-width: 768px) {
+  .services__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
 }
 
 /* Card price highlight */
@@ -335,6 +341,74 @@
   font-weight: var(--weight-semibold);
   color: var(--color-ink-strong);
   letter-spacing: var(--tracking-tight);
+}
+
+/* Service card — additional structure for the 4-tier layout. */
+.service-card {
+  position: relative;
+}
+.service-card .card__body {
+  gap: var(--space-4);
+}
+.card__lede {
+  font-size: var(--type-base);
+  color: var(--color-ink);
+  line-height: var(--leading-relaxed);
+}
+.card__includes-label {
+  font-family: var(--font-body);
+  font-size: var(--type-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+  margin: var(--space-2) 0 0;
+}
+.card__includes {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.card__includes li {
+  font-size: var(--type-sm);
+  color: var(--color-ink);
+  padding-left: var(--space-4);
+  position: relative;
+  line-height: var(--leading-snug);
+}
+.card__includes li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+}
+
+/* Flagship badge — subtle gold tag, top-right corner of card 4 only.
+ * "Subtle visual distinction, not a loud FEATURED banner" per spec. */
+.service-card--flagship {
+  border-color: var(--color-gold);
+}
+.service-card--flagship:hover {
+  border-color: var(--color-gold-strong);
+}
+.card__flagship {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  font-family: var(--font-body);
+  font-size: var(--type-2xs);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-gold-strong);
+  background: var(--color-gold-wash);
+  border: 1px solid var(--color-gold);
+  padding: 3px var(--space-3);
+  border-radius: var(--radius-pill);
+  z-index: 2;
 }
 
 /* -----------------------------------------------------------
