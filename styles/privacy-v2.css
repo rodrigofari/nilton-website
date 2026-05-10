@@ -21,6 +21,9 @@
   border-radius: var(--radius-sm);
   font-size: var(--type-sm);
   color: var(--color-ink);
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
 
 .privacy h2 {
