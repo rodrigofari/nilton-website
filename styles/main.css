@@ -3,8 +3,8 @@
  * Order matters: tokens → base → components → sections.
  * ============================================================= */
 
-@import url("./tokens.css");
-@import url("./base.css");
-@import url("./components.css");
-@import url("./sections.css");
-@import url("./utilities.css");
+@import url("./tokens.css?v=20260510b");
+@import url("./base.css?v=20260510b");
+@import url("./components.css?v=20260510b");
+@import url("./sections.css?v=20260510b");
+@import url("./utilities.css?v=20260510b");
