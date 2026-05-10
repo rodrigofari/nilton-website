@@ -17,6 +17,32 @@ Any HTML element rendering placeholder content (mockup service cards, sample tes
 
 ---
 
+## 2026-05-10 — Single logo across all surfaces. Compromise at small sizes is accepted.
+
+The brand mark is the same `logo-256.png` (with srcset to `logo-512.png` for retina) on every surface — nav (40×40 on cream), footer (64×64 on dark navy), favicon (16/32/48), apple-touch-icon (180×180), OG cards (~460×460 on navy). **No per-surface logo variants.** No knockout version, no monogram extraction, no contextual plates, no badge crops.
+
+**Why not variants:**
+- The logo is an illustrated lockup with cream + navy + gold elements. Each surface's bg colour suppresses ~30% of those elements (cream parts blend on cream nav; navy parts blend on dark footer).
+- Programmatic colour-shift variants (Pillow-generated knockouts and navy-only silhouettes) were prototyped on 2026-05-10. They worked mechanically but didn't solve the underlying problem — the logo's *design* is the issue at small sizes, not the colour palette. Re-colouring doesn't add resolution.
+- A per-surface variant set requires a designer to author. Programmatic versions look automated. Premium positioning is undermined by automated-looking marks more than by mild contrast loss.
+- The mitigations (plates, crops, monogram-only nav) all introduce visual weight or strip recognisable character. Cost > benefit for a brand-new site.
+
+**The accepted trade-off:**
+- At 40×40 nav-size against cream, the logo reads as a small dark silhouette of the badge. Wordmark text inside the logo is illegible at that size — it's not meant to be read; it's meant to register as "the brand mark for this site."
+- At 64×64 footer-size against dark navy, the cream wave foam + gold "SURF PROGRESS" elements are visible. Navy elements blend. Same compromise inverted.
+- Both are visually acceptable in their slots when paired with the live "Madeira Surf Progress" wordmark text alongside (nav) or above (footer).
+
+**One mitigation we did keep:**
+- `filter: drop-shadow(0 1px 2px rgba(15, 35, 64, 0.12))` on `.site-nav__brand-mark`. Subtle navy-tinted edge shadow that lifts the logo against cream surfaces. Invisible against navy (navy-on-navy = no-op), so the same rule covers nav and footer.
+- Rejected mitigations (logged for posterity so they don't get re-tried): contextual contrast plates behind the logo, processed knockout variants, badge crops, single-tone silhouettes.
+
+**How to apply:**
+- New surfaces use the same `logo-{256,512,1200,2400}.png` set with srcset chosen by display size.
+- If a future surface has bg colour that destroys the logo's contrast badly (e.g. a yellow surface), reach for a designer-authored variant — don't re-attempt programmatic variants.
+- When a designer ships proper light-on-dark / dark-on-light / monogram variants, swap path is one filename change per surface (nav → variant for cream; footer → variant for navy). HTML structure stays identical.
+
+---
+
 ## 2026-05-10 — Logo is raster (transparent PNG) until designer ships an SVG
 
 The brand mark currently lives as a set of transparent PNGs at `assets/images/logos/`:
