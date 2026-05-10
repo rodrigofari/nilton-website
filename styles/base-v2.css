@@ -116,7 +116,7 @@ h4 { font-size: var(--type-xl); }
 h5 { font-size: var(--type-lg); }
 h6 { font-size: var(--type-md); letter-spacing: var(--tracking-normal); }
 
-p { line-height: var(--leading-relaxed); }
+p { line-height: var(--leading-relaxed); text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
 small, .text-small { font-size: var(--type-sm); }
 
 a {

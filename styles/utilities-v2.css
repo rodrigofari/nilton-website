@@ -17,7 +17,6 @@
 /* prose paragraph rhythm for inline copy blocks */
 .prose > * + * { margin-top: var(--space-4); }
 .prose p, .prose li { line-height: var(--leading-relaxed); color: var(--color-ink); }
-.prose p { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
 
 /* -----------------------------------------------------------
  * Missing i18n key — visually loud. See DECISIONS for rationale.
