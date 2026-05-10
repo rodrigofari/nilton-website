@@ -183,7 +183,7 @@
  * Footer override in sections.css renders larger.
  * If the slot ever holds an empty <span> (legacy / fallback), it collapses. */
 .site-nav__brand-mark {
-  width: 56px; height: 56px;
+  width: 80px; height: 80px;
   flex-shrink: 0;
   object-fit: contain;
   /* Subtle navy-tinted shadow — gives edge definition against the cream nav bg
