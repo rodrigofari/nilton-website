@@ -439,18 +439,20 @@
 }
 .spots__grid {
   list-style: none;
-  margin: 0;
-  padding: 0 0 var(--space-3);
+  margin-inline: calc(-1 * var(--container-pad-x));
+  padding: 0 var(--container-pad-x) var(--space-3);
   display: flex;
   gap: var(--space-5);
   overflow-x: auto;
+  overscroll-behavior-x: contain;
   scroll-snap-type: x proximity;
+  scroll-padding-inline: var(--container-pad-x);
   -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
 }
 .spots__grid > li {
   flex: 0 0 auto;
-  width: min(85vw, 360px);
+  width: min(82vw, 360px);
   scroll-snap-align: start;
 }
 
