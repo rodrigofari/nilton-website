@@ -269,15 +269,28 @@
 }
 @media (min-width: 768px) {
   .about__grid {
-    grid-template-columns: 1fr 1.3fr;
+    grid-template-columns: 320px 1fr;
     gap: var(--space-8);
+  }
+  .about__media {
+    align-self: end;
+  }
+}
+.about__media {
+  margin: 0;
+  max-width: 280px;
+  margin-inline: auto;
+}
+@media (min-width: 768px) {
+  .about__media {
+    max-width: none;
+    margin-inline: 0;
   }
 }
 .about__media img {
   width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  object-position: 50% 30%;
+  height: auto;
+  display: block;
   border-radius: var(--radius-sm);
 }
 .about__body { display: flex; flex-direction: column; gap: var(--space-4); }

@@ -53,14 +53,12 @@ Every image slot the site uses, defined before any photo arrives. Reserves dimen
 ## About
 
 ### `about/nilton-portrait`
-- **File:** `assets/images/about/nilton-portrait.{avif,webp,jpg}`
-- **Dimensions:** 1200 × 1500
-- **Aspect ratio:** 4:5
-- **Focal:** 50% 30%
-- **Widths (srcset):** 600w, 900w, 1200w
-- **Brief:** Portrait of Nilton. Outdoor, board under arm or in background, ocean visible behind. Eye contact, natural light, friendly but composed (not toothy/sales-y). Crop allows shoulders + upper torso. **Replaces placeholder before launch — flag with `data-placeholder="true"`.**
-- **Placeholder:** `https://picsum.photos/seed/nilton-portrait/1200/1500`
-- **Unsplash search:** `surfer portrait outdoor ocean`
+- **Status:** Delivered (2026-05-23). Production asset.
+- **File:** `assets/images/about/nilton-portrait.jpeg`
+- **Source dimensions:** 750 × 1624 (~0.46, full-frame portrait — car / coastline visible)
+- **Rendered:** Natural aspect, no crop. Width fills the figure column (320px on desktop, 280px max on mobile). Subtle `border-radius: var(--radius-sm)` on the frame.
+- **Layout:** Two-column About section. Figure aligns to bottom of row (`align-self: end`) to stand on the section baseline. Text column carries heading + body + stats + CTA.
+- **Pending:** Generate AVIF/WebP variants, optimise JPEG.
 
 ### `about/nilton-action` *(optional, secondary slot)*
 - **File:** `assets/images/about/nilton-action.{avif,webp,jpg}`
