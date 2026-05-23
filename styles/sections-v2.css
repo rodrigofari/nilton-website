@@ -335,17 +335,37 @@
  * Card 1 top-left = entry; Card 4 bottom-right = flagship.
  * Diagonal reading flow walks the user up the tier ladder. */
 .services__grid {
-  list-style: none; padding: 0; margin: 0;
-  display: grid;
-  grid-template-columns: 1fr;
+  list-style: none;
+  margin-inline: calc(-1 * var(--container-pad-x));
+  padding: 0 var(--container-pad-x) var(--space-3);
+  display: flex;
   gap: var(--space-5);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+  scroll-padding-inline: var(--container-pad-x);
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+.services__grid > li {
+  flex: 0 0 auto;
+  width: min(82vw, 360px);
+  scroll-snap-align: start;
 }
 @media (min-width: 768px) {
   .services__grid {
+    margin-inline: auto;
+    padding: 0;
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--space-6);
     max-width: 880px;
-    margin-inline: auto;
+    overflow-x: visible;
+    scroll-snap-type: none;
+  }
+  .services__grid > li {
+    flex: initial;
+    width: auto;
   }
 }
 
