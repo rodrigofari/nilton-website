@@ -438,19 +438,26 @@
   font-variation-settings: "opsz" 96;
 }
 .spots__grid {
-  list-style: none; padding: 0; margin: 0;
-  display: grid;
-  grid-template-columns: 1fr;
+  list-style: none;
+  margin: 0;
+  padding: 0 0 var(--space-3);
+  display: flex;
   gap: var(--space-5);
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
 }
-@media (min-width: 640px)  { .spots__grid { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 1024px) { .spots__grid { grid-template-columns: repeat(3, 1fr); } }
+.spots__grid > li {
+  flex: 0 0 auto;
+  width: min(85vw, 360px);
+  scroll-snap-align: start;
+}
 
 .spot-card .card__media { aspect-ratio: 3 / 2; }
 .spot-card .card__meta {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-2) var(--space-4);
+  display: flex;
+  gap: var(--space-4);
   margin-top: var(--space-3);
 }
 .spot-card .card__meta div {

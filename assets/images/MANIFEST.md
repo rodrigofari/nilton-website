@@ -182,6 +182,36 @@ All spots use the same dimensions for grid consistency. Filenames mirror the can
 - **Placeholder:** `https://picsum.photos/seed/spot-machico/1600/1067`
 - **Unsplash search:** `machico madeira bay beach`
 
+### `spots/ribeira-da-janela`
+- **File:** `assets/images/spots/ribeira-da-janela.{avif,webp,jpg}`
+- **Dimensions:** 1600 × 1067
+- **Aspect ratio:** 3:2
+- **Focal:** 50% 50%
+- **Widths (srcset):** 800w, 1200w, 1600w
+- **Brief:** Far-west valley spot. Long left-hand point under cliffs; heavy, exposed, advanced-only. Show the scale of the cliffs or a clean wave wall.
+- **Placeholder:** `https://picsum.photos/seed/spot-ribeira/1600/1067`
+- **Unsplash search:** `madeira west coast left point cliff`
+
+### `spots/contreiras`
+- **File:** `assets/images/spots/contreiras.{avif,webp,jpg}`
+- **Dimensions:** 1600 × 1067
+- **Aspect ratio:** 3:2
+- **Focal:** 50% 50%
+- **Widths (srcset):** 800w, 1200w, 1600w
+- **Brief:** Hidden right-hand point under cliffs. Advanced-only, narrow swell window. Show wave shape, lack of crowd.
+- **Placeholder:** `https://picsum.photos/seed/spot-contreiras/1600/1067`
+- **Unsplash search:** `madeira hidden surf point right hand`
+
+### `spots/praia-do-seixal`
+- **File:** `assets/images/spots/praia-do-seixal.{avif,webp,jpg}`
+- **Dimensions:** 1600 × 1067
+- **Aspect ratio:** 3:2
+- **Focal:** 50% 50%
+- **Widths (srcset):** 800w, 1200w, 1600w
+- **Brief:** North-coast black-sand bay. Sheltered, beginner-friendly. Show the dark sand + calmer water + black cliff backdrop.
+- **Placeholder:** `https://picsum.photos/seed/spot-seixal/1600/1067`
+- **Unsplash search:** `seixal madeira beach black sand`
+
 ---
 
 ## Gallery *(8 slots — mixed crops, magazine-feel grid)*
