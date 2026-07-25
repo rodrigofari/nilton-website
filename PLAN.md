@@ -2,22 +2,44 @@
 
 Marketing site for Nilton Freitas, surf guide in Madeira, Portugal. Single page per locale, drives bookings via WhatsApp.
 
-## Live state (2026-05-10)
+## Live state (2026-07-25)
 - **Brand:** Madeira Surf Progress (commercial). Legal entity: Nilton Freitas, licensed surf school (Portuguese IPDJ regulatory category). See DECISIONS for the brand-vs-legal-entity rationale.
 - **Repo:** https://github.com/rodrigofari/nilton-website
 - **Preview deploy:** https://nilton-website.pages.dev — Cloudflare Pages, auto-deploys on push to `main`
-- **Production domain:** not yet wired — Nilton will buy the domain later. Placeholder `niltonfreitas.surf` hardcoded in 16 files; one-line sed swap when the real domain lands. See "Pre-deploy items" below.
-- **Status:** Build complete (4a + 4b + 4c). Phase 1 brand pivot shipped (Madeira Surf Progress sweep). Phase 2 (content rewrite for new positioning) in progress.
+- **Production domain:** **madeirasurfcoach.com** — bought 2026-07-25, registrar + DNS both Cloudflare, same account as the Pages project. Zone was empty at purchase (no A/AAAA/CNAME/MX/TXT), so nothing to preserve. **Not yet wired to Pages** — see "Wiring the production domain" below.
+- **Indexing:** soft-launch gate active. `_headers` sends `X-Robots-Tag: noindex, nofollow` on `/*` until the placeholder content is replaced. One line to remove; the removal gate is documented in `_headers` itself.
+- **Status:** Build complete (4a + 4b + 4c). Phase 1 brand pivot shipped. Phase 2 (content rewrite for new positioning) in progress. Domain swap + self-hosted fonts landed 2026-07-25.
 
-## Coordinated rename pass (defer until production domain is bought)
+## Brand / domain naming — open decision
 
-When Nilton purchases the real domain, three renames happen in one coordinated pass:
-1. **Repo** `rodrigofari/nilton-website` → `madeira-surf-progress` (GitHub Settings → Rename; old URL auto-redirects)
-2. **Cloudflare Pages project** `nilton-website` → `madeira-surf-progress` (Pages dashboard → Settings)
-3. **Hardcoded `niltonfreitas.surf`** in repo (16 files) → real domain via single sed across HTML/JSON/MD/TXT/XML
-4. **Cloudflare Pages → Custom domains** → add real domain → DNS auto-provisioned
+The domain is `madeirasurfcoach.com`; the brand in the content is "Madeira Surf Progress".
+The rename pass below was written before the domain was bought and assumed the name
+`madeira-surf-progress`. **Reconfirm before renaming anything** — the choice is either to
+align the repo/project names to the domain (`madeira-surf-coach`) or to keep the brand
+name and accept that the domain differs. Neither breaks anything; three different names
+would be the bad outcome.
 
-Until then, all three names stay as-is. They drift from the brand cosmetically but break nothing.
+1. **Repo** `rodrigofari/nilton-website` → chosen name (GitHub Settings → Rename; old URL auto-redirects)
+2. **Cloudflare Pages project** `nilton-website` → chosen name (Pages dashboard → Settings)
+
+~~3. Hardcoded `niltonfreitas.surf` → real domain~~ — **done 2026-07-25.** 153 occurrences
+across 15 site-serving files (canonical, hreflang, sitemap, robots, llms.txt, schema).
+
+## Wiring the production domain (Cloudflare, ~10 min)
+
+Registrar and Pages are in the same Cloudflare account, so DNS + cert are automatic:
+
+1. **Workers & Pages → `nilton-website` → Custom domains → Set up a domain** → `madeirasurfcoach.com`. Cloudflare creates the CNAME (apex flattening) and issues the certificate.
+2. Repeat for `www.madeirasurfcoach.com`.
+3. **Canonical host is the apex** — all content is written apex-shaped. Add **Rules → Redirect Rules**: `www` → apex, 301.
+4. **SSL/TLS → Overview → Full (strict).** Not Flexible/Automatic — those cause a redirect loop against Pages.
+5. **SSL/TLS → Edge Certificates → Always Use HTTPS: On.**
+6. **Email:** MX is empty. If Nilton wants `nilton@madeirasurfcoach.com`, Cloudflare Email Routing is free. Either way add **SPF + DMARC** (`v=spf1 -all`, `p=reject`) so nobody can spoof mail from the domain.
+7. Leave **"Block AI training bots: Do not block"** as-is (we want AI-search visibility), and do **not** enable Cloudflare's managed robots.txt / Content Signals Policy — the repo serves its own `robots.txt`.
+
+⚠️ `_headers` already sends HSTS `max-age=31536000; includeSubDomains; preload`. Keep the
+header, but **do not submit the domain to the HSTS preload list** until the subdomain
+structure is settled — preload is slow and painful to reverse.
 
 ## Stack (locked)
 - Plain HTML, CSS, JavaScript. No framework, no build step.
@@ -293,12 +315,23 @@ The site is live at the preview URL but these need to land before pointing the p
 - [ ] **Brand approval** of design direction (Clean & Premium) and copy tone
 
 **Technical deliverables (build-side):**
-- [ ] **woff2 fonts** dropped into `/assets/fonts/` (per `assets/fonts/README.md` — Fraunces variable + italic, Inter variable + italic with Cyrillic subset). Currently fonts fall back to system stacks.
-- [ ] **Real GA4 Measurement ID** swapped into `scripts/config.js` (placeholder is `G-XXXXXXXXXX` — invalid by design so a forgotten swap shows as a GA4 rejection in DevTools)
+- [x] **Domain swap** — `niltonfreitas.surf` → `madeirasurfcoach.com`, 153 occurrences, 15 files (2026-07-25)
+- [x] **woff2 fonts** built and committed to `/assets/fonts/` — Fraunces variable + italic, Inter variable + italic with Cyrillic. Subset from upstream variable TTFs; see `assets/fonts/README.md` for the build and for the known Fraunces-has-no-Cyrillic issue on `/uk/`. (2026-07-25)
+- [x] **Real GA4 Measurement ID** in `scripts/config.js` — `G-V04S12TKNE`, property "Madeira Surf Progress" (538432132), web stream 15324365830 for `https://madeirasurfcoach.com`. Enhanced measurement on, including **outbound clicks** — the closest proxy this site has to a booking, since every CTA is a `wa.me` link. (2026-07-25)
+- [x] **CSP widened for GA4's EU endpoint** — `region1.google-analytics.com`. Verified end-to-end under the real CSP in headless Chrome: with the old exact-host rule `gtag.js` loaded fine but every `/g/collect` hit was CSP-blocked, so GA4 would have reported zero traffic with no visible error.
+
+**Two GA4 dashboard warnings that are expected and should be ignored:**
+"Sua tag do Google não foi detectada" and "A coleta de dados não está ativa". Google's
+detector fetches the page as an anonymous bot; it never accepts the consent banner, and
+`scripts/analytics.js` only loads gtag after acceptance. So the tag is undetectable *by
+design* and these warnings will persist permanently. Verify with DevTools → Network →
+filter `collect` after clicking Accept, or GA4 Realtime — not with the tag detector.
+- [ ] **Remove the soft-launch `X-Robots-Tag: noindex` line** from `_headers` — last step before public launch, gated on the QA greps below
 
 **Pre-deploy QA gates (must all return zero hits):**
-- [ ] `grep -rn 'picsum.photos' . --include="*.html"` (currently 108 — all by design, swap with real images)
-- [ ] `grep -rn 'data-placeholder' . --include="*.html"` (currently 93 — all by design, replace with confirmed copy)
+- [ ] `grep -rn 'picsum.photos' . --include="*.html"` (currently 105 across 5 locales — all by design, swap with real images)
+- [ ] `grep -rn 'data-placeholder' . --include="*.html"` (currently ~75 — all by design, replace with confirmed copy)
+- [ ] `grep -rn 'Sample Reviewer' . --include="*.html"` (currently 15 — fake social proof, must not ship publicly)
 - [ ] `grep -rn 'data-missing' . --include="*.html"` ✅ already 0
 - [ ] `grep -ri 'reef\|récif\|riff\|риф' content/ */index.html` ✅ already 0
 - [ ] Production HTML eyebrow gate: `grep -rn '<span class="card__eyebrow">[A-Za-z]' --include="*.html" --exclude="styleguide.html"` ✅ already 0

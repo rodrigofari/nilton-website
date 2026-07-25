@@ -1,4 +1,4 @@
-# robots.txt for niltonfreitas.surf
+# robots.txt for madeirasurfcoach.com
 #
 # Note on /styleguide.html: explicitly NOT disallowed here. Per DECISIONS,
 # noindex is enforced via meta tag + X-Robots-Tag header. Disallowing in
@@ -11,4 +11,4 @@ Allow: /
 # Working / internal artifacts (don't crawl, but don't block — see note above)
 # /styleguide.html — handled by noindex meta + X-Robots-Tag
 
-Sitemap: https://niltonfreitas.surf/sitemap.xml
+Sitemap: https://madeirasurfcoach.com/sitemap.xml

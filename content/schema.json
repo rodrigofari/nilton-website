@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://niltonfreitas.surf/content/schema.json",
+  "$id": "https://madeirasurfcoach.com/content/schema.json",
   "title": "Nilton Freitas Site Content",
   "description": "Short UI strings only. Long prose lives in each locale's index.html. Empty string = missing translation (flaggable). Absent key = forbidden.",
   "type": "object",

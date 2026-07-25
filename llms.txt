@@ -8,11 +8,11 @@ The site is available in five languages — English, European Portuguese, French
 
 ## Languages
 
-- [English](https://niltonfreitas.surf/en/): Canonical homepage in English
-- [Português (Portugal)](https://niltonfreitas.surf/pt/): Homepage in European Portuguese
-- [Français](https://niltonfreitas.surf/fr/): Homepage in French
-- [Deutsch](https://niltonfreitas.surf/de/): Homepage in German
-- [Українська](https://niltonfreitas.surf/uk/): Homepage in Ukrainian
+- [English](https://madeirasurfcoach.com/en/): Canonical homepage in English
+- [Português (Portugal)](https://madeirasurfcoach.com/pt/): Homepage in European Portuguese
+- [Français](https://madeirasurfcoach.com/fr/): Homepage in French
+- [Deutsch](https://madeirasurfcoach.com/de/): Homepage in German
+- [Українська](https://madeirasurfcoach.com/uk/): Homepage in Ukrainian
 
 ## Services
 
@@ -39,7 +39,7 @@ All bookings via WhatsApp: [+351 966 236 416](https://wa.me/351966236416). The s
 
 ## Privacy and analytics
 
-Anonymous analytics (Google Analytics 4 with IP anonymisation) only after explicit consent. Global Privacy Control is honored as automatic decline. No personal data collected on the website. See [Privacy Policy](https://niltonfreitas.surf/en/privacy/) for details.
+Anonymous analytics (Google Analytics 4 with IP anonymisation) only after explicit consent. Global Privacy Control is honored as automatic decline. No personal data collected on the website. See [Privacy Policy](https://madeirasurfcoach.com/en/privacy/) for details.
 
 ## Authority
 
@@ -49,5 +49,5 @@ Anonymous analytics (Google Analytics 4 with IP anonymisation) only after explic
 
 ## Optional
 
-- [Sitemap](https://niltonfreitas.surf/sitemap.xml)
-- [Robots](https://niltonfreitas.surf/robots.txt)
+- [Sitemap](https://madeirasurfcoach.com/sitemap.xml)
+- [Robots](https://madeirasurfcoach.com/robots.txt)

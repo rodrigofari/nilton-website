@@ -2,7 +2,9 @@
 
 Multi-locale marketing site for Nilton Freitas, freelance surf guide in Madeira, Portugal. Drives bookings via WhatsApp.
 
-Live at **niltonfreitas.surf** (when deployed). Five languages: English, European Portuguese, French, German, Ukrainian.
+Production domain: **madeirasurfcoach.com** (bought 2026-07-25; not yet wired to Cloudflare Pages — see `PLAN.md`). Preview: [nilton-website.pages.dev](https://nilton-website.pages.dev). Five languages: English, European Portuguese, French, German, Ukrainian.
+
+> **Soft-launch gate:** `_headers` currently sends `X-Robots-Tag: noindex, nofollow` on every path, because the site still ships placeholder photos and sample testimonials. Remove that one line before public launch — the removal checklist lives in `_headers`.
 
 ---
 
@@ -11,7 +13,7 @@ Live at **niltonfreitas.surf** (when deployed). Five languages: English, Europea
 - **Plain HTML / CSS / JavaScript** — no framework, no build step
 - **CSS custom properties** for design tokens (single source of truth in `styles/tokens.css`)
 - **Vanilla ES modules** for scripts, lazy-loaded where it makes sense (gallery, FAQ, analytics)
-- **Self-hosted woff2 fonts** (Fraunces + Inter, Cyrillic-complete for Ukrainian)
+- **Self-hosted woff2 fonts** (Fraunces display + Inter body; Inter carries the Cyrillic subset for Ukrainian — Fraunces has no Cyrillic upstream, see `assets/fonts/README.md`)
 - **Cloudflare Pages** for hosting; locale resolution at the edge via `_redirects`
 - **No bundler, no Node dependencies** — `node_modules/` is gitignored defensively but unused
 
@@ -105,7 +107,7 @@ Note: `_redirects` is **not** processed by `python3 -m http.server` (Cloudflare 
 | German | `/de/` | `de` | `de` |
 | Ukrainian | `/uk/` | `uk` | `uk` |
 
-**Architecture:** locale resolution happens at **the edge** (Cloudflare Pages `_redirects`), not in JavaScript. When a user hits `niltonfreitas.surf/`, Cloudflare reads their `Accept-Language` header and 302-redirects to the matching locale. Falls back to `/en/` for unknown languages.
+**Architecture:** locale resolution happens at **the edge** (Cloudflare Pages `_redirects`), not in JavaScript. When a user hits `madeirasurfcoach.com/`, Cloudflare reads their `Accept-Language` header and 302-redirects to the matching locale. Falls back to `/en/` for unknown languages.
 
 **Why edge, not JS:** SEO + accessibility. JS-based redirects land crawlers and screen readers on a blank shell; edge redirects return localized HTML on the first byte. See `DECISIONS.md` for the full rationale.
 
@@ -136,8 +138,10 @@ This repo is deploy-ready as a static site. Cloudflare Pages → connect to GitH
 
 ### Pre-deploy items (currently outstanding — awaiting client)
 
-- [ ] **woff2 fonts** dropped into `/assets/fonts/` (see `assets/fonts/README.md` for the four required files: Fraunces variable + italic, Inter variable + italic with Cyrillic subset)
-- [ ] **Real GA4 Measurement ID** swapped into `scripts/config.js` (placeholder is `G-XXXXXXXXXX` — invalid by design so a forgotten swap shows as a GA rejection in DevTools)
+- [x] **woff2 fonts** built and committed to `/assets/fonts/` — see `assets/fonts/README.md` for how they were subset from the upstream variable TTFs, and for the known Fraunces-has-no-Cyrillic issue on `/uk/` headings
+- [x] **Domain swap** — `niltonfreitas.surf` → `madeirasurfcoach.com` across canonical, hreflang, sitemap, robots, llms.txt and schema
+- [x] **Real GA4 Measurement ID** in `scripts/config.js` (`G-V04S12TKNE`). Note: GA4's "tag not detected" warning is permanent and expected — the tag only loads after consent, and Google's detector never accepts the banner. Verify via DevTools `collect` requests or GA4 Realtime instead.
+- [ ] **Remove the soft-launch `X-Robots-Tag: noindex` line** from `_headers` — the very last step before public launch
 - [ ] **Real photos** placed per `assets/images/MANIFEST.md` slot specs — replaces 32 Picsum URLs + 1 Unsplash hero
 - [ ] **Service descriptions** confirmed with Nilton (currently placeholder — `data-placeholder="true"` on each card)
 - [ ] **Real testimonials** collected — replace 3 sample testimonials
