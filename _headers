@@ -49,7 +49,16 @@
 # ---------- Internal: styleguide noindex (layered) ----------
 # Redundant while the soft-launch gate above is active; it is the permanent
 # rule that must survive once that gate is removed.
+#
+# BOTH paths are listed on purpose. Pages normalises /styleguide.html to
+# /styleguide with a 308, so the .html rule alone would stop covering the URL
+# visitors and crawlers actually land on the moment the /* gate is removed.
+# The page also carries <meta name="robots" content="noindex, nofollow"> as a
+# second layer, but the header should not silently disappear.
 /styleguide.html
+  X-Robots-Tag: noindex, nofollow
+
+/styleguide
   X-Robots-Tag: noindex, nofollow
 
 # ---------- Cache: HTML (short, must-revalidate) ----------
