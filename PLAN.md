@@ -64,7 +64,7 @@ Plus `/{locale}/privacy/` — one privacy policy page per locale, linked from fo
 ## Locales (5)
 English, Portuguese (PT-PT — European, not Brazilian), French, German, Ukrainian (`uk`, the ISO 639-1 language code — not `ua`, which is a country code).
 Folder-per-locale URLs: `/en/`, `/pt/`, `/fr/`, `/de/`, `/uk/`. Short paths; full BCP-47 lives in `<html lang>`, `hreflang`, and `_meta.locale`.
-Root `/` → `_redirects` resolves via `Accept-Language` (Cloudflare-side, not JS).
+Root `/` → `functions/index.js` resolves via `Accept-Language` (Cloudflare-side, not JS). Not `_redirects` — that file cannot branch on a header; see DECISIONS.
 `index.html` at root is no-JS fallback with manual language picker.
 
 **Translation workflow:** Claude-driven. PT source → Claude → EN/FR/DE/UK. Each locale file carries a `_meta` block (`locale`, `direction`, `last_updated`, `translator`) for provenance.
@@ -86,7 +86,8 @@ nilton_website/
 ├── .gitignore                  # ignores .claude/, .DS_Store, translation-pack-*, .env, etc.
 │
 ├── index.html                  # root: no-JS language picker fallback
-├── _redirects                  # Cloudflare Pages: Accept-Language → /{locale}/
+├── _redirects                  # Cloudflare Pages: trailing-slash normalisation only
+├── functions/index.js          # Cloudflare Pages Function: Accept-Language → /{locale}/
 ├── _headers                    # Cloudflare Pages: strict CSP, HSTS, cache rules
 ├── robots.txt
 ├── sitemap.xml                 # 5 homepages + 5 privacy pages, hreflang × 5 + x-default
@@ -293,12 +294,13 @@ All bug fixes from review:
 
 ## Step 4c — queued
 
-- `_redirects` (Cloudflare Pages) — Accept-Language → `/{locale}/`
+- `_redirects` (Cloudflare Pages) — trailing-slash normalisation
+- `functions/index.js` — Pages Function, Accept-Language → `/{locale}/`
 - `_headers` — strict CSP, `X-Robots-Tag: noindex` for `/styleguide.html`, cache-control
 - `robots.txt`
 - `sitemap.xml` — covers homepages + privacy pages (10 URLs)
 - `llms.txt`
-- Root `index.html` — no-JS language picker fallback for when `_redirects` doesn't fire
+- Root `index.html` — no-JS language picker fallback for when the Function doesn't run
 
 ---
 

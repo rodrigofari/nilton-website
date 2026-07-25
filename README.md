@@ -14,7 +14,7 @@ Production domain: **madeirasurfcoach.com** (bought 2026-07-25; not yet wired to
 - **CSS custom properties** for design tokens (single source of truth in `styles/tokens.css`)
 - **Vanilla ES modules** for scripts, lazy-loaded where it makes sense (gallery, FAQ, analytics)
 - **Self-hosted woff2 fonts** (Fraunces display + Inter body; Inter carries the Cyrillic subset for Ukrainian — Fraunces has no Cyrillic upstream, see `assets/fonts/README.md`)
-- **Cloudflare Pages** for hosting; locale resolution at the edge via `_redirects`
+- **Cloudflare Pages** for hosting; locale resolution at the edge via a Pages Function
 - **No bundler, no Node dependencies** — `node_modules/` is gitignored defensively but unused
 
 The "no build step" decision is deliberate. Every file in this repo is what gets served. Edit-and-refresh is the entire dev loop.
@@ -25,9 +25,10 @@ The "no build step" decision is deliberate. Every file in this repo is what gets
 
 ```
 nilton_website/
-├── index.html                  # root: no-JS language picker fallback (only seen if _redirects doesn't fire)
+├── index.html                  # root: no-JS language picker fallback (only seen when the Function doesn't run)
 ├── styleguide.html             # internal design-system reference (noindex)
-├── _redirects                  # Cloudflare Pages: Accept-Language → /{locale}/
+├── _redirects                  # Cloudflare Pages: trailing-slash normalisation only
+├── functions/index.js          # Cloudflare Pages Function: Accept-Language → /{locale}/
 ├── _headers                    # Cloudflare Pages: strict CSP, HSTS, cache rules
 ├── robots.txt
 ├── sitemap.xml
@@ -93,7 +94,22 @@ python3 -m http.server 8000
 #   http://localhost:8000/styleguide.html — design system reference
 ```
 
-Note: `_redirects` is **not** processed by `python3 -m http.server` (Cloudflare Pages only). Locally, navigate to `/en/` directly — visiting `/` will show the static language picker fallback.
+Note: `python3 -m http.server` serves files only. It does **not** execute
+`functions/`, `_redirects` or `_headers`. Visiting `/` shows the static language
+picker fallback rather than negotiating a locale, and no security headers are
+sent. That is fine for editing pages, but it means a plain static server cannot
+tell you whether edge behaviour actually works.
+
+To exercise the real Pages runtime — Functions, redirects, headers and all:
+
+```bash
+npx wrangler pages dev . --port 8788
+curl -sI -H 'Accept-Language: pt-PT' http://127.0.0.1:8788/ | grep -i location   # -> /pt/
+```
+
+Use this whenever you touch `functions/`, `_redirects` or `_headers`. Locale
+negotiation shipped broken for two months precisely because it was only ever
+tested on a static server.
 
 ---
 
@@ -107,7 +123,12 @@ Note: `_redirects` is **not** processed by `python3 -m http.server` (Cloudflare 
 | German | `/de/` | `de` | `de` |
 | Ukrainian | `/uk/` | `uk` | `uk` |
 
-**Architecture:** locale resolution happens at **the edge** (Cloudflare Pages `_redirects`), not in JavaScript. When a user hits `madeirasurfcoach.com/`, Cloudflare reads their `Accept-Language` header and 302-redirects to the matching locale. Falls back to `/en/` for unknown languages.
+**Architecture:** locale resolution happens at **the edge** (`functions/index.js`, a Cloudflare Pages Function), not in JavaScript. When a user hits `madeirasurfcoach.com/`, the Function parses their `Accept-Language` header — honouring q-value ordering and `q=0` rejections — and 302-redirects to the matching locale. Regional variants collapse to their base (`pt-BR` → `/pt/`, `de-AT` → `/de/`). Falls back to `/en/` for unknown or absent languages.
+
+> This does **not** belong in `_redirects`. Cloudflare Pages supports only
+> `from to [status]` there — no header conditions. An earlier implementation
+> used Netlify's `Language=` syntax; Cloudflare silently discarded every one of
+> those rules and sent all traffic to English for two months. See `DECISIONS.md`.
 
 **Why edge, not JS:** SEO + accessibility. JS-based redirects land crawlers and screen readers on a blank shell; edge redirects return localized HTML on the first byte. See `DECISIONS.md` for the full rationale.
 

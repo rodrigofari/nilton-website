@@ -537,12 +537,38 @@ No inline scripts, no inline styles, ever. External files or nonces only.
 
 ## 2026-05-09 — Locale resolution at the edge, not in JS
 
-Root `/` redirects to a locale via Cloudflare `_redirects` reading `Accept-Language`. JS-based redirects are not used.
+Root `/` redirects to a locale by reading `Accept-Language` at the edge. JS-based redirects are not used.
 
 **Why:** JS redirects land crawlers and screen readers on a blank shell. Edge redirects return localized HTML on first byte — better SEO, better a11y, faster perceived load.
 
 **How to apply:**
-- `index.html` at root is a no-JS fallback with a manual language picker — only seen if `_redirects` doesn't fire (local dev, edge cases).
+- `index.html` at root is a no-JS fallback with a manual language picker — only seen when edge negotiation doesn't run (local `python -m http.server`, direct asset access).
+
+### Superseded 2026-07-25 — the mechanism, not the decision
+
+The original implementation used `_redirects` rules of the form
+`/  /pt/  302  Language=pt`. That condition syntax is **Netlify's**. Cloudflare
+Pages `_redirects` supports only `from to [status]` and cannot branch on a
+request header, so it discarded all 15 conditional lines as malformed and
+served the final unconditional `/  /en/  302` to everybody. Every visitor —
+Portuguese, French, German, Ukrainian — silently got English. No error, no
+warning, and nothing to notice short of requesting `/` with a non-English
+`Accept-Language`. It shipped broken and stayed broken.
+
+Negotiation now lives in `functions/index.js`, a Cloudflare Pages Function.
+The decision above is unchanged; only the mechanism moved.
+
+**How to apply:**
+- Never put conditional logic in `_redirects` on Cloudflare Pages. Anything
+  reading a header, cookie or geo signal belongs in a Function.
+- `_headers` does **not** apply to Function responses. Headers that matter on
+  the `/` redirect are set explicitly inside the Function — including the
+  soft-launch `X-Robots-Tag`, which must be removed in *both* places at launch.
+- `Vary: Accept-Language` is mandatory on the negotiated response, or a shared
+  cache can serve one visitor's locale redirect to the next visitor.
+- Verify with `npx wrangler pages dev .` — the real Pages runtime. A plain
+  static server cannot execute Functions, `_redirects` or `_headers`, which is
+  exactly why this went unnoticed for two months.
 
 ---
 
