@@ -4,17 +4,21 @@
  * ============================================================= */
 
 /* -----------------------------------------------------------
- * Self-hosted fonts. The actual woff2 files must be placed in
- * /assets/fonts/ before deploy. See assets/fonts/README.md
- * for the file inventory. Browsers will fall back to the system
- * stack (Georgia / system sans) until the files land — design
- * system structure is correct either way.
+ * Self-hosted fonts. Files live in /assets/fonts/ — see
+ * assets/fonts/README.md for how they were built.
  *
- * Subsets:
+ * Subsets (unicode-range below mirrors each file exactly —
+ * they were subset from the upstream variable TTFs to match):
  *   - Fraunces:   latin + latin-ext
  *   - Inter:      latin + latin-ext + cyrillic + cyrillic-ext
  *                 (Cyrillic required for UK locale — must not
  *                 fall back to system fonts mid-page)
+ *                 + U+2190-2193 arrows ("← Back to home")
+ *
+ * U+1E00-1EFF (Latin Extended Additional, mostly Vietnamese) is
+ * deliberately absent: an audit of every string across the 5
+ * locales found zero characters in that block. Carrying it cost
+ * ~30 KB for glyphs no page can render.
  * --------------------------------------------------------- */
 
 @font-face {
@@ -24,7 +28,7 @@
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
-  unicode-range: U+0000-024F, U+1E00-1EFF, U+2000-206F, U+20A0-20BF;
+  unicode-range: U+0000-024F, U+2000-206F, U+20A0-20BF;
 }
 
 @font-face {
@@ -34,7 +38,7 @@
   font-weight: 100 900;
   font-style: italic;
   font-display: swap;
-  unicode-range: U+0000-024F, U+1E00-1EFF, U+2000-206F, U+20A0-20BF;
+  unicode-range: U+0000-024F, U+2000-206F, U+20A0-20BF;
 }
 
 @font-face {
@@ -44,7 +48,7 @@
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
-  unicode-range: U+0000-024F, U+0400-04FF, U+0500-052F, U+1E00-1EFF, U+2000-206F, U+20A0-20BF;
+  unicode-range: U+0000-024F, U+0400-04FF, U+0500-052F, U+2000-206F, U+20A0-20BF, U+2190-2193;
 }
 
 @font-face {
@@ -54,7 +58,7 @@
   font-weight: 100 900;
   font-style: italic;
   font-display: swap;
-  unicode-range: U+0000-024F, U+0400-04FF, U+0500-052F, U+1E00-1EFF, U+2000-206F, U+20A0-20BF;
+  unicode-range: U+0000-024F, U+0400-04FF, U+0500-052F, U+2000-206F, U+20A0-20BF, U+2190-2193;
 }
 
 /* -----------------------------------------------------------
