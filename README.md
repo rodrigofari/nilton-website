@@ -140,7 +140,7 @@ This repo is deploy-ready as a static site. Cloudflare Pages → connect to GitH
 
 - [x] **woff2 fonts** built and committed to `/assets/fonts/` — see `assets/fonts/README.md` for how they were subset from the upstream variable TTFs, and for the known Fraunces-has-no-Cyrillic issue on `/uk/` headings
 - [x] **Domain swap** — `niltonfreitas.surf` → `madeirasurfcoach.com` across canonical, hreflang, sitemap, robots, llms.txt and schema
-- [ ] **Real GA4 Measurement ID** swapped into `scripts/config.js` (placeholder is `G-XXXXXXXXXX` — invalid by design so a forgotten swap shows as a GA rejection in DevTools)
+- [x] **Real GA4 Measurement ID** in `scripts/config.js` (`G-V04S12TKNE`). Note: GA4's "tag not detected" warning is permanent and expected — the tag only loads after consent, and Google's detector never accepts the banner. Verify via DevTools `collect` requests or GA4 Realtime instead.
 - [ ] **Remove the soft-launch `X-Robots-Tag: noindex` line** from `_headers` — the very last step before public launch
 - [ ] **Real photos** placed per `assets/images/MANIFEST.md` slot specs — replaces 32 Picsum URLs + 1 Unsplash hero
 - [ ] **Service descriptions** confirmed with Nilton (currently placeholder — `data-placeholder="true"` on each card)

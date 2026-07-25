@@ -317,7 +317,15 @@ The site is live at the preview URL but these need to land before pointing the p
 **Technical deliverables (build-side):**
 - [x] **Domain swap** — `niltonfreitas.surf` → `madeirasurfcoach.com`, 153 occurrences, 15 files (2026-07-25)
 - [x] **woff2 fonts** built and committed to `/assets/fonts/` — Fraunces variable + italic, Inter variable + italic with Cyrillic. Subset from upstream variable TTFs; see `assets/fonts/README.md` for the build and for the known Fraunces-has-no-Cyrillic issue on `/uk/`. (2026-07-25)
-- [ ] **Real GA4 Measurement ID** swapped into `scripts/config.js` (placeholder is `G-XXXXXXXXXX` — invalid by design so a forgotten swap shows as a GA4 rejection in DevTools). **Blocked:** needs Nilton to create the GA4 property.
+- [x] **Real GA4 Measurement ID** in `scripts/config.js` — `G-V04S12TKNE`, property "Madeira Surf Progress" (538432132), web stream 15324365830 for `https://madeirasurfcoach.com`. Enhanced measurement on, including **outbound clicks** — the closest proxy this site has to a booking, since every CTA is a `wa.me` link. (2026-07-25)
+- [x] **CSP widened for GA4's EU endpoint** — `region1.google-analytics.com`. Verified end-to-end under the real CSP in headless Chrome: with the old exact-host rule `gtag.js` loaded fine but every `/g/collect` hit was CSP-blocked, so GA4 would have reported zero traffic with no visible error.
+
+**Two GA4 dashboard warnings that are expected and should be ignored:**
+"Sua tag do Google não foi detectada" and "A coleta de dados não está ativa". Google's
+detector fetches the page as an anonymous bot; it never accepts the consent banner, and
+`scripts/analytics.js` only loads gtag after acceptance. So the tag is undetectable *by
+design* and these warnings will persist permanently. Verify with DevTools → Network →
+filter `collect` after clicking Accept, or GA4 Realtime — not with the tag detector.
 - [ ] **Remove the soft-launch `X-Robots-Tag: noindex` line** from `_headers` — last step before public launch, gated on the QA greps below
 
 **Pre-deploy QA gates (must all return zero hits):**
