@@ -116,6 +116,10 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 * { margin: 0; }
+
+/* The `hidden` attribute must win over any component display rule. Sections
+ * carry it while their content is unconfirmed — see the testimonials section. */
+[hidden] { display: none !important; }
 html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 html { min-height: 100%; }
 body { min-height: 100%; line-height: var(--leading-relaxed); -webkit-font-smoothing: antialiased; }

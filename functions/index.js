@@ -59,10 +59,7 @@ export function onRequest({ request }) {
       "Cache-Control": "no-store",
 
       /* `_headers` applies to static assets, NOT to Function responses, so the
-       * headers that still matter on a redirect are repeated here.
-       * The X-Robots-Tag below is part of the soft-launch gate — remove it at
-       * the same time as the one in `_headers`. */
-      "X-Robots-Tag": "noindex, nofollow",
+       * headers that still matter on a redirect are repeated here. */
       "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
       "X-Content-Type-Options": "nosniff",
       "Referrer-Policy": "strict-origin-when-cross-origin",
