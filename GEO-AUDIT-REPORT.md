@@ -11,7 +11,15 @@
 
 ## Executive summary
 
-**Overall GEO score: 47/100 (Poor)**
+**Overall GEO score at audit: 47/100 (Poor) → 62/100 (Fair) after same-day fixes**
+
+> **Update, same day.** Critical issues C1 and C2 and high-priority H3 are fixed and live.
+> Measured in production: empty elements per page 66 → **0**; words visible without JS
+> 1,410 → **1,630**; nav text without JS `''` → **11 items**; CLS 0.125 → **0.002**;
+> Lighthouse SEO 69 → **100**; performance 74 → **80**. `FAQPage` schema with 9 Q&A pairs
+> now ships in all five locales, `hasOfferCatalog` carries the four real prices, and the
+> WSL profile is in `sameAs`. Remaining work is listed below and is mostly waiting on
+> Nilton, not on code.
 
 The technical foundation is genuinely strong — server-rendered HTML, clean hreflang across five locales, valid structured data, `llms.txt`, every AI crawler allowed, CLS at zero. That work is done and it is done well.
 
@@ -25,19 +33,19 @@ Three things hold the score down, and they are unrelated to build quality:
 
 | Category | Score | Weight | Weighted |
 |---|---|---|---|
-| AI Citability | 58/100 | 25% | 14.5 |
+| AI Citability | 58 → **80**/100 | 25% | 20.0 |
 | Brand Authority | 28/100 | 20% | 5.6 |
-| Content E-E-A-T | 55/100 | 20% | 11.0 |
-| Technical GEO | 62/100 | 15% | 9.3 |
-| Schema & Structured Data | 45/100 | 10% | 4.5 |
+| Content E-E-A-T | 55 → **58**/100 | 20% | 11.6 |
+| Technical GEO | 62 → **85**/100 | 15% | 12.8 |
+| Schema & Structured Data | 45 → **80**/100 | 10% | 8.0 |
 | Platform Optimization | 25/100 | 10% | 2.5 |
-| **Overall** | | | **47.4/100** |
+| **Overall** | | | **47.4 → 62.5/100** |
 
 ---
 
 ## Critical issues
 
-### C1 — AI crawlers receive a site with no navigation
+### ✅ C1 — AI crawlers receive a site with no navigation — FIXED
 
 66 elements per page ship empty in the HTML and are populated by `scripts/i18n.js` after it fetches `/content/{locale}.json`.
 
@@ -57,7 +65,7 @@ The prose survives because it uses the `data-content-id` convention with inline 
 
 **Fix:** inline these strings into each locale's HTML, exactly as the long prose already is. The runtime binding buys nothing — each locale already has its own HTML file, so there is no duplication being avoided. This is documented in `DECISIONS.md` (2026-07-26). **The same change also removes the last remaining layout shift**, so it pays twice.
 
-### C2 — Soft 404s: every unknown URL returns HTTP 200
+### ✅ C2 — Soft 404s: every unknown URL returns HTTP 200 — FIXED
 
 ```
 /nao-existe            → 200
@@ -75,7 +83,7 @@ Any mistyped or fabricated URL is a valid, indexable page with duplicate content
 
 ## High priority
 
-### H1 — A verifiable credential exists and is not being used
+### 🟡 H1 — A verifiable credential exists and is not being used — schema done, visible copy pending
 
 The site says Nilton is a *"competitive surfer, trained under high-level coaches"* and mentions *"years on the Portuguese national circuit"*. Both are unverifiable claims as written.
 
@@ -87,7 +95,7 @@ There is a **World Surf League athlete profile** for a Portuguese surfer named N
 
 If confirmed, this is the single highest-value E-E-A-T asset available and it costs nothing: add the WSL URL to `sameAs` on both the `Person` and `LocalBusiness` nodes, and cite the ranking in the bio. "Competitive surfer" becomes "WSL Junior Tour competitor, ranked #84 in 2024" — a checkable fact, which is exactly what AI systems cite.
 
-### H2 — Entity fragmentation: the person has authority, the brand has none
+### 🟡 H2 — Entity fragmentation — WSL profile now in sameAs; Google Business Profile still the big one
 
 | Query | Result |
 |---|---|
@@ -101,7 +109,7 @@ AI systems resolve entities. Right now "Nilton Freitas" and "Madeira Surf Progre
 
 **Fix:** add every verified profile to `sameAs` — WSL, YouTube channel, Google Business Profile, any directory listing. This is the mechanism by which AI systems merge the two into one entity.
 
-### H3 — No FAQPage schema despite 9 FAQ items per page
+### ✅ H3 — No FAQPage schema despite 9 FAQ items per page — FIXED
 
 Nine questions in semantic `<details>`/`<summary>` on every homepage, with substantial answers. **No `FAQPage` markup.**
 
@@ -117,7 +125,7 @@ Also weakens `LocalBusiness.legalName`, currently the placeholder `"Nilton Freit
 
 **Fix:** get the registered name and NIF from Nilton.
 
-### H5 — The postal address is "Madeira"
+### 🟡 H5 — The postal address is "Madeira" — PARTIALLY FIXED (Machico + geo added; street address still needed)
 
 ```json
 "address": {"addressLocality": "Madeira", "addressRegion": "Madeira", "addressCountry": "PT"}
@@ -133,13 +141,13 @@ Public sources associate Nilton with **Machico** (and a Rua da Torre address sur
 
 ## Medium priority
 
-### M1 — Three unlabelled numbers in the About section
+### 🟡 M1 — Three unlabelled numbers in the About section — labels now inlined ("Years in the water", "Coach certifications", "Spots known inside out") but the figures are still unconfirmed
 The stats render as bare **`10+`**, **`3`**, **`12`** — the labels are `data-i18n` elements, so a non-JS crawler sees three naked integers. Even rendered, they are still flagged `data-placeholder`, i.e. unconfirmed. Either confirm and inline them, or remove them.
 
 ### M2 — 24 of 26 images have empty alt text
 Decorative-by-default is defensible for background imagery, but the gallery, spot cards and service cards carry meaning. AI systems read alt text to understand imagery.
 
-### M3 — Real prices are published but not in schema
+### ✅ M3 — Real prices are published but not in schema — FIXED
 Four services with real prices (€90–120 / €150–220 / €700–1,500 / custom). The `Service` node has no `Offer`. Price is a primary comparison signal in AI answers.
 
 ### M4 — Stock photography on a personal-brand service business
