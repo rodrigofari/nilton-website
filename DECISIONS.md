@@ -4,6 +4,47 @@ Log of non-obvious choices. New entries go at the top with date and rationale. D
 
 ---
 
+## 2026-07-26 — scroll-snap silently cancelled the spots nudge, and the test never noticed
+
+The 40px nudge shipped and did nothing. João spotted it by looking at the screen; the
+122-assertion suite that had just passed did not.
+
+**The bug.** `.spots__grid` has `scroll-snap-type: x proximity` with snap points on each
+card. 40px is far closer to snap point 0 than to the next card at 360px, so the browser
+snapped straight back. Measured in isolation:
+
+    snap on,  scrollTo(40) -> settles at  0px
+    snap off, scrollTo(40) -> peaks at   40px
+
+Fix is one line: switch snap off for the duration of the nudge, restore after — and
+restore immediately if the visitor starts scrolling, so their swipe behaves normally.
+
+**Why the test missed it.** It asserted `scrollLeft === 0` after the animation, described
+as "returned to zero after nudge". That assertion is *also* true when the nudge never
+happens. It verified the destination and never the journey.
+
+**Two follow-on lessons, both paid for in wasted rounds:**
+
+1. **In-page instrumentation can fail silently and look like a product bug.** A
+   `MutationObserver` + `setInterval` sampler inside the page reported peak 0px even
+   after the fix was correct. Polling `scrollLeft` from the CDP side showed 40px
+   immediately. Several rounds were spent debugging working code because the measuring
+   device was broken. When a measurement disagrees with a direct observation, suspect the
+   measurement first.
+2. **A `requestAnimationFrame` was added on the theory that the style change needed a
+   frame to flush before the scroll.** Plausible, and wrong: removing it and re-measuring
+   still peaked at 40px. It was deleted, along with a code comment that confidently
+   asserted the opposite. Don't ship a fix you cannot reproduce the need for, and never
+   ship a comment stating a measurement that was never taken.
+
+**How to apply:**
+- Any assertion about an animation must check a value *during* it, not only after. For
+  scroll animations, poll from outside the page.
+- Reach for the CDP-side poll before in-page instrumentation. Fewer moving parts.
+- The same trap applies to the services row, which uses the same snap settings.
+
+---
+
 ## 2026-07-26 — Spots carousel: a one-off nudge, not an auto-advancing carousel
 
 The nine spot cards are a horizontally scrollable flex row at every breakpoint
