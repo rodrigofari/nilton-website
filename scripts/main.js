@@ -4,6 +4,7 @@ import { initLangSwitcher } from "./lang-switcher.js";
 import { initConsent, getConsent } from "./consent.js";
 import { initFloatingCta } from "./floating-cta.js";
 import { initTracking } from "./track.js";
+import { initSpots } from "./spots.js";
 
 async function init() {
   await initI18n();
@@ -17,6 +18,12 @@ async function init() {
   // rather than on the consent event means someone who accepts mid-scroll is
   // measured from that moment without the page needing to be re-armed.
   initTracking();
+
+  // MUST come after initTracking(). initSpots() dispatches `spots:ready` once
+  // its nudge has settled, and track.js only starts watching spot cards on that
+  // event — so the animation can never register a spot_view the visitor did not
+  // cause. Swap the order and the listener is attached too late.
+  initSpots();
 
   // Analytics — load post-consent (eager if already accepted, lazy on event)
   if (getConsent() === "accepted") {
