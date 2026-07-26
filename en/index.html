@@ -84,13 +84,29 @@
         "priceRange": "€€",
         "address": {
           "@type": "PostalAddress",
-          "addressLocality": "Madeira",
+          "addressLocality": "Machico",
           "addressRegion": "Madeira",
           "addressCountry": "PT"
         },
-        "areaServed": "Madeira, Portugal",
+        "areaServed": {
+          "@type": "Place",
+          "name": "Madeira, Portugal"
+        },
         "sameAs": [
-          "https://instagram.com/niltonfreitaas"
+          "https://instagram.com/niltonfreitaas",
+          "https://www.worldsurfleague.com/athletes/15650/nilton-freitas"
+        ],
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 32.7175,
+          "longitude": -16.7669
+        },
+        "knowsLanguage": [
+          "pt",
+          "en",
+          "fr",
+          "de",
+          "uk"
         ]
       },
       {
@@ -98,18 +114,168 @@
         "@id": "https://madeirasurfcoach.com/#person",
         "name": "Nilton Freitas",
         "jobTitle": "Surf Guide & Coach",
-        "worksFor": { "@id": "https://madeirasurfcoach.com/#business" },
+        "worksFor": {
+          "@id": "https://madeirasurfcoach.com/#business"
+        },
         "sameAs": [
-          "https://instagram.com/niltonfreitaas"
+          "https://instagram.com/niltonfreitaas",
+          "https://www.worldsurfleague.com/athletes/15650/nilton-freitas"
+        ],
+        "nationality": {
+          "@type": "Country",
+          "name": "Portugal"
+        },
+        "knowsAbout": [
+          "Surfing",
+          "Surf coaching",
+          "Madeira surf spots",
+          "Swell forecasting"
         ]
       },
       {
         "@type": "Service",
         "@id": "https://madeirasurfcoach.com/#service",
         "serviceType": "Surf coaching and guided sessions",
-        "provider": { "@id": "https://madeirasurfcoach.com/#business" },
+        "provider": {
+          "@id": "https://madeirasurfcoach.com/#business"
+        },
         "areaServed": "Madeira, Portugal",
-        "audience": "Surfers of all levels"
+        "audience": "Surfers of all levels",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Surf coaching and guiding",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "name": "Private Surf Coaching",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Private Surf Coaching"
+              },
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "priceCurrency": "EUR",
+                "minPrice": 90,
+                "maxPrice": 120
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "Surf Guiding Experience",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Surf Guiding Experience"
+              },
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "priceCurrency": "EUR",
+                "minPrice": 150,
+                "maxPrice": 220
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "1 Week Surf Progression Program",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "1 Week Surf Progression Program"
+              },
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "priceCurrency": "EUR",
+                "minPrice": 700,
+                "maxPrice": 1500
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "2 Week Intensive Surf Camp",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "2 Week Intensive Surf Camp"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://madeirasurfcoach.com/en/#faq",
+        "inLanguage": "en",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What level do I need to be?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Every level — beginner, intermediate, advanced. The methodology is the same regardless: read the conditions, pick the right spot for your level, work on technique that actually moves you forward. Beginners surf forgiving sand-bottom waves at Machico; intermediates and advanced surfers head to the south-coast points when conditions line up. The session is built around you, not the other way around."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is this different from a regular surf school?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A traditional surf school is built around delivering lessons at scale — usually group lessons, fixed times, beginner-focused, often at the same beach regardless of conditions. Madeira Surf Progress is built around progression. Private or near-private coaching, forecast-driven scheduling, spot selection based on the day's conditions and your specific goals. Every booking is shaped around moving you forward, not filling a class."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I know if a 1-Week or 2-Week programme is right for me?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The 1-Week programme is the right call if you want serious, structured progression in a defined window — daily coaching, daily surfing, focused work on technique and ocean reading. The 2-Week Intensive Camp goes further: it's an application-based, performance-led programme designed for surfers who want transformation, not improvement. If you're not sure, send a message — we'll talk through your level and goals and recommend the right fit."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does scheduling work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sessions are forecast-driven, not fixed. Once your booking is confirmed, we lock approximate dates; the exact spot and time get confirmed 24–48 hours ahead based on the swell window. No fixed schedule means no wasted sessions — only days when there's something worth surfing."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need to bring my own board?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Boards and wetsuits are included with every session. If you'd rather bring your own quiver, that works too — we'll meet at the spot."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What about transport?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Pick-up and drop-off from your accommodation are available across the south coast and Funchal. North-coast pickups are arranged case by case depending on conditions and where the swell is working that day."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What if there's no swell during my visit?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "If conditions are completely flat, we either reschedule, switch to a coastal walk and spot-knowledge tour, or refund the session. You don't pay to surf nothing."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Madeira a good destination for first-time surfers?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For absolute beginners, yes — at Machico bay, where the bottom is sandy and the waves are forgiving. The south-coast point breaks and rock breaks elsewhere on the island are advanced-only. Madeira's reputation as a serious surf destination comes from those advanced waves, but Machico keeps it accessible for anyone learning."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I pay?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Bank transfer or in person on the day, depending on your stay length and the programme you book. We'll agree the method when we confirm."
+            }
+          }
+        ]
       }
     ]
   }
@@ -119,7 +285,7 @@
 </head>
 <body>
 
-<a href="#main" class="skip-link" data-i18n="a11y.skip_to_content"></a>
+<a href="#main" class="skip-link" data-i18n="a11y.skip_to_content">Skip to content</a>
 
 <header class="site-nav" role="banner">
   <div class="container site-nav__inner">
@@ -129,12 +295,12 @@
     </a>
 
     <ul class="site-nav__list" id="primary-menu">
-      <li><a class="site-nav__link" href="#about"        data-i18n="nav.about"></a></li>
-      <li><a class="site-nav__link" href="#services"     data-i18n="nav.services"></a></li>
-      <li><a class="site-nav__link" href="#spots"        data-i18n="nav.spots"></a></li>
-      <li><a class="site-nav__link" href="#gallery"      data-i18n="nav.gallery"></a></li>
-      <li><a class="site-nav__link" href="#testimonials" data-i18n="nav.testimonials"></a></li>
-      <li><a class="site-nav__link" href="#faq"          data-i18n="nav.faq"></a></li>
+      <li><a class="site-nav__link" href="#about"        data-i18n="nav.about">About</a></li>
+      <li><a class="site-nav__link" href="#services"     data-i18n="nav.services">Services</a></li>
+      <li><a class="site-nav__link" href="#spots"        data-i18n="nav.spots">Spots</a></li>
+      <li><a class="site-nav__link" href="#gallery"      data-i18n="nav.gallery">Gallery</a></li>
+      <li><a class="site-nav__link" href="#testimonials" data-i18n="nav.testimonials">Reviews</a></li>
+      <li><a class="site-nav__link" href="#faq"          data-i18n="nav.faq">FAQ</a></li>
 
       <li class="lang-switcher">
         <button type="button" class="lang-switcher__trigger"
@@ -158,7 +324,7 @@
         <a class="btn btn--primary btn--lg site-nav__list-cta"
            href="https://wa.me/351966236416" target="_blank" rel="noopener"
            data-i18n="nav.book_now"
-           data-i18n-href="contact.whatsapp_prefill"></a>
+           data-i18n-href="contact.whatsapp_prefill">Book Now</a>
       </li>
     </ul>
 
@@ -166,7 +332,7 @@
       <a href="https://wa.me/351966236416" target="_blank" rel="noopener"
          class="btn btn--primary btn--sm site-nav__cta"
          data-i18n="nav.book_now"
-         data-i18n-href="contact.whatsapp_prefill"></a>
+         data-i18n-href="contact.whatsapp_prefill">Book Now</a>
 
       <button type="button" class="site-nav__toggle" aria-expanded="false"
               aria-controls="primary-menu"
@@ -194,15 +360,15 @@
     <div class="hero__overlay" aria-hidden="true"></div>
 
     <div class="container hero__content">
-      <p class="eyebrow" data-i18n="hero.eyebrow"></p>
+      <p class="eyebrow" data-i18n="hero.eyebrow">Premium Surf Coaching · Madeira Island</p>
       <h1 class="display-xl" data-content-id="hero.headline">Real progression. <em>Real waves.</em> Madeira's premium surf coaching.</h1>
       <p class="hero__lede" data-content-id="hero.lede">Private coaching, surf guiding, and week-long progression programmes on Madeira's volcanic coastline. Coached by Nilton Freitas — competitive surfer trained under high-level coaches, focused on the technique, timing and ocean reading that actually move surfers forward.</p>
       <div class="hero__ctas">
         <a class="btn btn--accent btn--lg"
            href="https://wa.me/351966236416" target="_blank" rel="noopener"
            data-i18n="services.cta_enquire"
-           data-i18n-href="contact.whatsapp_prefill"></a>
-        <a class="btn btn--secondary btn--on-media btn--lg" href="#services" data-i18n="hero.cta_secondary"></a>
+           data-i18n-href="contact.whatsapp_prefill">Enquire on WhatsApp</a>
+        <a class="btn btn--secondary btn--on-media btn--lg" href="#services" data-i18n="hero.cta_secondary">See Services</a>
       </div>
     </div>
 
@@ -219,7 +385,7 @@
              loading="lazy">
       </figure>
       <div class="about__body">
-        <p class="eyebrow" data-i18n="about.section_label"></p>
+        <p class="eyebrow" data-i18n="about.section_label">About Nilton</p>
         <h2 id="about-title" data-content-id="about.h2">Coached by a competitor. Built on the island's edge.</h2>
         <span class="rule" aria-hidden="true"></span>
         <div class="prose">
@@ -230,21 +396,21 @@
         <ul class="about__stats">
           <li class="stat">
             <span class="stat__value" data-placeholder="true">10+</span>
-            <span class="stat__label" data-i18n="about.stat_years_label"></span>
+            <span class="stat__label" data-i18n="about.stat_years_label">Years on the water</span>
           </li>
           <li class="stat">
             <span class="stat__value" data-placeholder="true">3</span>
-            <span class="stat__label" data-i18n="about.stat_certs_label"></span>
+            <span class="stat__label" data-i18n="about.stat_certs_label">Coach certifications</span>
           </li>
           <li class="stat">
             <span class="stat__value" data-placeholder="true">12</span>
-            <span class="stat__label" data-i18n="about.stat_spots_label"></span>
+            <span class="stat__label" data-i18n="about.stat_spots_label">Spots known intimately</span>
           </li>
         </ul>
         <a class="btn btn--primary"
            href="https://wa.me/351966236416" target="_blank" rel="noopener"
            data-i18n="about.cta"
-           data-i18n-href="contact.whatsapp_prefill"></a>
+           data-i18n-href="contact.whatsapp_prefill">Plan Your Session</a>
       </div>
     </div>
   </section>
@@ -253,9 +419,9 @@
   <section class="services section section--soft" id="services" aria-labelledby="services-title">
     <div class="container">
       <header class="services__head">
-        <p class="eyebrow" data-i18n="services.section_label"></p>
-        <h2 id="services-title" data-i18n="services.section_title"></h2>
-        <p class="services__lede" data-i18n="services.section_lede"></p>
+        <p class="eyebrow" data-i18n="services.section_label">Coaching &amp; Guiding</p>
+        <h2 id="services-title" data-i18n="services.section_title">Built around your progression.</h2>
+        <p class="services__lede" data-i18n="services.section_lede">Four ways to train and surf with Madeira Surf Progress — from single sessions to two-week intensive camps. Every booking is shaped around your level, the conditions, and the goals you want to reach.</p>
       </header>
 
       <ul class="services__grid">
@@ -267,7 +433,7 @@
           <div class="card__body">
             <h3 class="card__title" data-content-id="services.coaching.title">Private Surf Coaching</h3>
             <p class="card__lede" data-content-id="services.coaching.lede">One-on-one or two-person coaching sessions focused on real technical progression. The right spot for the conditions, the right wave for your level, real feedback in and out of the water.</p>
-            <h4 class="card__includes-label" data-i18n="services.card_includes_label"></h4>
+            <h4 class="card__includes-label" data-i18n="services.card_includes_label">Includes</h4>
             <ul class="card__includes">
               <li data-content-id="services.coaching.includes.1">2–2.5 hour session</li>
               <li data-content-id="services.coaching.includes.2">1 or 2 surfers max</li>
@@ -279,7 +445,7 @@
             <a class="btn btn--secondary btn--sm card__cta"
                href="https://wa.me/351966236416" target="_blank" rel="noopener"
                data-i18n="services.cta_enquire"
-               data-i18n-href="services.coaching_prefill"></a>
+               data-i18n-href="services.coaching_prefill">Enquire on WhatsApp</a>
           </div>
         </article></li>
 
@@ -290,7 +456,7 @@
           <div class="card__body">
             <h3 class="card__title" data-content-id="services.guiding.title">Surf Guiding Experience</h3>
             <p class="card__lede" data-content-id="services.guiding.lede">A premium day chasing Madeira's best waves with local knowledge and coaching woven in. Designed for surfers who want the day mapped intelligently — best spot, best window, best of the island.</p>
-            <h4 class="card__includes-label" data-i18n="services.card_includes_label"></h4>
+            <h4 class="card__includes-label" data-i18n="services.card_includes_label">Includes</h4>
             <ul class="card__includes">
               <li data-content-id="services.guiding.includes.1">Half-day or full-day</li>
               <li data-content-id="services.guiding.includes.2">Spot scouting and personal guidance</li>
@@ -301,7 +467,7 @@
             <a class="btn btn--secondary btn--sm card__cta"
                href="https://wa.me/351966236416" target="_blank" rel="noopener"
                data-i18n="services.cta_enquire"
-               data-i18n-href="services.guiding_prefill"></a>
+               data-i18n-href="services.guiding_prefill">Enquire on WhatsApp</a>
           </div>
         </article></li>
 
@@ -312,7 +478,7 @@
           <div class="card__body">
             <h3 class="card__title" data-content-id="services.week.title">1 Week Surf Progression Program</h3>
             <p class="card__lede" data-content-id="services.week.lede">A full week of structured progression. Daily coaching, surf guiding, and forecast-driven planning — all designed around accelerating your surfing in seven days.</p>
-            <h4 class="card__includes-label" data-i18n="services.card_includes_label"></h4>
+            <h4 class="card__includes-label" data-i18n="services.card_includes_label">Includes</h4>
             <ul class="card__includes">
               <li data-content-id="services.week.includes.1">Daily coaching + guiding sessions</li>
               <li data-content-id="services.week.includes.2">Forecast-led day planning</li>
@@ -324,19 +490,19 @@
             <a class="btn btn--secondary btn--sm card__cta"
                href="https://wa.me/351966236416" target="_blank" rel="noopener"
                data-i18n="services.cta_enquire"
-               data-i18n-href="services.week_prefill"></a>
+               data-i18n-href="services.week_prefill">Enquire on WhatsApp</a>
           </div>
         </article></li>
 
         <li><article class="card service-card service-card--flagship">
-          <span class="card__flagship" data-i18n="services.flagship_label"></span>
+          <span class="card__flagship" data-i18n="services.flagship_label">Flagship</span>
           <div class="card__media">
             <img src="https://images.unsplash.com/photo-1517699418036-fb5d179fef0c?w=1200&amp;h=900&amp;fit=crop&amp;q=80" alt="" width="1200" height="900" loading="lazy">
           </div>
           <div class="card__body">
             <h3 class="card__title" data-content-id="services.intensive.title">2 Week Intensive Surf Camp</h3>
             <p class="card__lede" data-content-id="services.intensive.lede">The flagship. Two weeks of complete immersion — premium coaching, performance focus, accelerated progression. Application-based, custom-priced, designed for surfers serious about transformation.</p>
-            <h4 class="card__includes-label" data-i18n="services.card_includes_label"></h4>
+            <h4 class="card__includes-label" data-i18n="services.card_includes_label">Includes</h4>
             <ul class="card__includes">
               <li data-content-id="services.intensive.includes.1">Two weeks of personalised coaching</li>
               <li data-content-id="services.intensive.includes.2">Performance-led methodology</li>
@@ -347,7 +513,7 @@
             <a class="btn btn--accent btn--sm card__cta"
                href="https://wa.me/351966236416" target="_blank" rel="noopener"
                data-i18n="services.cta_apply"
-               data-i18n-href="services.intensive_prefill"></a>
+               data-i18n-href="services.intensive_prefill">Apply on WhatsApp</a>
           </div>
         </article></li>
 
@@ -359,8 +525,8 @@
   <section class="spots section" id="spots" aria-labelledby="spots-title">
     <div class="container">
       <header class="spots__head">
-        <p class="eyebrow" data-i18n="spots.section_label"></p>
-        <h2 id="spots-title" data-i18n="spots.section_title"></h2>
+        <p class="eyebrow" data-i18n="spots.section_label">Madeira Spots</p>
+        <h2 id="spots-title" data-i18n="spots.section_title">Volcanic coast, world-class waves</h2>
       </header>
 
       <ul class="spots__grid">
@@ -372,7 +538,7 @@
             <h3 class="card__title">Jardim do Mar</h3>
             <p data-content-id="spots.jardim.desc">A long, fast right-hander down a basalt boulder beach. World-class on a clean NW–W swell, and one of the most photogenic point breaks in Europe.</p>
             <dl class="card__meta">
-              <div><dt data-i18n="spots.tag_level_label"></dt><dd>Advanced</dd></div>
+              <div><dt data-i18n="spots.tag_level_label">Level</dt><dd>Advanced</dd></div>
             </dl>
           </div>
         </article></li>
@@ -385,7 +551,7 @@
             <h3 class="card__title">Paul do Mar</h3>
             <p data-content-id="spots.paul.desc">The heavier sibling of Jardim. Powerful left and right peaks under dramatic cliffs — short, hollow, and not for everyone. Best on solid swells with a forgiving forecast.</p>
             <dl class="card__meta">
-              <div><dt data-i18n="spots.tag_level_label"></dt><dd>Advanced</dd></div>
+              <div><dt data-i18n="spots.tag_level_label">Level</dt><dd>Advanced</dd></div>
             </dl>
           </div>
         </article></li>
@@ -398,7 +564,7 @@
             <h3 class="card__title">Ponta Pequena</h3>
             <p data-content-id="spots.ponta-pequena.desc">A right-hand point with lined-up walls — friendlier than Jardim and Paul, still high quality. The first stop when bigger spots are out of control.</p>
             <dl class="card__meta">
-              <div><dt data-i18n="spots.tag_level_label"></dt><dd>Intermediate+</dd></div>
+              <div><dt data-i18n="spots.tag_level_label">Level</dt><dd>Intermediate+</dd></div>
             </dl>
           </div>
         </article></li>
@@ -411,7 +577,7 @@
             <h3 class="card__title">Fajã da Areia</h3>
             <p data-content-id="spots.faja-da-areia.desc">A pebble-and-sand beach break on the north coast — the back-up plan when the south is flat. Picks up summer swells the south coast doesn't see.</p>
             <dl class="card__meta">
-              <div><dt data-i18n="spots.tag_level_label"></dt><dd>All</dd></div>
+              <div><dt data-i18n="spots.tag_level_label">Level</dt><dd>All</dd></div>
             </dl>
           </div>
         </article></li>
@@ -424,7 +590,7 @@
             <h3 class="card__title">Porto da Cruz</h3>
             <p data-content-id="spots.porto-da-cruz.desc">Iconic black-sand bay under the Penha de Águia rock. Multiple peaks, mid-power waves, and an open feel — a great session and a great photograph.</p>
             <dl class="card__meta">
-              <div><dt data-i18n="spots.tag_level_label"></dt><dd>Intermediate</dd></div>
+              <div><dt data-i18n="spots.tag_level_label">Level</dt><dd>Intermediate</dd></div>
             </dl>
           </div>
         </article></li>
@@ -437,7 +603,7 @@
             <h3 class="card__title">Machico</h3>
             <p data-content-id="spots.machico.desc">Nilton's home spot. Sheltered bay, forgiving whitewater, gentle take-offs — the place first-timers stand up. Year-round, with the busiest local crowd.</p>
             <dl class="card__meta">
-              <div><dt data-i18n="spots.tag_level_label"></dt><dd>Beginner</dd></div>
+              <div><dt data-i18n="spots.tag_level_label">Level</dt><dd>Beginner</dd></div>
             </dl>
           </div>
         </article></li>
@@ -450,7 +616,7 @@
             <h3 class="card__title">Ribeira da Janela</h3>
             <p data-content-id="spots.ribeira-da-janela.desc" data-placeholder="true">Far-west valley spot. Long, powerful left-hand point that lights up on solid NW swells. Exposed and committing — advanced surfers only.</p>
             <dl class="card__meta">
-              <div><dt data-i18n="spots.tag_level_label"></dt><dd>Advanced</dd></div>
+              <div><dt data-i18n="spots.tag_level_label">Level</dt><dd>Advanced</dd></div>
             </dl>
           </div>
         </article></li>
@@ -463,7 +629,7 @@
             <h3 class="card__title">Contreiras</h3>
             <p data-content-id="spots.contreiras.desc" data-placeholder="true">Hidden gem with quality right-hand walls. Works in a narrow swell window; the tight take-off keeps the crowd small. Advanced surfers only.</p>
             <dl class="card__meta">
-              <div><dt data-i18n="spots.tag_level_label"></dt><dd>Advanced</dd></div>
+              <div><dt data-i18n="spots.tag_level_label">Level</dt><dd>Advanced</dd></div>
             </dl>
           </div>
         </article></li>
@@ -476,7 +642,7 @@
             <h3 class="card__title">Praia do Seixal</h3>
             <p data-content-id="spots.praia-do-seixal.desc" data-placeholder="true">North-coast black-sand bay. Sheltered take-offs and forgiving whitewater — a friendlier alternative when Machico is crowded.</p>
             <dl class="card__meta">
-              <div><dt data-i18n="spots.tag_level_label"></dt><dd>Beginner</dd></div>
+              <div><dt data-i18n="spots.tag_level_label">Level</dt><dd>Beginner</dd></div>
             </dl>
           </div>
         </article></li>
@@ -488,8 +654,8 @@
   <section class="gallery section" id="gallery" aria-labelledby="gallery-title">
     <div class="container">
       <header class="gallery__head">
-        <p class="eyebrow" data-i18n="gallery.section_label"></p>
-        <h2 id="gallery-title" data-i18n="gallery.section_title"></h2>
+        <p class="eyebrow" data-i18n="gallery.section_label">Gallery</p>
+        <h2 id="gallery-title" data-i18n="gallery.section_title">On the water</h2>
       </header>
     </div>
     <div class="container">
@@ -525,8 +691,8 @@
   <section class="testimonials section section--dark" id="testimonials" aria-labelledby="testimonials-title">
     <div class="container">
       <header class="testimonials__head">
-        <p class="eyebrow" data-i18n="testimonials.section_label"></p>
-        <h2 id="testimonials-title" data-i18n="testimonials.section_title"></h2>
+        <p class="eyebrow" data-i18n="testimonials.section_label">Reviews</p>
+        <h2 id="testimonials-title" data-i18n="testimonials.section_title">What surfers say</h2>
       </header>
 
       <ul class="testimonials__list">
@@ -558,8 +724,8 @@
   <section class="faq section" id="faq" aria-labelledby="faq-title">
     <div class="container container-narrow">
       <header class="faq__head">
-        <p class="eyebrow" data-i18n="faq.section_label"></p>
-        <h2 id="faq-title" data-i18n="faq.section_title"></h2>
+        <p class="eyebrow" data-i18n="faq.section_label">FAQ</p>
+        <h2 id="faq-title" data-i18n="faq.section_title">Frequently asked</h2>
       </header>
 
       <ul class="faq__list">
@@ -632,14 +798,14 @@
   <!-- ============== CONTACT ============== -->
   <section class="contact section section--soft" id="contact" aria-labelledby="contact-title">
     <div class="container container-narrow contact__inner">
-      <p class="eyebrow" data-i18n="contact.section_label"></p>
-      <h2 id="contact-title" data-i18n="contact.section_title"></h2>
+      <p class="eyebrow" data-i18n="contact.section_label">Contact</p>
+      <h2 id="contact-title" data-i18n="contact.section_title">Let's get you on the water</h2>
       <p class="contact__lede" data-content-id="contact.lede">Send a message and you'll get a reply with availability and a swell forecast for your dates.</p>
       <a class="btn btn--accent btn--lg contact__cta"
          href="https://wa.me/351966236416" target="_blank" rel="noopener"
          data-i18n="contact.whatsapp_cta"
-         data-i18n-href="contact.whatsapp_prefill"></a>
-      <p class="contact__meta" data-i18n="contact.response_time"></p>
+         data-i18n-href="contact.whatsapp_prefill">Message on WhatsApp</a>
+      <p class="contact__meta" data-i18n="contact.response_time">Replies within 24 hours</p>
     </div>
   </section>
 
@@ -652,32 +818,32 @@
         <img class="site-nav__brand-mark" src="/assets/images/logos/logo-256.png" srcset="/assets/images/logos/logo-256.png 1x, /assets/images/logos/logo-512.png 2x" alt="" width="120" height="120">
         Madeira Surf Progress
       </a>
-      <p class="site-footer__tagline" data-i18n="footer.tagline"></p>
+      <p class="site-footer__tagline" data-i18n="footer.tagline">Certified surf guide — Madeira Island, Portugal</p>
     </div>
 
     <nav aria-label="Footer">
-      <h6 data-i18n="nav.about"></h6>
+      <h6 data-i18n="nav.about">About</h6>
       <ul class="site-footer__nav-list">
-        <li><a href="#about"        data-i18n="nav.about"></a></li>
-        <li><a href="#services"     data-i18n="nav.services"></a></li>
-        <li><a href="#spots"        data-i18n="nav.spots"></a></li>
-        <li><a href="#faq"          data-i18n="nav.faq"></a></li>
-        <li><a href="/en/privacy/"     data-i18n="consent.policy_link"></a></li>
+        <li><a href="#about"        data-i18n="nav.about">About</a></li>
+        <li><a href="#services"     data-i18n="nav.services">Services</a></li>
+        <li><a href="#spots"        data-i18n="nav.spots">Spots</a></li>
+        <li><a href="#faq"          data-i18n="nav.faq">FAQ</a></li>
+        <li><a href="/en/privacy/"     data-i18n="consent.policy_link">Privacy policy</a></li>
       </ul>
     </nav>
 
     <div class="site-footer__follow">
-      <h6 data-i18n="footer.follow_label"></h6>
+      <h6 data-i18n="footer.follow_label">Follow</h6>
       <ul class="site-footer__follow-list">
-        <li><a href="https://instagram.com/niltonfreitaas" rel="me noopener" target="_blank" data-i18n="footer.instagram_label"></a></li>
+        <li><a href="https://instagram.com/niltonfreitaas" rel="me noopener" target="_blank" data-i18n="footer.instagram_label">Instagram</a></li>
       </ul>
     </div>
   </div>
 
   <div class="container site-footer__legal">
-    <small data-i18n="footer.rights"></small>
-    <small data-i18n="footer.made_in"></small>
-    <small data-i18n="footer.legal_entity" data-placeholder="true"></small>
+    <small data-i18n="footer.rights">© 2026 Madeira Surf Progress. All rights reserved.</small>
+    <small data-i18n="footer.made_in">Made in Madeira</small>
+    <small data-i18n="footer.legal_entity" data-placeholder="true">Madeira Surf Progress is a brand of Nilton Freitas, licensed surf school in Madeira, Portugal.</small>
   </div>
 </footer>
 
@@ -695,12 +861,12 @@
 <!-- Cookie consent banner — visible only when user has not chosen yet -->
 <aside class="consent" hidden aria-label="Cookie consent">
   <p class="consent__text">
-    <span data-i18n="consent.banner_text"></span>
-    <a href="/en/privacy/" data-i18n="consent.policy_link"></a>
+    <span data-i18n="consent.banner_text">We use cookies to measure site traffic anonymously. No tracking until you accept.</span>
+    <a href="/en/privacy/" data-i18n="consent.policy_link">Privacy policy</a>
   </p>
   <div class="consent__actions">
-    <button type="button" class="btn btn--ghost btn--sm consent__decline" data-i18n="consent.decline"></button>
-    <button type="button" class="btn btn--primary btn--sm consent__accept" data-i18n="consent.accept"></button>
+    <button type="button" class="btn btn--ghost btn--sm consent__decline" data-i18n="consent.decline">Decline</button>
+    <button type="button" class="btn btn--primary btn--sm consent__accept" data-i18n="consent.accept">Accept</button>
   </div>
 </aside>
 

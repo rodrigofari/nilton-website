@@ -4,6 +4,66 @@ Log of non-obvious choices. New entries go at the top with date and rationale. D
 
 ---
 
+## 2026-07-26 — Short strings are inlined in the HTML; the JSON binding is now a no-op
+
+Reverses the "short strings in JSON, prose in HTML" split below, for the strings
+only. `content/{locale}.json` still exists and `scripts/i18n.js` still runs, but every
+`[data-i18n]` element now ships with its text already in the HTML. The binder overwrites
+with an identical string, so it changes nothing visible.
+
+**Why — two independent problems, one cause.**
+
+*AI crawlers.* Requested as `GPTBot/1.0` with no JavaScript, `/pt/` returned 1,410 words
+of prose but the `<nav>` element's text content was the empty string. 66 elements per
+page were empty: 13 navigation items, every call-to-action, 13 service labels, 11 spot
+labels, 6 footer items. Googlebot executes JavaScript and saw the whole page; GPTBot,
+ClaudeBot and CCBot largely do not. ChatGPT could read Nilton's prose but could not see
+that the site sells four services or find a single "Book now".
+
+*Layout shift.* The same empty elements were the residual CLS. `.hero__content` grew 68px
+at ~1.67s as the fill landed.
+
+**Measured, mobile, before → after:**
+
+    Empty elements per page      66  ->  0
+    Words visible without JS  1,410  ->  1,630
+    Nav text without JS          ''  ->  11 items
+    CLS                       0.125  ->  0.002
+    Lighthouse performance       74  ->  80
+
+**Why the original split bought nothing.** It existed to avoid duplicating strings across
+locales — but each locale already has its own HTML file. `pt/index.html` only ever renders
+Portuguese. There was no duplication to avoid, and the cost was a network round trip, 66
+empty elements and the CLS.
+
+**How to apply:**
+- New `[data-i18n]` elements must ship with their text inlined. An empty one is a bug now,
+  not a convention. `content/{locale}.json` remains the source of truth — inline the value
+  from it, don't invent one.
+- `{year}` in `footer.rights` is inlined with a literal year and re-substituted at runtime.
+  A stale year self-corrects on load.
+- The JSON is still fetched and still overwrites. Keeping it means translators keep one
+  place to edit and `[data-missing]` still flags absent keys. Deleting the binder is a
+  separate decision nobody needs to make yet.
+
+---
+
+## 2026-07-26 — Cloudflare Pages needs an explicit 404.html
+
+Without one, Pages answers every unmatched path with the root document **and HTTP 200**.
+Verified: `/nao-existe`, `/pt/nao-existe` and `/styles/x.css` all returned 200 carrying the
+language-picker HTML. Every mistyped or fabricated URL was a valid, indexable page with
+duplicate content — and this was live for the hours between removing `noindex` and finding it.
+
+`404.html` at the repo root fixes it; Pages serves it with a real 404. It carries
+`noindex, follow` as a second layer and deliberately has **no canonical** — a 404 must not
+claim to be another page.
+
+**How to apply:** re-check with `curl -o /dev/null -w '%{http_code}' <site>/no-such-path`
+after any change to routing, `_redirects` or the Pages Function. A 200 there is a bug.
+
+---
+
 ## 2026-07-26 — CLS is caused by empty elements, not by fonts
 
 Mobile Lighthouse showed CLS 0.256 in production. The obvious suspects were wrong.
