@@ -84,28 +84,198 @@
         "priceRange": "€€",
         "address": {
           "@type": "PostalAddress",
-          "addressLocality": "Madeira",
+          "addressLocality": "Machico",
           "addressRegion": "Madeira",
           "addressCountry": "PT"
         },
-        "areaServed": "Madeira, Portugal",
-        "sameAs": [ "https://instagram.com/niltonfreitaas" ]
+        "areaServed": {
+          "@type": "Place",
+          "name": "Madeira, Portugal"
+        },
+        "sameAs": [
+          "https://instagram.com/niltonfreitaas",
+          "https://www.worldsurfleague.com/athletes/15650/nilton-freitas"
+        ],
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 32.7175,
+          "longitude": -16.7669
+        },
+        "knowsLanguage": [
+          "pt",
+          "en",
+          "fr",
+          "de",
+          "uk"
+        ]
       },
       {
         "@type": "Person",
         "@id": "https://madeirasurfcoach.com/#person",
         "name": "Nilton Freitas",
         "jobTitle": "Surf Guide & Coach",
-        "worksFor": { "@id": "https://madeirasurfcoach.com/#business" },
-        "sameAs": [ "https://instagram.com/niltonfreitaas" ]
+        "worksFor": {
+          "@id": "https://madeirasurfcoach.com/#business"
+        },
+        "sameAs": [
+          "https://instagram.com/niltonfreitaas",
+          "https://www.worldsurfleague.com/athletes/15650/nilton-freitas"
+        ],
+        "nationality": {
+          "@type": "Country",
+          "name": "Portugal"
+        },
+        "knowsAbout": [
+          "Surfing",
+          "Surf coaching",
+          "Madeira surf spots",
+          "Swell forecasting"
+        ]
       },
       {
         "@type": "Service",
         "@id": "https://madeirasurfcoach.com/#service",
         "serviceType": "Серф-коучинг і супровідні сесії",
-        "provider": { "@id": "https://madeirasurfcoach.com/#business" },
+        "provider": {
+          "@id": "https://madeirasurfcoach.com/#business"
+        },
         "areaServed": "Madeira, Portugal",
-        "audience": "Серфери всіх рівнів"
+        "audience": "Серфери всіх рівнів",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Surf coaching and guiding",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "name": "Private Surf Coaching",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Private Surf Coaching"
+              },
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "priceCurrency": "EUR",
+                "minPrice": 90,
+                "maxPrice": 120
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "Surf Guiding Experience",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Surf Guiding Experience"
+              },
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "priceCurrency": "EUR",
+                "minPrice": 150,
+                "maxPrice": 220
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "1 Week Surf Progression Program",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "1 Week Surf Progression Program"
+              },
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "priceCurrency": "EUR",
+                "minPrice": 700,
+                "maxPrice": 1500
+              }
+            },
+            {
+              "@type": "Offer",
+              "name": "2 Week Intensive Surf Camp",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "2 Week Intensive Surf Camp"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://madeirasurfcoach.com/uk/#faq",
+        "inLanguage": "uk",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Який рівень мені потрібен?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Будь-який — beginner, intermediate, advanced. Методологія та сама: читати умови, обирати правильний спот для твого рівня, працювати над технікою, яка реально просуває вперед. Beginners серфлять поблажливі хвилі піщаного дна в Machico; intermediates та advanced ідуть до points південного узбережжя, коли умови вибудовуються. Сесія будується навколо тебе, а не навпаки."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Чим це відрізняється від звичайної серф-школи?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Традиційна серф-школа побудована навколо доставки занять у масштабі — зазвичай групові заняття, фіксований час, зосереджені на beginners, часто на тому самому пляжі незалежно від умов. Madeira Surf Progress побудована навколо прогресії. Приватний або майже приватний коучинг, планування, кероване прогнозом, вибір спота на основі денних умов і твоїх конкретних цілей. Кожне бронювання сформоване, щоб тебе просувати, а не щоб заповнити клас."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Як зрозуміти, чи програма на 1 чи на 2 тижні підходить мені?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Програма на 1 тиждень — правильний вибір, якщо хочеш серйозної, структурованої прогресії у визначеному вікні — щоденний коучинг, щоденний серфінг, сфокусована робота над технікою й читанням океану. 2 Week Intensive Camp іде далі: це програма за заявкою, орієнтована на performance, створена для серферів, які хочуть трансформації, не просто покращення. Якщо вагаєшся — напиши повідомлення, поговоримо про твій рівень і цілі та порекомендуємо те, що підходить."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Як працює планування?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Сесії керуються прогнозом, а не фіксовані. Після підтвердження бронювання ми фіксуємо приблизні дати; точний спот і час підтверджуємо за 24–48 годин, виходячи з вікна свелу. Без жорсткого графіка означає нуль змарнованих сесій — лише дні, коли є щось варте серфінгу."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Чи треба брати свою дошку?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Дошки й гідрокостюми включені в кожну сесію. Якщо хочеш узяти свій quiver — теж добре, зустрінемось на споті."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "А як щодо транспорту?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Заїзд і повернення з твого житла доступні в межах усього південного узбережжя і Funchal. Заїзди на північному узбережжі узгоджуються індивідуально, залежно від умов і того, де працює свел того дня."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "А якщо під час мого візиту не буде свелу?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Якщо умови повністю flat, або переносимо, або переходимо на прогулянку узбережжям + тур по спотах, або повертаємо вартість сесії. Ти не платиш за те, щоб не серфити."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Чи Madeira — гарне місце для перших уроків серфінгу?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Для абсолютних beginners — так, у бухті Machico, де дно піщане, а хвилі поблажливі. Point breaks південного узбережжя і rock breaks у решті острова — лише для просунутих. Репутація Madeira як серйозного серф-напрямку йде від цих просунутих хвиль, але Machico тримає острів доступним для тих, хто навчається."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Як платити?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Банківським переказом або готівкою в день сесії, залежно від тривалості перебування і програми, яку бронюєш. Спосіб узгоджуємо при підтвердженні."
+            }
+          }
+        ]
       }
     ]
   }
@@ -115,7 +285,7 @@
 </head>
 <body>
 
-<a href="#main" class="skip-link" data-i18n="a11y.skip_to_content"></a>
+<a href="#main" class="skip-link" data-i18n="a11y.skip_to_content">Перейти до вмісту</a>
 
 <header class="site-nav" role="banner">
   <div class="container site-nav__inner">
@@ -125,12 +295,12 @@
     </a>
 
     <ul class="site-nav__list" id="primary-menu">
-      <li><a class="site-nav__link" href="#about"        data-i18n="nav.about"></a></li>
-      <li><a class="site-nav__link" href="#services"     data-i18n="nav.services"></a></li>
-      <li><a class="site-nav__link" href="#spots"        data-i18n="nav.spots"></a></li>
-      <li><a class="site-nav__link" href="#gallery"      data-i18n="nav.gallery"></a></li>
-      <li><a class="site-nav__link" href="#testimonials" data-i18n="nav.testimonials"></a></li>
-      <li><a class="site-nav__link" href="#faq"          data-i18n="nav.faq"></a></li>
+      <li><a class="site-nav__link" href="#about"        data-i18n="nav.about">Про мене</a></li>
+      <li><a class="site-nav__link" href="#services"     data-i18n="nav.services">Послуги</a></li>
+      <li><a class="site-nav__link" href="#spots"        data-i18n="nav.spots">Споти</a></li>
+      <li><a class="site-nav__link" href="#gallery"      data-i18n="nav.gallery">Галерея</a></li>
+      <li><a class="site-nav__link" href="#testimonials" data-i18n="nav.testimonials">Відгуки</a></li>
+      <li><a class="site-nav__link" href="#faq"          data-i18n="nav.faq">FAQ</a></li>
 
       <li class="lang-switcher">
         <button type="button" class="lang-switcher__trigger"
@@ -154,7 +324,7 @@
         <a class="btn btn--primary btn--lg site-nav__list-cta"
            href="https://wa.me/351966236416" target="_blank" rel="noopener"
            data-i18n="nav.book_now"
-           data-i18n-href="contact.whatsapp_prefill"></a>
+           data-i18n-href="contact.whatsapp_prefill">Забронювати</a>
       </li>
     </ul>
 
@@ -162,7 +332,7 @@
       <a href="https://wa.me/351966236416" target="_blank" rel="noopener"
          class="btn btn--primary btn--sm site-nav__cta"
          data-i18n="nav.book_now"
-         data-i18n-href="contact.whatsapp_prefill"></a>
+         data-i18n-href="contact.whatsapp_prefill">Забронювати</a>
 
       <button type="button" class="site-nav__toggle" aria-expanded="false"
               aria-controls="primary-menu"
@@ -189,15 +359,15 @@
     <div class="hero__overlay" aria-hidden="true"></div>
 
     <div class="container hero__content">
-      <p class="eyebrow" data-i18n="hero.eyebrow"></p>
+      <p class="eyebrow" data-i18n="hero.eyebrow">Преміум Surf Coaching · Острів Madeira</p>
       <h1 class="display-xl" data-content-id="hero.headline">Справжня прогресія. <em>Справжні хвилі.</em> Преміум surf coaching на Madeira.</h1>
       <p class="hero__lede" data-content-id="hero.lede">Приватний коучинг, surf guiding і тижневі програми прогресії на вулканічному узбережжі Madeira. З Nilton Freitas — серфером-учасником змагань, який тренувався під керівництвом тренерів високого рівня, зосередженим на техніці, таймінгу й читанні океану, які реально просувають серфера вперед.</p>
       <div class="hero__ctas">
         <a class="btn btn--accent btn--lg"
            href="https://wa.me/351966236416" target="_blank" rel="noopener"
            data-i18n="services.cta_enquire"
-           data-i18n-href="contact.whatsapp_prefill"></a>
-        <a class="btn btn--secondary btn--on-media btn--lg" href="#services" data-i18n="hero.cta_secondary"></a>
+           data-i18n-href="contact.whatsapp_prefill">Запитати у WhatsApp</a>
+        <a class="btn btn--secondary btn--on-media btn--lg" href="#services" data-i18n="hero.cta_secondary">Послуги</a>
       </div>
     </div>
 
@@ -213,7 +383,7 @@
              loading="lazy">
       </figure>
       <div class="about__body">
-        <p class="eyebrow" data-i18n="about.section_label"></p>
+        <p class="eyebrow" data-i18n="about.section_label">Про Nilton</p>
         <h2 id="about-title" data-content-id="about.h2">Тренований конкурентом. Побудовано на краю острова.</h2>
         <span class="rule" aria-hidden="true"></span>
         <div class="prose">
@@ -224,21 +394,21 @@
         <ul class="about__stats">
           <li class="stat">
             <span class="stat__value" data-placeholder="true">10+</span>
-            <span class="stat__label" data-i18n="about.stat_years_label"></span>
+            <span class="stat__label" data-i18n="about.stat_years_label">Років на воді</span>
           </li>
           <li class="stat">
             <span class="stat__value" data-placeholder="true">3</span>
-            <span class="stat__label" data-i18n="about.stat_certs_label"></span>
+            <span class="stat__label" data-i18n="about.stat_certs_label">Coach-сертифікації</span>
           </li>
           <li class="stat">
             <span class="stat__value" data-placeholder="true">12</span>
-            <span class="stat__label" data-i18n="about.stat_spots_label"></span>
+            <span class="stat__label" data-i18n="about.stat_spots_label">Споти, які знаю зсередини</span>
           </li>
         </ul>
         <a class="btn btn--primary"
            href="https://wa.me/351966236416" target="_blank" rel="noopener"
            data-i18n="about.cta"
-           data-i18n-href="contact.whatsapp_prefill"></a>
+           data-i18n-href="contact.whatsapp_prefill">Сплануй сесію</a>
       </div>
     </div>
   </section>
@@ -246,9 +416,9 @@
   <section class="services section section--soft" id="services" aria-labelledby="services-title">
     <div class="container">
       <header class="services__head">
-        <p class="eyebrow" data-i18n="services.section_label"></p>
-        <h2 id="services-title" data-i18n="services.section_title"></h2>
-        <p class="services__lede" data-i18n="services.section_lede"></p>
+        <p class="eyebrow" data-i18n="services.section_label">Coaching &amp; Guiding</p>
+        <h2 id="services-title" data-i18n="services.section_title">Побудовано навколо твоєї прогресії.</h2>
+        <p class="services__lede" data-i18n="services.section_lede">Чотири способи тренуватися й серфити з Madeira Surf Progress — від окремих сесій до двотижневих інтенсивних кампів. Кожне бронювання формується навколо твого рівня, умов і цілей, яких ти хочеш досягти.</p>
       </header>
 
       <ul class="services__grid">
@@ -260,7 +430,7 @@
           <div class="card__body">
             <h3 class="card__title" data-content-id="services.coaching.title">Private Surf Coaching</h3>
             <p class="card__lede" data-content-id="services.coaching.lede">Сесії коучингу один-на-один або для двох, зосереджені на справжній технічній прогресії. Правильний спот для умов, правильна хвиля для твого рівня, реальний фідбек у воді й поза нею.</p>
-            <h4 class="card__includes-label" data-i18n="services.card_includes_label"></h4>
+            <h4 class="card__includes-label" data-i18n="services.card_includes_label">Включає</h4>
             <ul class="card__includes">
               <li data-content-id="services.coaching.includes.1">Сесія 2–2,5 години</li>
               <li data-content-id="services.coaching.includes.2">Максимум 1 або 2 серфери</li>
@@ -272,7 +442,7 @@
             <a class="btn btn--secondary btn--sm card__cta"
                href="https://wa.me/351966236416" target="_blank" rel="noopener"
                data-i18n="services.cta_enquire"
-               data-i18n-href="services.coaching_prefill"></a>
+               data-i18n-href="services.coaching_prefill">Запитати у WhatsApp</a>
           </div>
         </article></li>
 
@@ -283,7 +453,7 @@
           <div class="card__body">
             <h3 class="card__title" data-content-id="services.guiding.title">Surf Guiding Experience</h3>
             <p class="card__lede" data-content-id="services.guiding.lede">Преміум-день у пошуках найкращих хвиль Madeira, з місцевими знаннями й коучингом, вплетеними по дорозі. Створено для серферів, які хочуть, щоб день був розкреслений розумно — найкращий спот, найкраще вікно, найкраще з острова.</p>
-            <h4 class="card__includes-label" data-i18n="services.card_includes_label"></h4>
+            <h4 class="card__includes-label" data-i18n="services.card_includes_label">Включає</h4>
             <ul class="card__includes">
               <li data-content-id="services.guiding.includes.1">Пів дня або повний день</li>
               <li data-content-id="services.guiding.includes.2">Spot scouting і персональний guidance</li>
@@ -294,7 +464,7 @@
             <a class="btn btn--secondary btn--sm card__cta"
                href="https://wa.me/351966236416" target="_blank" rel="noopener"
                data-i18n="services.cta_enquire"
-               data-i18n-href="services.guiding_prefill"></a>
+               data-i18n-href="services.guiding_prefill">Запитати у WhatsApp</a>
           </div>
         </article></li>
 
@@ -305,7 +475,7 @@
           <div class="card__body">
             <h3 class="card__title" data-content-id="services.week.title">1 Week Surf Progression Program</h3>
             <p class="card__lede" data-content-id="services.week.lede">Цілий тиждень структурованої прогресії. Щоденний коучинг, surf guiding і планування, кероване прогнозом — усе побудовано навколо прискорення твого серфінгу за сім днів.</p>
-            <h4 class="card__includes-label" data-i18n="services.card_includes_label"></h4>
+            <h4 class="card__includes-label" data-i18n="services.card_includes_label">Включає</h4>
             <ul class="card__includes">
               <li data-content-id="services.week.includes.1">Щоденні сесії coaching + guiding</li>
               <li data-content-id="services.week.includes.2">Планування дня за прогнозом</li>
@@ -317,19 +487,19 @@
             <a class="btn btn--secondary btn--sm card__cta"
                href="https://wa.me/351966236416" target="_blank" rel="noopener"
                data-i18n="services.cta_enquire"
-               data-i18n-href="services.week_prefill"></a>
+               data-i18n-href="services.week_prefill">Запитати у WhatsApp</a>
           </div>
         </article></li>
 
         <li><article class="card service-card service-card--flagship">
-          <span class="card__flagship" data-i18n="services.flagship_label"></span>
+          <span class="card__flagship" data-i18n="services.flagship_label">Flagship</span>
           <div class="card__media">
             <img src="https://images.unsplash.com/photo-1517699418036-fb5d179fef0c?w=1200&amp;h=900&amp;fit=crop&amp;q=80" alt="" width="1200" height="900" loading="lazy">
           </div>
           <div class="card__body">
             <h3 class="card__title" data-content-id="services.intensive.title">2 Week Intensive Surf Camp</h3>
             <p class="card__lede" data-content-id="services.intensive.lede">Flagship. Два тижні повного занурення — преміум-коучинг, фокус на performance, прискорена прогресія. За заявкою, з персональною ціною, для серферів, які серйозно ставляться до трансформації.</p>
-            <h4 class="card__includes-label" data-i18n="services.card_includes_label"></h4>
+            <h4 class="card__includes-label" data-i18n="services.card_includes_label">Включає</h4>
             <ul class="card__includes">
               <li data-content-id="services.intensive.includes.1">Два тижні персоналізованого коучингу</li>
               <li data-content-id="services.intensive.includes.2">Методологія, орієнтована на performance</li>
@@ -340,7 +510,7 @@
             <a class="btn btn--accent btn--sm card__cta"
                href="https://wa.me/351966236416" target="_blank" rel="noopener"
                data-i18n="services.cta_apply"
-               data-i18n-href="services.intensive_prefill"></a>
+               data-i18n-href="services.intensive_prefill">Подати заявку у WhatsApp</a>
           </div>
         </article></li>
 
@@ -351,8 +521,8 @@
   <section class="spots section" id="spots" aria-labelledby="spots-title">
     <div class="container">
       <header class="spots__head">
-        <p class="eyebrow" data-i18n="spots.section_label"></p>
-        <h2 id="spots-title" data-i18n="spots.section_title"></h2>
+        <p class="eyebrow" data-i18n="spots.section_label">Споти Madeira</p>
+        <h2 id="spots-title" data-i18n="spots.section_title">Вулканічне узбережжя, хвилі світового рівня</h2>
       </header>
 
       <ul class="spots__grid">
@@ -364,7 +534,7 @@
             <h3 class="card__title">Jardim do Mar</h3>
             <p data-content-id="spots.jardim.desc">Довга швидка права хвиля вздовж пляжу з базальтових валунів. Світового рівня на чистому свелі NW–W і один із найфотогенічніших point breaks Європи.</p>
             <dl class="card__meta">
-              <div><dt data-i18n="spots.tag_level_label"></dt><dd>Просунутий</dd></div>
+              <div><dt data-i18n="spots.tag_level_label">Рівень</dt><dd>Просунутий</dd></div>
             </dl>
           </div>
         </article></li>
@@ -377,7 +547,7 @@
             <h3 class="card__title">Paul do Mar</h3>
             <p data-content-id="spots.paul.desc">Важчий брат Jardim. Потужні ліві й праві піки під драматичними скелями — короткі, порожнисті й не для кожного. Найкраще при щільних свелах із поблажливим прогнозом.</p>
             <dl class="card__meta">
-              <div><dt data-i18n="spots.tag_level_label"></dt><dd>Просунутий</dd></div>
+              <div><dt data-i18n="spots.tag_level_label">Рівень</dt><dd>Просунутий</dd></div>
             </dl>
           </div>
         </article></li>
@@ -390,7 +560,7 @@
             <h3 class="card__title">Ponta Pequena</h3>
             <p data-content-id="spots.ponta-pequena.desc">Правий point зі стінами в лінії — дружніший за Jardim і Paul, при цьому високої якості. Перша зупинка, коли більші споти виходять з-під контролю.</p>
             <dl class="card__meta">
-              <div><dt data-i18n="spots.tag_level_label"></dt><dd>Середній+</dd></div>
+              <div><dt data-i18n="spots.tag_level_label">Рівень</dt><dd>Середній+</dd></div>
             </dl>
           </div>
         </article></li>
@@ -403,7 +573,7 @@
             <h3 class="card__title">Fajã da Areia</h3>
             <p data-content-id="spots.faja-da-areia.desc">Beach break із гальки й піску на північному узбережжі — план Б, коли південь flat. Ловить літні свели, які південне узбережжя не бачить.</p>
             <dl class="card__meta">
-              <div><dt data-i18n="spots.tag_level_label"></dt><dd>Усі</dd></div>
+              <div><dt data-i18n="spots.tag_level_label">Рівень</dt><dd>Усі</dd></div>
             </dl>
           </div>
         </article></li>
@@ -416,7 +586,7 @@
             <h3 class="card__title">Porto da Cruz</h3>
             <p data-content-id="spots.porto-da-cruz.desc">Знакова бухта з чорним піском під скелею Penha de Águia. Кілька піків, хвилі середньої потужності й відчуття простору — гарна сесія і гарне фото.</p>
             <dl class="card__meta">
-              <div><dt data-i18n="spots.tag_level_label"></dt><dd>Середній</dd></div>
+              <div><dt data-i18n="spots.tag_level_label">Рівень</dt><dd>Середній</dd></div>
             </dl>
           </div>
         </article></li>
@@ -429,7 +599,7 @@
             <h3 class="card__title">Machico</h3>
             <p data-content-id="spots.machico.desc">Домашній спот Nilton. Захищена бухта, поблажлива піна, м'які тейк-офи — місце, де новачки вперше встають на дошку. Працює цілий рік, з найгустішим місцевим складом.</p>
             <dl class="card__meta">
-              <div><dt data-i18n="spots.tag_level_label"></dt><dd>Початківець</dd></div>
+              <div><dt data-i18n="spots.tag_level_label">Рівень</dt><dd>Початківець</dd></div>
             </dl>
           </div>
         </article></li>
@@ -442,7 +612,7 @@
             <h3 class="card__title">Ribeira da Janela</h3>
             <p data-content-id="spots.ribeira-da-janela.desc" data-placeholder="true">Far-west valley spot. Long, powerful left-hand point that lights up on solid NW swells. Exposed and committing — advanced surfers only.</p>
             <dl class="card__meta">
-              <div><dt data-i18n="spots.tag_level_label"></dt><dd>Просунутий</dd></div>
+              <div><dt data-i18n="spots.tag_level_label">Рівень</dt><dd>Просунутий</dd></div>
             </dl>
           </div>
         </article></li>
@@ -455,7 +625,7 @@
             <h3 class="card__title">Contreiras</h3>
             <p data-content-id="spots.contreiras.desc" data-placeholder="true">Hidden gem with quality right-hand walls. Works in a narrow swell window; the tight take-off keeps the crowd small. Advanced surfers only.</p>
             <dl class="card__meta">
-              <div><dt data-i18n="spots.tag_level_label"></dt><dd>Просунутий</dd></div>
+              <div><dt data-i18n="spots.tag_level_label">Рівень</dt><dd>Просунутий</dd></div>
             </dl>
           </div>
         </article></li>
@@ -468,7 +638,7 @@
             <h3 class="card__title">Praia do Seixal</h3>
             <p data-content-id="spots.praia-do-seixal.desc" data-placeholder="true">North-coast black-sand bay. Sheltered take-offs and forgiving whitewater — a friendlier alternative when Machico is crowded.</p>
             <dl class="card__meta">
-              <div><dt data-i18n="spots.tag_level_label"></dt><dd>Початківець</dd></div>
+              <div><dt data-i18n="spots.tag_level_label">Рівень</dt><dd>Початківець</dd></div>
             </dl>
           </div>
         </article></li>
@@ -479,8 +649,8 @@
   <section class="gallery section" id="gallery" aria-labelledby="gallery-title">
     <div class="container">
       <header class="gallery__head">
-        <p class="eyebrow" data-i18n="gallery.section_label"></p>
-        <h2 id="gallery-title" data-i18n="gallery.section_title"></h2>
+        <p class="eyebrow" data-i18n="gallery.section_label">Галерея</p>
+        <h2 id="gallery-title" data-i18n="gallery.section_title">На воді</h2>
       </header>
     </div>
     <div class="container">
@@ -514,8 +684,8 @@
   <section class="testimonials section section--dark" id="testimonials" aria-labelledby="testimonials-title">
     <div class="container">
       <header class="testimonials__head">
-        <p class="eyebrow" data-i18n="testimonials.section_label"></p>
-        <h2 id="testimonials-title" data-i18n="testimonials.section_title"></h2>
+        <p class="eyebrow" data-i18n="testimonials.section_label">Відгуки</p>
+        <h2 id="testimonials-title" data-i18n="testimonials.section_title">Що кажуть серфери</h2>
       </header>
 
       <ul class="testimonials__list">
@@ -546,8 +716,8 @@
   <section class="faq section" id="faq" aria-labelledby="faq-title">
     <div class="container container-narrow">
       <header class="faq__head">
-        <p class="eyebrow" data-i18n="faq.section_label"></p>
-        <h2 id="faq-title" data-i18n="faq.section_title"></h2>
+        <p class="eyebrow" data-i18n="faq.section_label">FAQ</p>
+        <h2 id="faq-title" data-i18n="faq.section_title">Часті запитання</h2>
       </header>
 
       <ul class="faq__list">
@@ -619,14 +789,14 @@
 
   <section class="contact section section--soft" id="contact" aria-labelledby="contact-title">
     <div class="container container-narrow contact__inner">
-      <p class="eyebrow" data-i18n="contact.section_label"></p>
-      <h2 id="contact-title" data-i18n="contact.section_title"></h2>
+      <p class="eyebrow" data-i18n="contact.section_label">Контакти</p>
+      <h2 id="contact-title" data-i18n="contact.section_title">Виведу тебе на воду</h2>
       <p class="contact__lede" data-content-id="contact.lede">Напиши повідомлення і отримаєш відповідь із доступністю та прогнозом свелу на твої дати.</p>
       <a class="btn btn--accent btn--lg contact__cta"
          href="https://wa.me/351966236416" target="_blank" rel="noopener"
          data-i18n="contact.whatsapp_cta"
-         data-i18n-href="contact.whatsapp_prefill"></a>
-      <p class="contact__meta" data-i18n="contact.response_time"></p>
+         data-i18n-href="contact.whatsapp_prefill">Написати у WhatsApp</a>
+      <p class="contact__meta" data-i18n="contact.response_time">Відповіді протягом 24 годин</p>
     </div>
   </section>
 
@@ -639,32 +809,32 @@
         <img class="site-nav__brand-mark" src="/assets/images/logos/logo-256.png" srcset="/assets/images/logos/logo-256.png 1x, /assets/images/logos/logo-512.png 2x" alt="" width="120" height="120">
         Madeira Surf Progress
       </a>
-      <p class="site-footer__tagline" data-i18n="footer.tagline"></p>
+      <p class="site-footer__tagline" data-i18n="footer.tagline">Сертифікований серф-гід — острів Madeira, Portugal</p>
     </div>
 
     <nav aria-label="Footer">
-      <h6 data-i18n="nav.about"></h6>
+      <h6 data-i18n="nav.about">Про мене</h6>
       <ul class="site-footer__nav-list">
-        <li><a href="#about"        data-i18n="nav.about"></a></li>
-        <li><a href="#services"     data-i18n="nav.services"></a></li>
-        <li><a href="#spots"        data-i18n="nav.spots"></a></li>
-        <li><a href="#faq"          data-i18n="nav.faq"></a></li>
-        <li><a href="/uk/privacy/"  data-i18n="consent.policy_link"></a></li>
+        <li><a href="#about"        data-i18n="nav.about">Про мене</a></li>
+        <li><a href="#services"     data-i18n="nav.services">Послуги</a></li>
+        <li><a href="#spots"        data-i18n="nav.spots">Споти</a></li>
+        <li><a href="#faq"          data-i18n="nav.faq">FAQ</a></li>
+        <li><a href="/uk/privacy/"  data-i18n="consent.policy_link">Політика конфіденційності</a></li>
       </ul>
     </nav>
 
     <div class="site-footer__follow">
-      <h6 data-i18n="footer.follow_label"></h6>
+      <h6 data-i18n="footer.follow_label">Стежити</h6>
       <ul class="site-footer__follow-list">
-        <li><a href="https://instagram.com/niltonfreitaas" rel="me noopener" target="_blank" data-i18n="footer.instagram_label"></a></li>
+        <li><a href="https://instagram.com/niltonfreitaas" rel="me noopener" target="_blank" data-i18n="footer.instagram_label">Instagram</a></li>
       </ul>
     </div>
   </div>
 
   <div class="container site-footer__legal">
-    <small data-i18n="footer.rights"></small>
-    <small data-i18n="footer.made_in"></small>
-    <small data-i18n="footer.legal_entity" data-placeholder="true"></small>
+    <small data-i18n="footer.rights">© 2026 Madeira Surf Progress. Усі права захищено.</small>
+    <small data-i18n="footer.made_in">Зроблено на Madeira</small>
+    <small data-i18n="footer.legal_entity" data-placeholder="true">Madeira Surf Progress — це бренд Nilton Freitas, ліцензованої серф-школи на Madeira, Portugal.</small>
   </div>
 </footer>
 
@@ -679,12 +849,12 @@
 
 <aside class="consent" hidden aria-label="Згода на cookies">
   <p class="consent__text">
-    <span data-i18n="consent.banner_text"></span>
-    <a href="/uk/privacy/" data-i18n="consent.policy_link"></a>
+    <span data-i18n="consent.banner_text">Ми використовуємо файли cookie, щоб анонімно оцінювати трафік сайту. Нічого не відстежується, поки ти не погодишся.</span>
+    <a href="/uk/privacy/" data-i18n="consent.policy_link">Політика конфіденційності</a>
   </p>
   <div class="consent__actions">
-    <button type="button" class="btn btn--ghost btn--sm consent__decline" data-i18n="consent.decline"></button>
-    <button type="button" class="btn btn--primary btn--sm consent__accept" data-i18n="consent.accept"></button>
+    <button type="button" class="btn btn--ghost btn--sm consent__decline" data-i18n="consent.decline">Відхилити</button>
+    <button type="button" class="btn btn--primary btn--sm consent__accept" data-i18n="consent.accept">Прийняти</button>
   </div>
 </aside>
 

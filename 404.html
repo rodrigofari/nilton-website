@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0B1A2E">
+
+  <title>Page not found — Madeira Surf Progress</title>
+  <meta name="description" content="This page does not exist. Choose a language to continue.">
+
+  <!-- Cloudflare Pages serves this file, with a real 404 status, for any path
+       that matches no asset. Without it Pages fell back to the root
+       language-picker AND returned HTTP 200, so every mistyped or fabricated
+       URL was a valid indexable page with duplicate content. Verified before:
+       /nao-existe -> 200. Confirmed by the GEO audit (2026-07-26) as issue C2.
+
+       noindex is belt-and-braces. A correct 404 status already keeps this out
+       of the index; the meta tag covers the case where a crawler reaches the
+       body through a soft-404 path. There is no canonical here on purpose —
+       a 404 must not claim to be another page. -->
+  <meta name="robots" content="noindex, follow">
+
+  <link rel="icon" href="/assets/images/icons/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="/assets/images/icons/apple-touch-icon.png">
+
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/Fraunces-Variable.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/Inter-Variable.woff2" crossorigin>
+
+  <link rel="stylesheet" href="/styles/tokens-v2.css">
+  <link rel="stylesheet" href="/styles/base-v2.css">
+  <link rel="stylesheet" href="/styles/components-v2.css">
+  <link rel="stylesheet" href="/styles/sections-v2.css">
+  <link rel="stylesheet" href="/styles/utilities-v2.css">
+  <link rel="stylesheet" href="/styles/picker.css">
+</head>
+<body class="picker-page">
+
+<main class="picker">
+  <div class="picker__inner">
+    <a class="picker__brand" href="/en/">
+      <img class="site-nav__brand-mark" src="/assets/images/logos/logo-256.png" srcset="/assets/images/logos/logo-256.png 1x, /assets/images/logos/logo-512.png 2x" alt="" width="80" height="80">
+      Madeira Surf Progress
+    </a>
+    <p class="eyebrow picker__eyebrow">Error 404</p>
+    <h1 class="picker__title">This page doesn&#8217;t exist</h1>
+    <p class="picker__lede">Esta p&#225;gina n&#227;o existe &#183; Cette page n&#8217;existe pas &#183; Diese Seite existiert nicht &#183; &#1062;&#1103; &#1089;&#1090;&#1086;&#1088;&#1110;&#1085;&#1082;&#1072; &#1085;&#1077; &#1110;&#1089;&#1085;&#1091;&#1108;</p>
+
+    <ul class="picker__list">
+      <li><a class="picker__option" href="/en/" hreflang="en">
+        <span class="picker__option-name">English</span>
+        <span class="picker__option-tag">EN</span>
+      </a></li>
+      <li><a class="picker__option" href="/pt/" hreflang="pt-PT">
+        <span class="picker__option-name">Portugu&#234;s</span>
+        <span class="picker__option-tag">PT</span>
+      </a></li>
+      <li><a class="picker__option" href="/fr/" hreflang="fr">
+        <span class="picker__option-name">Fran&#231;ais</span>
+        <span class="picker__option-tag">FR</span>
+      </a></li>
+      <li><a class="picker__option" href="/de/" hreflang="de">
+        <span class="picker__option-name">Deutsch</span>
+        <span class="picker__option-tag">DE</span>
+      </a></li>
+      <li><a class="picker__option" href="/uk/" hreflang="uk">
+        <span class="picker__option-name">&#1059;&#1082;&#1088;&#1072;&#1111;&#1085;&#1089;&#1100;&#1082;&#1072;</span>
+        <span class="picker__option-tag">UK</span>
+      </a></li>
+    </ul>
+  </div>
+</main>
+
+</body>
+</html>
