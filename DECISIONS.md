@@ -4,6 +4,97 @@ Log of non-obvious choices. New entries go at the top with date and rationale. D
 
 ---
 
+## 2026-07-26 — Interaction tracking: identifiers derived from the DOM, not authored per locale
+
+`scripts/track.js` emits GA4 custom events for every meaningful interaction. Every
+identifier it sends is **derived** from markup that already exists — the
+`data-content-id` convention, design-system class names — rather than from
+`data-analytics-*` attributes added to the HTML.
+
+**Why:** the alternative meant editing 10 CTAs × 5 locale files = 50 hand-authored
+attributes, and then keeping them in sync forever. The first time someone edited
+`pt/index.html` without touching the other four, Portuguese conversions would quietly
+land in a different bucket and the numbers would be wrong in a way nobody notices.
+`data-content-id` is already identical across locales because that is what it exists
+for, so `service=coaching` means the same thing on `/uk/` as on `/pt/` for free.
+Zero HTML files were modified to add tracking.
+
+The trade-off is a coupling to class names (`.card__cta`, `.floating-cta`,
+`.site-nav__list`). Renaming one silently degrades an event to `cta_location=other`
+rather than breaking loudly.
+
+**No `price_band` parameter.** Prices live in `content/*.json` and are edited there.
+A copy in JS would drift the first time Nilton changes one, and a *wrong* price band
+is worse than no price band. `service` is stable; the price for each is a lookup a
+human does once.
+
+**How to apply:**
+- Adding a CTA anywhere inside an existing section needs no tracking work — delegation
+  and `ctaLocation()` pick it up.
+- Adding a *new section* means adding a branch to `ctaLocation()`, or its CTAs report
+  as `other`.
+- If `cta_location=other` starts appearing in reports, a class name was renamed.
+  That is the signal to go look.
+
+---
+
+## 2026-07-26 — Pre-consent interactions are dropped, not queued
+
+`track()` is inert until `window.gtag` exists, and `analytics.js` only creates it after
+the visitor accepts the banner. Interactions performed before accepting are lost.
+
+**Why:** the tempting alternative is to buffer events and flush them on accept. That
+would mean collecting behaviour from a window in which the visitor had not given
+permission, and then transmitting it retroactively. The lost events are the price of
+the consent gate meaning what it says.
+
+**Consequence — the decline rate is unmeasurable from GA4.** `consent_decision` can
+only ever record `accepted`; a decline that phoned home would defeat itself. So GA4
+undercounts real traffic by however many people decline, and cannot tell you by how
+much.
+
+**How to apply:**
+- To size the gap, enable **Cloudflare Web Analytics** on the Pages project. It is
+  cookieless and server-side, needs no consent banner, and counts everyone.
+  `GA4 sessions ÷ Cloudflare pageviews` ≈ the accept rate.
+- Never "fix" the undercount by firing events before consent.
+
+---
+
+## 2026-07-26 — Event parameters must be registered as GA4 custom dimensions
+
+Parameters sent with custom events are collected but **invisible in every GA4 report**
+until registered at Admin → Custom definitions → Custom dimensions. Registration is not
+retroactive: data collected before a dimension exists stays unreadable forever.
+
+**Why:** this is the single most common way a correct tracking implementation produces
+nothing usable. The events arrive, the dashboards stay empty, and the cause is three
+menus deep.
+
+**The registered list — event-scoped, one per parameter:**
+
+| Dimension name | Event parameter | Appears on |
+|---|---|---|
+| CTA location | `cta_location` | `whatsapp_click` |
+| Service | `service` | `whatsapp_click` |
+| Page locale | `page_locale` | all events |
+| Section | `section` | `section_view` |
+| FAQ question | `question_id` | `faq_open` |
+| Gallery image | `image_index` | `gallery_open` |
+| Spot name | `spot_name` | `spot_view` |
+| Language from | `from_locale` | `language_switch` |
+| Language to | `to_locale` | `language_switch` |
+| Consent decision | `decision` | `consent_decision` |
+
+Ten of the 50 the free tier allows.
+
+**How to apply:**
+- Adding a parameter to `track.js` without adding a row here and registering it in GA4
+  means collecting data nobody can read.
+- `whatsapp_click` is the key event. Mark it in Admin → Key events.
+
+---
+
 ## 2026-05-09 — `data-placeholder="true"` marks unconfirmed content
 
 Any HTML element rendering placeholder content (mockup service cards, sample testimonials, draft spot descriptions, stand-in stats) carries the attribute `data-placeholder="true"`. Pre-launch QA is a single grep.
