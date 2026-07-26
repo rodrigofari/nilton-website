@@ -4,6 +4,44 @@ Log of non-obvious choices. New entries go at the top with date and rationale. D
 
 ---
 
+## 2026-07-26 — Bot Fight Mode stays OFF
+
+Cloudflare's Security Center flags "Bot Fight Mode not enabled" as Moderate on this
+zone. Deliberately not enabling it.
+
+**Why.** Bot Fight Mode issues computationally expensive JavaScript challenges to traffic
+matching known bot patterns. This site has just spent considerable effort becoming
+readable by exactly that kind of traffic: `robots.txt` allows everything, Cloudflare's
+"Block AI training bots" is set to *do not block*, and the whole GEO effort of 2026-07-26
+was about making GPTBot, ClaudeBot and PerplexityBot able to read the page without
+executing JavaScript. Enabling a feature whose mechanism is *a JavaScript challenge*
+directly contradicts that.
+
+Verified before deciding — all four return 200 today:
+
+    GPTBot/1.0         200
+    ClaudeBot/1.0      200
+    PerplexityBot/1.0  200
+    Googlebot/2.1      200
+
+**And there is nothing here to protect.** Ten static HTML pages. No login, no forms, no
+API, no database, no cart, no user data. The threats Bot Fight Mode addresses — content
+scraping, credential stuffing, click fraud — either do not apply or are things we
+actively want (the content is *meant* to be scraped by AI crawlers; that is the strategy).
+Free-tier DDoS protection and the managed WAF already run regardless.
+
+Security Center's recommendation is generic to all zones, not tailored to this one.
+
+**How to apply:**
+- Leave it off. If it gets switched on and AI-search visibility drops, this is the first
+  thing to check.
+- Revisit only if the site gains a login, a form that writes somewhere, or an API.
+- The other Security Center insight (security.txt) WAS worth acting on — it costs nothing
+  and blocks nobody. Severity in that dashboard is not a good proxy for whether a change
+  is right for this site.
+
+---
+
 ## 2026-07-26 — Short strings are inlined in the HTML; the JSON binding is now a no-op
 
 Reverses the "short strings in JSON, prose in HTML" split below, for the strings
