@@ -13,7 +13,10 @@
  *      hidden at the ends so their state tells you where you are.
  *   2. An edge fade that only appears when there is actually more content in
  *      that direction. A permanent fade would read as a visual bug at rest.
- *   3. A single ~40px nudge the first time the section comes into view.
+ *   3. A single ~40px nudge the first time the section comes into view. This
+ *      requires switching scroll-snap off for the duration, or it does nothing
+ *      at all — see the note further down. That was found by measuring the
+ *      scroll position from outside the page, not by reading the code.
  *
  * ---------------------------------------------------------------------------
  * Why a nudge and not an auto-advancing carousel
@@ -137,10 +140,20 @@ export function initSpots() {
   on(grid, "scroll", () => syncEdges(grid, prev, next), { passive: true });
   on(window, "resize", () => syncEdges(grid, prev, next), { passive: true });
 
+  /* scroll-snap has to come off for the nudge to land at all. The row uses
+   * `scroll-snap-type: x proximity`, and 40px is far closer to snap point 0
+   * than to the next card at 360px — so the browser snapped straight back and
+   * the nudge was invisible. Measured: with snap on, scrollTo(40) settles at 0;
+   * with snap off, it peaks at 40 and eases home. Restored as soon as the
+   * movement is done, and immediately if the visitor starts scrolling. */
+  const snapOff = () => { grid.style.scrollSnapType = "none"; };
+  const snapRestore = () => { grid.style.removeProperty("scroll-snap-type"); };
+
   /* Any sign the visitor is already driving the scroller cancels the nudge —
-   * moving content under someone's finger is worse than no hint at all. */
+   * moving content under someone's finger is worse than no hint at all. And
+   * snapping goes back on immediately, so their swipe behaves normally. */
   let touched = false;
-  const markTouched = () => { touched = true; };
+  const markTouched = () => { touched = true; snapRestore(); };
   for (const ev of ["pointerdown", "touchstart", "wheel", "keydown"]) {
     on(grid, ev, markTouched, { passive: true, once: true });
   }
@@ -155,11 +168,14 @@ export function initSpots() {
 
       if (touched || grid.scrollLeft > 2) return ready();
 
+      snapOff();
       grid.scrollTo({ left: NUDGE_PX, behavior: "smooth" });
       setTimeout(() => {
         if (!touched) grid.scrollTo({ left: 0, behavior: "smooth" });
-        // Release the metric observer only after the movement has settled.
-        setTimeout(ready, SETTLE_MS);
+        setTimeout(() => {
+          snapRestore();
+          ready();   // release the metric observer only once movement has settled
+        }, SETTLE_MS);
       }, NUDGE_HOLD_MS);
     }
   }, { rootMargin: "-20% 0px -20% 0px" });
