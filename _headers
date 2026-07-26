@@ -8,6 +8,15 @@
 # duplicate path patterns is not guaranteed, and a second block silently
 # shadowing the CSP/HSTS here would be a bad day.
 #
+# Two analytics tools run side by side on purpose, measuring different things.
+# GA4 (googletagmanager + google-analytics) is consent-gated and reports what
+# visitors DO. Cloudflare Web Analytics (cloudflareinsights) is cookieless,
+# needs no consent, and reports how many visitors there ACTUALLY ARE — the
+# denominator GA4 can never see, because it only counts people who accept.
+# Cloudflare injects its beacon at the edge; without these two entries the
+# browser refuses to run it and the dashboard reads near-zero while looking
+# installed. Verified in a real browser before and after.
+#
 # CSP + GA4: connect-src/img-src use `*.google-analytics.com`, NOT the exact
 # host `www.google-analytics.com`. GA4 routes EU visitors to
 # `region1.google-analytics.com` — a different host, and one that
@@ -21,7 +30,7 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-  Content-Security-Policy: default-src 'self'; script-src 'self' https://www.googletagmanager.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.g.doubleclick.net; img-src 'self' data: https://images.unsplash.com https://*.google-analytics.com; style-src 'self'; font-src 'self' data:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://www.googletagmanager.com https://static.cloudflareinsights.com; connect-src 'self' https://cloudflareinsights.com https://*.google-analytics.com https://*.analytics.google.com https://*.g.doubleclick.net; img-src 'self' data: https://images.unsplash.com https://*.google-analytics.com; style-src 'self'; font-src 'self' data:; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
 
 # ---------- Internal: styleguide noindex (layered) ----------
 #
