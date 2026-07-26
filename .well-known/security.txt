@@ -1,0 +1,14 @@
+# Vulnerability disclosure contact for madeirasurfcoach.com — RFC 9116.
+#
+# Contact is the WhatsApp number the whole site already routes through, not a
+# mailto:. A plain-text email address in a file this well-known gets harvested,
+# and there is no security@ inbox to absorb that. tel: is the fallback.
+#
+# ⚠️ Expires is a REQUIRED field and this file is treated as stale once it
+# passes. Renew it (or delete the file) before 2027-07-26.
+
+Contact: https://wa.me/351966236416
+Contact: tel:+351966236416
+Expires: 2027-07-26T00:00:00.000Z
+Preferred-Languages: pt, en
+Canonical: https://madeirasurfcoach.com/.well-known/security.txt
