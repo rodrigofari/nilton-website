@@ -4,6 +4,45 @@ Log of non-obvious choices. New entries go at the top with date and rationale. D
 
 ---
 
+## 2026-07-26 — CLS is caused by empty elements, not by fonts
+
+Mobile Lighthouse showed CLS 0.256 in production. The obvious suspects were wrong.
+
+**Not the hero image** — `.hero__media` is `position: absolute; inset: 0`, a background
+layer with no layout participation.
+
+**Not the font swap either**, though it looked that way. Metric-matched fallbacks were
+built (`Fraunces Fallback`, `Inter Fallback` in base-v2.css) and verified to render at
+**0.0% width and height delta** against the real faces. CLS did not move.
+
+**The actual cause:** 57 elements across the page ship EMPTY and are filled by
+`scripts/i18n.js` after `content/{locale}.json` is fetched. `<p class="eyebrow"
+data-i18n="hero.eyebrow"></p>` is zero-height until the JSON lands; the hero CTAs are
+zero-width and re-wrap when their labels arrive. Measured: `.hero__content` grows 68px
+at ~1.67s, and everything below it moves.
+
+**Why the number got worse (0.097 → 0.125 locally) while the page got faster.** The
+shift always happened. Before, first paint was at 3.5s and the fill at ~1.6s — the page
+was still blank when things moved, so nothing visible shifted. Now first paint is 2.2s,
+so the same shift is visible and counts. CLS measures *visible* instability; making the
+page paint sooner exposed instability that was always there.
+
+**Why:** the runtime i18n binding buys nothing here. Each locale already has its own
+HTML file — `pt/index.html` only ever renders Portuguese — so there is no duplication
+being avoided. The JSON costs a network round trip, 57 empty elements, and the CLS.
+
+**How to apply:**
+- The real fix is to inline these strings into each locale's HTML, exactly as the long
+  prose already is via `data-content-id`, and either drop the JSON binding or let it
+  overwrite identical text (which shifts nothing). That reverses the
+  "short strings in JSON" decision below and is a deliberate refactor, not a tweak.
+- Until then: any element that ships empty and is filled later needs its space reserved
+  in CSS. `.eyebrow` has `min-height: 1lh` for this reason.
+- Do not reach for font tuning to fix CLS on this site again. It was measured and ruled
+  out.
+
+---
+
 ## 2026-07-26 — Interaction tracking: identifiers derived from the DOM, not authored per locale
 
 `scripts/track.js` emits GA4 custom events for every meaningful interaction. Every

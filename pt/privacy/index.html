@@ -15,7 +15,29 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
   <link rel="apple-touch-icon" href="/assets/images/icons/apple-touch-icon.png">
-  <link rel="stylesheet" href="/styles/main-v2.css">
+  <!-- Fonts are preloaded because the fallback stack (Georgia / system sans) has
+       different metrics: without this the text paints in the fallback and reflows
+       when the real face arrives, which is most of the measured CLS. Only the two
+       upright faces are preloaded — the italic is three words in the hero, and
+       preloading a third file would compete with the LCP image for bandwidth.
+       crossorigin is required even same-origin: fonts are fetched in CORS mode. -->
+  <!-- i18n strings for this locale. Without this the fetch only starts after
+       main.js and i18n.js have been downloaded and parsed, so the empty
+       [data-i18n] elements stay empty for an extra round trip. -->
+  <link rel="preload" as="fetch" type="application/json" href="/content/pt.json" crossorigin>
+
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/Fraunces-Variable.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/Inter-Variable.woff2" crossorigin>
+
+  <!-- One <link> per stylesheet, in cascade order. These used to be a single link
+       to main-v2.css which @imported the rest — but @import is serial AND render
+       blocking, so the browser discovered each file only after parsing the previous
+       one. Six round trips in a chain instead of five in parallel. -->
+  <link rel="stylesheet" href="/styles/tokens-v2.css">
+  <link rel="stylesheet" href="/styles/base-v2.css">
+  <link rel="stylesheet" href="/styles/components-v2.css">
+  <link rel="stylesheet" href="/styles/sections-v2.css">
+  <link rel="stylesheet" href="/styles/utilities-v2.css">
   <link rel="stylesheet" href="/styles/privacy-v2.css">
 
   <script type="module" src="/scripts/main.js"></script>

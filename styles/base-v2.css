@@ -62,6 +62,55 @@
 }
 
 /* -----------------------------------------------------------
+ * Metric-matched fallbacks.
+ *
+ * `font-display: swap` means text paints in a fallback face and then swaps.
+ * Georgia and Helvetica are narrower and shorter than Fraunces and Inter, so
+ * that swap re-wrapped lines and changed line boxes — it was the single
+ * largest source of Cumulative Layout Shift on the page. Preloading the real
+ * fonts made the swap happen sooner but did not stop it moving things.
+ *
+ * These shims scale the fallback so it occupies the same space as the real
+ * face: swap still happens, but nothing reflows.
+ *
+ * size-adjust is MEASURED, not computed. The obvious formula — comparing the
+ * OS/2 xAvgCharWidth of each font — gives 131% for Fraunces/Georgia when the
+ * truth is 86%: wrong by a third, and in the wrong direction. That field is
+ * not comparable across foundries. Rendering a real string in both faces and
+ * dividing the widths gives the honest ratio; doing it the "clever" way
+ * tripled CLS instead of removing it.
+ *
+ * Vertical overrides ARE computed from the files, where the metrics are
+ * unambiguous:  ascent-override = target ascent/upm ÷ size-adjust  (etc.)
+ * Re-measure if either face is re-subset.
+ *
+ * The Fraunces shim carries the SAME unicode-range as Fraunces itself. Without
+ * that restriction, Ukrainian headings — which Fraunces has no glyphs for —
+ * would land on the shim and render at 86% of their intended size for good,
+ * since no real face would ever arrive to correct them. With it, Cyrillic
+ * skips past to Cormorant/Georgia at natural size, as before.
+ * --------------------------------------------------------- */
+
+@font-face {
+  font-family: "Fraunces Fallback";
+  src: local("Georgia"), local("Times New Roman"), local("Times");
+  size-adjust: 86.06%;
+  ascent-override: 113.64%;
+  descent-override: 29.63%;
+  line-gap-override: 0%;
+  unicode-range: U+0000-024F, U+2000-206F, U+20A0-20BF;
+}
+
+@font-face {
+  font-family: "Inter Fallback";
+  src: local("Helvetica Neue"), local("Helvetica"), local("Arial");
+  size-adjust: 96.08%;
+  ascent-override: 100.83%;
+  descent-override: 25.11%;
+  line-gap-override: 0%;
+}
+
+/* -----------------------------------------------------------
  * Reset
  * --------------------------------------------------------- */
 
@@ -162,6 +211,15 @@ hr {
   letter-spacing: var(--tracking-wider);
   text-transform: uppercase;
   color: var(--color-ink-soft);
+
+  /* Every eyebrow ships EMPTY and is filled by scripts/i18n.js once
+   * content/{locale}.json arrives. An empty <p> is zero-height, so the fill
+   * pushed everything below it down — a real, measured chunk of the page's
+   * CLS, and it happens once per section. Reserving one line costs nothing and
+   * the box is already the right height before the text lands.
+   * `1em` first for browsers without `lh` (Safari < 16.4); close enough. */
+  min-height: 1em;
+  min-height: 1lh;
 }
 
 /* -----------------------------------------------------------
