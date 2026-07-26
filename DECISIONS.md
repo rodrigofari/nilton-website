@@ -4,6 +4,60 @@ Log of non-obvious choices. New entries go at the top with date and rationale. D
 
 ---
 
+## 2026-07-26 — Spots carousel: a one-off nudge, not an auto-advancing carousel
+
+The nine spot cards are a horizontally scrollable flex row at every breakpoint
+(9 × 360px never fits). Nothing on screen said so, so visitors read the first three
+as the whole list. The request was to make the row advance by itself. It does not.
+
+**Why not auto-advance:**
+- **Readability.** Each card carries a spot description. Text that moves while you
+  read it is worse than text that sits still and merely looks static.
+- **Accessibility.** WCAG 2.2.2 requires a pause control for anything that moves by
+  itself for over 5 seconds. The nudge is under 1s and happens once, so the rule does
+  not apply and no pause control is needed. Auto-advance would have needed one.
+- **It would have destroyed the `spot_view` metric.** Auto-advance means all nine
+  spots register on every visit, turning "which spots do people seek out" into "all of
+  them, always".
+
+**What shipped instead**, in order of how much work each does:
+1. **Arrow buttons.** Not decoration — the scroll container is a `<ul>`, which is not
+   focusable, so before this a keyboard-only visitor could not reach spots 4–9 at all.
+   Disabled rather than hidden at the ends, because a control that vanishes loses its
+   meaning while a greyed-out one tells you where you are.
+2. **An edge fade** driven by `[data-scroll]`, set from the real scroll position, so it
+   only appears on a side that actually has more content. A permanent fade on both
+   edges reads as a rendering bug when the row is at rest.
+3. **A single ~40px nudge** on first view of the section.
+
+**Placement matters more than it looks.** The controls sit BEFORE the row, not after.
+The cards are tall enough that one fills a phone viewport, so controls below them are
+off-screen exactly when the visitor needs the hint. Verified co-visible with the first
+card at 375, 393 and 1440px wide.
+
+**The metric guard is the non-obvious part.** `spot_view` fires at 60% card visibility
+— 216px of a 360px card. The nudge moves 40px, 11% of the width, so a card sitting at
+57% would cross to 62% during the animation and register a view nobody caused. The
+observer unobserves after firing, so that false positive would be permanent. So
+`spots.js` owns the timing: it dispatches `spots:ready` only once the movement has
+settled, and `track.js` waits for that event before observing anything.
+
+`initSpots()` must therefore run AFTER `initTracking()` in main.js. Swap the order and
+the listener attaches too late.
+
+**How to apply:**
+- Do not reach for an auto-advancing carousel here again. The three objections above
+  are all still true.
+- Any future animation touching the spots row must fire `spots:ready` after it settles,
+  or it will pollute `spot_view`.
+- `ready()` is idempotent and fires on every code path — reduced motion, no
+  IntersectionObserver, no spots on the page, visitor already scrolling. If it can ever
+  not fire, `spot_view` silently stops working.
+- Verified across 7 viewports (320 → 2560px, touch and pointer) plus
+  `prefers-reduced-motion`: 122 assertions in the harness that produced these numbers.
+
+---
+
 ## 2026-07-26 — Bot Fight Mode stays OFF
 
 Cloudflare's Security Center flags "Bot Fight Mode not enabled" as Moderate on this

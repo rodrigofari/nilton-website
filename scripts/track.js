@@ -109,6 +109,15 @@ function trackSections() {
 }
 
 function trackSpots() {
+  // Deferred until scripts/spots.js fires `spots:ready`. That module nudges the
+  // carousel ~40px on first view as a scroll affordance, and a card sitting just
+  // under the 60% threshold would cross it during the animation — registering a
+  // view nobody caused. Since the observer unobserves after firing, that false
+  // positive would be permanent. Waiting costs nothing and keeps the metric honest.
+  window.addEventListener("spots:ready", observeSpots, { once: true });
+}
+
+function observeSpots() {
   // Spots sit in a horizontal scroller, so "which ones did they scroll to"
   // is a real signal — unlike the services grid, where everything is on screen.
   const cards = $$('#spots [data-content-id$=".desc"]')

@@ -476,6 +476,81 @@
   scroll-snap-align: start;
 }
 
+
+/* --- Spots carousel affordance ----------------------------------------------
+ * Nine 360px cards never fit, at any breakpoint, so this row always scrolls.
+ * Nothing said so, and visitors read the first three as the whole list.
+ *
+ * The fade is driven by [data-scroll], set by scripts/spots.js from the actual
+ * scroll position, so it only ever appears on a side that has more content. A
+ * permanent fade on both edges reads as a rendering bug when the row is at rest.
+ * -------------------------------------------------------------------------- */
+
+.spots__grid {
+  /* 4rem of fade is 16% of a 390px phone viewport — too much of a small card
+   * dimmed at rest. Scaled to the viewport, capped for wide screens. */
+  --spots-fade: clamp(1.5rem, 6vw, 4rem);
+  transition: mask-image var(--duration-base) var(--easing-standard);
+}
+.spots__grid[data-scroll="start"] {
+  mask-image: linear-gradient(to right, #000 calc(100% - var(--spots-fade)), transparent 100%);
+}
+.spots__grid[data-scroll="middle"] {
+  mask-image: linear-gradient(to right, transparent 0, #000 var(--spots-fade),
+                              #000 calc(100% - var(--spots-fade)), transparent 100%);
+}
+.spots__grid[data-scroll="end"] {
+  mask-image: linear-gradient(to right, transparent 0, #000 var(--spots-fade));
+}
+/* data-scroll="none" (everything already visible) gets no mask at all. */
+
+.spots__nav {
+  display: flex;
+  gap: var(--space-2);
+  justify-content: flex-end;
+  /* Sits between the heading and the row, so it shares the viewport with the
+   * cards it controls. Below the row it would be off-screen on a phone. */
+  margin-block: 0 var(--space-4);
+}
+/* Touch users swipe, but the arrows are the only visible signal that the row
+ * scrolls at all — which is the problem being solved. They stay on mobile,
+ * just centred so they read as a control for the row rather than an orphan in
+ * the corner of a narrow screen. */
+@media (max-width: 767px) {
+  .spots__nav { margin-block: 0 var(--space-3); }
+}
+
+.spots__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* 44px is the minimum comfortable touch target; the icon is 20px. */
+  inline-size: 44px;
+  block-size: 44px;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-pill);
+  color: var(--color-ink-strong);
+  background: var(--color-bg-base);
+  transition: background var(--duration-fast) var(--easing-standard),
+              border-color var(--duration-fast) var(--easing-standard),
+              opacity var(--duration-fast) var(--easing-standard);
+}
+/* hover only where hover exists — otherwise a tapped arrow keeps the hover
+ * background on mobile until something else is touched. */
+@media (hover: hover) {
+  .spots__arrow:hover:not(:disabled) {
+    background: var(--color-bg-soft);
+    border-color: var(--color-ink-strong);
+  }
+}
+/* Disabled rather than hidden: a control that vanishes loses its meaning, and
+ * "greyed out at the left end" tells you where you are in the row. */
+.spots__arrow:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.spots__arrow svg { pointer-events: none; }
+
 .spot-card .card__media { aspect-ratio: 3 / 2; }
 .spot-card .card__meta {
   display: flex;
